@@ -7,59 +7,6 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
 
-  useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
-
-    const handleScroll = () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const sections = [
-          { name: "Home", id: "home" },
-          { name: "Metodologia", id: "metodologia" },
-          { name: "Transformação", id: "transformacao" },
-          { name: "Contactos", id: "contactos" },
-        ];
-
-        // Check from bottom to top to get the most relevant section
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const element = document.getElementById(sections[i].id);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            // If section top is above the middle of viewport, it's the active one
-            if (rect.top < window.innerHeight / 2) {
-              setActiveLink(sections[i].name);
-              break;
-            }
-          }
-        }
-      }, 50);
-    };
-
-    // Call once on mount
-    const sections = [
-      { name: "Home", id: "home" },
-      { name: "Metodologia", id: "metodologia" },
-      { name: "Transformação", id: "transformacao" },
-      { name: "Contactos", id: "contactos" },
-    ];
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const element = document.getElementById(sections[i].id);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight / 2) {
-          setActiveLink(sections[i].name);
-          break;
-        }
-      }
-    }
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      clearTimeout(scrollTimeout);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b border-devin-border">
       {/* Logo */}

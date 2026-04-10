@@ -1,3 +1,5 @@
+import { InteractiveHoverButton } from "./ui/interactive-hover-button";
+
 const CTASection = () => {
   return (
     <section className="py-24 border-t border-devin-border">
@@ -27,9 +29,7 @@ const CTASection = () => {
               Devin Enterprise provides additional capabilities, security and control for your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors">
-                Learn about Devin Enterprise
-              </a>
+              <InteractiveHoverButton text="Learn more" className="text-sm px-6 py-2.5" />
               <a href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors">
                 Contact us
               </a>

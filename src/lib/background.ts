@@ -21,12 +21,13 @@ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 );
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 const isLowPowerDevice = isMobile || (navigator as any).hardwareConcurrency <= 4;
-const devicePixelRatio = Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2);
+// Limitar devicePixelRatio para melhorar performance
+const devicePixelRatio = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.5);
 
-// Minimal presets and settings (copied/trimmed from provided script)
+// Minimal presets and settings - REDUZIDO para melhor performance
 const presets: any = {
   holographic: {
-    sphereCount: isMobile ? 4 : 6,
+    sphereCount: isMobile ? 3 : 5, // Reduzido de 6 para 5
     ambientIntensity: 0.12,
     diffuseIntensity: 1.2,
     specularIntensity: 2.5,
@@ -44,7 +45,9 @@ const presets: any = {
     fogDensity: 0.06,
     cursorGlowIntensity: 0.8, // lessen the brightness of cursor halo
     cursorGlowRadius: 2.2,
-    cursorGlowColor: new THREE.Color(0x3366cc) // blue tone instead of purple
+    cursorGlowColor: new THREE.Color(0x3366cc), // blue tone instead of purple
+    // NOVO: Limitar frame rate para poupar bateria
+    targetFPS: isMobile ? 30 : 60
   }
 };
 
@@ -167,8 +170,19 @@ function onWindowResize() {
   material.uniforms.uPixelRatio.value = currentPixelRatio;
 }
 
-function animate() {
+let lastFrameTime = 0;
+const targetFrameInterval = 1000 / (isMobile ? 30 : 60); // 30fps mobile, 60fps desktop
+
+function animate(currentTime: number) {
   rafId = requestAnimationFrame(animate);
+  
+  // Frame rate limiting for better performance
+  const deltaTime = currentTime - lastFrameTime;
+  if (deltaTime < targetFrameInterval) {
+    return; // Skip this frame
+  }
+  lastFrameTime = currentTime - (deltaTime % targetFrameInterval);
+  
   render();
 }
 

@@ -1,0 +1,1 @@
+TESTE DE REFRESH - Se vir este arquivo no browser, o Vite está a funcionar

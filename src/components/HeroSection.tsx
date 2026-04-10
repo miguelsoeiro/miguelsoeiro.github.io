@@ -72,10 +72,10 @@ const HeroSection = () => {
 
           {/* Headline */}
           <h1 className="text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-            <span className="text-teal">Parceiro de IT</span>
+            <span className="text-teal">[NOVO] Parceiro de IT</span>
             <span className="text-foreground"> para a</span>
             <br />
-            <span className="text-foreground">era da IA</span>
+            <span className="text-foreground bg-yellow-400 text-black px-2">era da IA e muito mais</span>
           </h1>
 
           {/* CTA */}

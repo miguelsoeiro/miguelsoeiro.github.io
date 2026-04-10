@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "@/styles/background.css";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   React.useEffect(() => {
     let stop: (() => void) | undefined;
     // dynamically import to keep bundle small and run only in browser
@@ -22,6 +25,11 @@ const Index = () => {
 
   return (
     <div className="bg-background text-foreground relative">
+      {/* Loading Screen */}
+      {isLoading && (
+        <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+      )}
+
       {/* Background canvas containers (Three.js module attaches to #container) */}
       <div id="container" className="absolute inset-0" style={{ height: '100%', overflow: 'hidden' }} />
       <div id="stats" />

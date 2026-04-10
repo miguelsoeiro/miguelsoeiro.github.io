@@ -13,7 +13,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4">Sobre</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
-              O seu parceiro de IT para a era da IA. Transformamos organizações através de tecnologia inteligente e inovação.
+              O seu parceiroos de IT para a era da IA. Transformamos organizações através de tecnologia inteligente e inovação.
             </p>
           </div>
 

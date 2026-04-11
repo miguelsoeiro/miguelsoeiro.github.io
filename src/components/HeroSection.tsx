@@ -2,27 +2,56 @@ import heroChatImg from "@/assets/hero-chat.jpg";
 import { useState, useEffect } from "react";
 import CTASection from "./CTASection";
 import { CheckCircle, Search, Layers, Users } from "lucide-react";
+import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
-// list of steps and corresponding images
+// list of steps and corresponding radial orbital timelines
 const steps = [
-  { num: "1", title: "Diagnóstico", desc: "Análise aprofundada da sua infraestrutura IT atual" },
-  { num: "2", title: "Estratégia", desc: "Planeamento da solução IA personalizada" },
-  { num: "3", title: "Implementação", desc: "Deployment com suporte contínuo" },
-  { num: "4", title: "Formação", desc: "Capacitação da sua equipa" },
+  { 
+    num: "1", 
+    title: "Diagnóstico", 
+    desc: "Análise aprofundada da sua infraestrutura IT atual",
+    timelineData: [
+      { id: 1, title: "Auditoria IT", date: "Fase 1", content: "Análise completa da infraestrutura atual", category: "Auditoria", icon: Search, relatedIds: [2], status: "completed" as const, energy: 100 },
+      { id: 2, title: "Identificar Gaps", date: "Fase 2", content: "Encontrar lacunas e oportunidades", category: "Análise", icon: CheckCircle, relatedIds: [1, 3], status: "completed" as const, energy: 90 },
+      { id: 3, title: "Relatório", date: "Fase 3", content: "Documento com recomendações", category: "Relatório", icon: Layers, relatedIds: [2], status: "in-progress" as const, energy: 80 },
+    ]
+  },
+  { 
+    num: "2", 
+    title: "Estratégia", 
+    desc: "Planeamento da solução IA personalizada",
+    timelineData: [
+      { id: 1, title: "Roadmap IA", date: "Fase 1", content: "Definir caminho para implementação de IA", category: "Planeamento", icon: Layers, relatedIds: [2], status: "completed" as const, energy: 100 },
+      { id: 2, title: "Tecnologias", date: "Fase 2", content: "Selecionar ferramentas e plataformas", category: "Seleção", icon: CheckCircle, relatedIds: [1, 3], status: "completed" as const, energy: 90 },
+      { id: 3, title: "Orçamento", date: "Fase 3", content: "Estimativa de custos e recursos", category: "Financeiro", icon: Users, relatedIds: [2], status: "in-progress" as const, energy: 70 },
+    ]
+  },
+  { 
+    num: "3", 
+    title: "Implementação", 
+    desc: "Deployment com suporte contínuo",
+    timelineData: [
+      { id: 1, title: "Setup Infraestrutura", date: "Fase 1", content: "Preparar ambiente e configurações", category: "Infraestrutura", icon: Layers, relatedIds: [2], status: "pending" as const, energy: 100 },
+      { id: 2, title: "Desenvolvimento", date: "Fase 2", content: "Criar e customizar soluções", category: "Dev", icon: CheckCircle, relatedIds: [1, 3], status: "pending" as const, energy: 85 },
+      { id: 3, title: "Testes", date: "Fase 3", content: "QA e validação completa", category: "Qualidade", icon: Users, relatedIds: [2], status: "pending" as const, energy: 60 },
+    ]
+  },
+  { 
+    num: "4", 
+    title: "Formação", 
+    desc: "Capacitação da sua equipa",
+    timelineData: [
+      { id: 1, title: "Workshops", date: "Fase 1", content: "Sessões de treino para a equipa", category: "Formação", icon: Users, relatedIds: [2], status: "pending" as const, energy: 100 },
+      { id: 2, title: "Documentação", date: "Fase 2", content: "Guias e material de apoio", category: "Documentação", icon: CheckCircle, relatedIds: [1, 3], status: "pending" as const, energy: 90 },
+      { id: 3, title: "Suporte Contínuo", date: "Fase 3", content: "Acompanhamento pós-implementação", category: "Suporte", icon: Layers, relatedIds: [2], status: "pending" as const, energy: 80 },
+    ]
+  },
 ];
 
 const HeroSection = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
   const [isCarouselHovering, setIsCarouselHovering] = useState(false);
-
-  // images for each step; use placeholders if you do not have real assets
-  const stepImages = [
-    heroChatImg,
-    "https://via.placeholder.com/800x600?text=Plan+View",
-    "https://via.placeholder.com/800x600?text=Test+View",
-    "https://via.placeholder.com/800x600?text=PR+View",
-  ];
 
   // Auto-rotation for carousel
   useEffect(() => {
@@ -127,17 +156,10 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right — mock chat UI */}
-        <div className="relative flex justify-center lg:justify-end">
-          <div
-            className="relative w-full max-w-xl rounded-2xl overflow-hidden border border-devin-border shadow-2xl"
-            style={{ boxShadow: "0 0 60px hsl(186 100% 50% / 0.08)" }}
-          >
-            <img
-              src={stepImages[activeStepIndex]}
-              alt="Devin AI chat interface"
-              className="w-full"
-            />
+        {/* Right — Radial Orbital Timeline */}
+        <div className="relative flex justify-center lg:justify-end h-screen">
+          <div className="w-full max-w-xl">
+            <RadialOrbitalTimeline timelineData={steps[activeStepIndex].timelineData} />
           </div>
         </div>
       </div>

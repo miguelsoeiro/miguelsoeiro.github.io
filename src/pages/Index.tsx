@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "@/styles/background.css";
-import Navbar from "@/components/Navbar";
+import ModernNavbar from "@/components/ModernNavbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -36,7 +36,7 @@ const Index = () => {
       <div id="ui-container" />
 
       <div className="relative z-10">
-        <Navbar />
+        <ModernNavbar />
         <HeroSection />
         <Footer />
       </div>

@@ -71,20 +71,12 @@ const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-            <span className="text-teal">[NOVO] Parceiro de IT</span>
+          <h1 className="text-5xl lg:text-5xl font-bold leading-tight tracking-tight">
+            <span className="text-teal">Parceiro de IT</span>
             <span className="text-foreground"> para a</span>
             <br />
-            <span className="text-foreground bg-yellow-400 text-black px-2">era da IA e muito mais</span>
+            <span className="text-foreground">era da IA e muito mais</span>
           </h1>
-
-          {/* CTA */}
-          <a
-            href="#"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-foreground text-background font-semibold text-base hover:opacity-90 transition-opacity"
-          >
-            Começar Transformação
-          </a>
 
           {/* Sub */}
           <p className="text-muted-foreground text-lg leading-relaxed">
@@ -456,7 +448,7 @@ const HeroSection = () => {
               <p className="text-muted-foreground text-sm mb-1">Quer uma solução para toda a empresa?</p>
               <h3 className="text-2xl font-bold text-foreground mb-3">Solução Enterprise Completa</h3>
               <p className="text-muted-foreground max-w-lg mx-auto text-sm mb-6">
-                Soluções personalizadas com segurança, compliance RGPD e suporte dedicado para sua organização.
+                Soluções personalizadas com segurançaaaas, compliance RGPD e suporte dedicado para sua organização.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors">

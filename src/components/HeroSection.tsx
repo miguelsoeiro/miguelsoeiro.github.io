@@ -1,6 +1,7 @@
 import heroChatImg from "@/assets/hero-chat.jpg";
 import { useState, useEffect } from "react";
 import CTASection from "./CTASection";
+import BlogSection from "./BlogSection";
 import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Database, Workflow, Target } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
@@ -451,6 +452,9 @@ const HeroSection = () => {
             })}
           </div>
         </div>
+
+        {/* Blog Section */}
+        <BlogSection />
 
         {/* CTA Section */}
         <div id="transformacao" className="mt-12 mb-0 pb-0 scroll-mt-24">

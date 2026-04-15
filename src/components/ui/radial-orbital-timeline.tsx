@@ -82,6 +82,13 @@ export default function RadialOrbitalTimeline({
     });
   };
 
+  // Initialize centerOffset - CRITICAL FIX
+  useEffect(() => {
+    // orbitRef is 560x560, so its center is at (280, 280)
+    // All node positions are calculated relative to this center
+    setCenterOffset({ x: 280, y: 280 });
+  }, []);
+
   useEffect(() => {
     let rotationTimer: NodeJS.Timeout;
 
@@ -160,11 +167,10 @@ export default function RadialOrbitalTimeline({
     >
       <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
         <div
-          className="absolute w-full h-full flex items-center justify-center"
+          className="absolute left-1/2 top-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
           ref={orbitRef}
           style={{
             perspective: "1000px",
-            transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
           <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10">
@@ -176,7 +182,7 @@ export default function RadialOrbitalTimeline({
             <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md"></div>
           </div>
 
-          <div className="absolute w-[480px] h-[480px] rounded-full border border-white/10"></div>
+          <div className="absolute left-1/2 top-1/2 w-[560px] h-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
@@ -186,7 +192,7 @@ export default function RadialOrbitalTimeline({
             const Icon = item.icon;
 
             const nodeStyle = {
-              transform: `translate(calc(${position.x}px - 50%), calc(${position.y}px - 50%))`,
+              transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
               zIndex: isExpanded ? 200 : position.zIndex,
               opacity: isExpanded ? 1 : position.opacity,
             };

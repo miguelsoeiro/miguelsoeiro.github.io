@@ -1,7 +1,7 @@
 import heroChatImg from "@/assets/hero-chat.jpg";
 import { useState, useEffect } from "react";
 import CTASection from "./CTASection";
-import { CheckCircle, Search, Layers, Users } from "lucide-react";
+import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Database, Workflow, Target } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
 // list of steps and corresponding radial orbital timelines
@@ -11,9 +11,11 @@ const steps = [
     title: "Diagnóstico", 
     desc: "Análise aprofundada da sua infraestrutura IT atual",
     timelineData: [
-      { id: 1, title: "Auditoria IT", date: "Fase 1", content: "Análise completa da infraestrutura atual", category: "Auditoria", icon: Search, relatedIds: [2], status: "completed" as const, energy: 100 },
-      { id: 2, title: "Identificar Gaps", date: "Fase 2", content: "Encontrar lacunas e oportunidades", category: "Análise", icon: CheckCircle, relatedIds: [1, 3], status: "completed" as const, energy: 90 },
-      { id: 3, title: "Relatório", date: "Fase 3", content: "Documento com recomendações", category: "Relatório", icon: Layers, relatedIds: [2], status: "in-progress" as const, energy: 80 },
+      { id: 1, title: "Auditoria IT", date: "Fase 1", content: "Análise completa da infraestrutura atual", category: "Auditoria", icon: Search, relatedIds: [2, 3], status: "completed" as const, energy: 100 },
+      { id: 2, title: "Análise de Processos", date: "Fase 2", content: "Mapeamento de workflows e processos", category: "Análise", icon: Workflow, relatedIds: [1, 3], status: "completed" as const, energy: 95 },
+      { id: 3, title: "Identificar Gaps", date: "Fase 3", content: "Encontrar lacunas e oportunidades de IA", category: "Análise", icon: CheckCircle, relatedIds: [1, 2, 4], status: "completed" as const, energy: 90 },
+      { id: 4, title: "Assess Oportunidades", date: "Fase 4", content: "Avaliar potencial de transformação com IA", category: "Estratégia", icon: Zap, relatedIds: [3, 5], status: "completed" as const, energy: 85 },
+      { id: 5, title: "Relatório Final", date: "Fase 5", content: "Documento com recomendações detalhadas", category: "Relatório", icon: Layers, relatedIds: [4], status: "in-progress" as const, energy: 80 },
     ]
   },
   { 
@@ -21,9 +23,11 @@ const steps = [
     title: "Estratégia", 
     desc: "Planeamento da solução IA personalizada",
     timelineData: [
-      { id: 1, title: "Roadmap IA", date: "Fase 1", content: "Definir caminho para implementação de IA", category: "Planeamento", icon: Layers, relatedIds: [2], status: "completed" as const, energy: 100 },
-      { id: 2, title: "Tecnologias", date: "Fase 2", content: "Selecionar ferramentas e plataformas", category: "Seleção", icon: CheckCircle, relatedIds: [1, 3], status: "completed" as const, energy: 90 },
-      { id: 3, title: "Orçamento", date: "Fase 3", content: "Estimativa de custos e recursos", category: "Financeiro", icon: Users, relatedIds: [2], status: "in-progress" as const, energy: 70 },
+      { id: 1, title: "Roadmap IA", date: "Fase 1", content: "Definir caminho para implementação de IA", category: "Planeamento", icon: Target, relatedIds: [2, 3], status: "completed" as const, energy: 100 },
+      { id: 2, title: "Priorização de Casos", date: "Fase 2", content: "Selecionar casos de uso com maior impacto", category: "Estratégia", icon: TrendingUp, relatedIds: [1, 3], status: "completed" as const, energy: 95 },
+      { id: 3, title: "Seleção Tecnologias", date: "Fase 3", content: "Escolher ferramentas e plataformas IA", category: "Seleção", icon: Code, relatedIds: [2, 4], status: "completed" as const, energy: 90 },
+      { id: 4, title: "Planeamento Recursos", date: "Fase 4", content: "Alocar equipa e infraestrutura necessária", category: "Recursos", icon: Users, relatedIds: [3, 5], status: "in-progress" as const, energy: 85 },
+      { id: 5, title: "Orçamento e ROI", date: "Fase 5", content: "Estimativa de custos e retorno esperado", category: "Financeiro", icon: CheckCircle, relatedIds: [4], status: "in-progress" as const, energy: 80 },
     ]
   },
   { 
@@ -31,9 +35,11 @@ const steps = [
     title: "Implementação", 
     desc: "Deployment com suporte contínuo",
     timelineData: [
-      { id: 1, title: "Setup Infraestrutura", date: "Fase 1", content: "Preparar ambiente e configurações", category: "Infraestrutura", icon: Layers, relatedIds: [2], status: "pending" as const, energy: 100 },
-      { id: 2, title: "Desenvolvimento", date: "Fase 2", content: "Criar e customizar soluções", category: "Dev", icon: CheckCircle, relatedIds: [1, 3], status: "pending" as const, energy: 85 },
-      { id: 3, title: "Testes", date: "Fase 3", content: "QA e validação completa", category: "Qualidade", icon: Users, relatedIds: [2], status: "pending" as const, energy: 60 },
+      { id: 1, title: "Setup Infraestrutura", date: "Fase 1", content: "Preparar ambiente e configurações", category: "Infraestrutura", icon: Layers, relatedIds: [2, 3], status: "pending" as const, energy: 100 },
+      { id: 2, title: "Pipeline de Dados", date: "Fase 2", content: "Configurar fluxo de dados para IA", category: "Dados", icon: Database, relatedIds: [1, 3], status: "pending" as const, energy: 95 },
+      { id: 3, title: "Desenvolvimento", date: "Fase 3", content: "Criar e customizar modelos IA", category: "Dev", icon: Code, relatedIds: [2, 4], status: "pending" as const, energy: 90 },
+      { id: 4, title: "Testes e Validação", date: "Fase 4", content: "QA e testes de performance", category: "Qualidade", icon: CheckCircle, relatedIds: [3, 5], status: "pending" as const, energy: 85 },
+      { id: 5, title: "Deploy em Produção", date: "Fase 5", content: "Lançamento em ambiente produtivo", category: "Deploy", icon: Zap, relatedIds: [4], status: "pending" as const, energy: 75 },
     ]
   },
   { 
@@ -41,9 +47,11 @@ const steps = [
     title: "Formação", 
     desc: "Capacitação da sua equipa",
     timelineData: [
-      { id: 1, title: "Workshops", date: "Fase 1", content: "Sessões de treino para a equipa", category: "Formação", icon: Users, relatedIds: [2], status: "pending" as const, energy: 100 },
-      { id: 2, title: "Documentação", date: "Fase 2", content: "Guias e material de apoio", category: "Documentação", icon: CheckCircle, relatedIds: [1, 3], status: "pending" as const, energy: 90 },
-      { id: 3, title: "Suporte Contínuo", date: "Fase 3", content: "Acompanhamento pós-implementação", category: "Suporte", icon: Layers, relatedIds: [2], status: "pending" as const, energy: 80 },
+      { id: 1, title: "Workshops Líderes", date: "Fase 1", content: "Sessões de contexto para stakeholders", category: "Liderança", icon: Users, relatedIds: [2, 3], status: "pending" as const, energy: 100 },
+      { id: 2, title: "Formação Técnica", date: "Fase 2", content: "Treino para equipa técnica", category: "Formação", icon: Code, relatedIds: [1, 3], status: "pending" as const, energy: 95 },
+      { id: 3, title: "Documentação", date: "Fase 3", content: "Guias, manuais e best practices", category: "Documentação", icon: Layers, relatedIds: [2, 4], status: "pending" as const, energy: 90 },
+      { id: 4, title: "Suporte Inicial", date: "Fase 4", content: "Acompanhamento e troubleshooting", category: "Suporte", icon: CheckCircle, relatedIds: [3, 5], status: "pending" as const, energy: 85 },
+      { id: 5, title: "Otimização Contínua", date: "Fase 5", content: "Monitorização e melhorias pós-launch", category: "Otimização", icon: TrendingUp, relatedIds: [4], status: "pending" as const, energy: 80 },
     ]
   },
 ];

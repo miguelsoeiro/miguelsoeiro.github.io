@@ -4,6 +4,7 @@ import CTASection from "./CTASection";
 import BlogSection from "./BlogSection";
 import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Database, Workflow, Target } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import PartnersSection from "@/components/PartnersSection";
 
 // list of steps and corresponding radial orbital timelines
 const steps = [
@@ -455,6 +456,9 @@ const HeroSection = () => {
 
         {/* Blog Section */}
         <BlogSection />
+
+        {/* Partners Section */}
+        <PartnersSection />
 
         {/* CTA Section */}
         <div id="transformacao" className="mt-12 mb-0 pb-0 scroll-mt-24">

@@ -53,6 +53,9 @@
     --sidebar-accent-foreground: 210 40% 96%;
     --sidebar-border: 222 20% 18%;
     --sidebar-ring: 186 100% 50%;
+
+    --gradient-color: hsl(186, 100%, 50%);
+    --sparkles-color: hsl(186, 100%, 50%);
   }
 }
 

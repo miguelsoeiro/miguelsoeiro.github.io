@@ -208,7 +208,7 @@ export default function RadialOrbitalTimeline({
             <div
               key={item.id}
               ref={(el) => (nodeRefs.current[item.id] = el)}
-              className="absolute transition-all duration-700 cursor-pointer"
+              className={`absolute cursor-pointer ${autoRotate ? '' : 'transition-all duration-700'}`}
               style={{
                 // Position: place node center at calculated orbit point
                 // Node is 40px (w-10 h-10), so offset by -20px to center it on the calculated position
@@ -267,7 +267,7 @@ export default function RadialOrbitalTimeline({
                 className={`
                   absolute top-12 left-1/2 -translate-x-1/2 whitespace-nowrap
                   text-xs font-semibold tracking-wider
-                  transition-all duration-300
+                  ${autoRotate ? '' : 'transition-all duration-300'}
                   ${isExpanded ? "text-white scale-125" : "text-white/70"}
                 `}
               >

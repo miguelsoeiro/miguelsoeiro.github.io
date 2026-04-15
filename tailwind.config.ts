@@ -11,6 +11,10 @@ export default {
       screens: { "2xl": "1400px" },
     },
     extend: {
+      spacing: {
+        'orbit': '560px',
+        'orbit-radius': '280px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -109,14 +109,15 @@ export default function RadialOrbitalTimeline({
   }, [autoRotate]);
 
   // Calculate node position on orbit using pure trigonometry
-  // Returns coordinates relative to the orbit center (280, 280)
+  // Returns coordinates in [0, 560] range where (280, 280) is the center of the orbit
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
     const radian = (angle * Math.PI) / 180;
 
-    // Pure trigonometric calculation - no centerOffset
-    const x = ORBIT_RADIUS * Math.cos(radian);
-    const y = ORBIT_RADIUS * Math.sin(radian);
+    // Trigonometric calculation positioned relative to orbit container center (280, 280)
+    // Results range from 0 to 560 on both axes
+    const x = ORBIT_CENTER + ORBIT_RADIUS * Math.cos(radian);
+    const y = ORBIT_CENTER + ORBIT_RADIUS * Math.sin(radian);
 
     // Z-index based on depth (cos provides front-to-back ordering)
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
@@ -209,9 +210,10 @@ export default function RadialOrbitalTimeline({
               ref={(el) => (nodeRefs.current[item.id] = el)}
               className="absolute transition-all duration-700 cursor-pointer"
               style={{
-                // Position: center the node at calculated orbit point
-                // transform centers a 40px element (20px from center)
-                transform: `translate(calc(50% + ${position.x}px), calc(50% + ${position.y}px)) translate(-50%, -50%)`,
+                // Position: place node center at calculated orbit point
+                // Node is 40px (w-10 h-10), so offset by -20px to center it on the calculated position
+                transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
+                transformOrigin: 'center',
                 zIndex: isExpanded ? 200 : position.zIndex,
                 opacity: isExpanded ? 1 : position.opacity,
               }}

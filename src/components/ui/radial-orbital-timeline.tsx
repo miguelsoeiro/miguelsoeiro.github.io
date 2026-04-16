@@ -62,12 +62,19 @@ export default function RadialOrbitalTimeline({
     expandedItemsRef.current = expandedItems;
   }, [expandedItems]);
 
-  // Responsive scale: shrink the orbit to fit the viewport on mobile
+  // Responsive scale: shrink the orbit to fit the viewport on mobile.
+  // Nodes extend ~20px outside the orbit container on every side, and labels
+  // sit ~60px below bottom nodes — so the effective content area is larger
+  // than ORBIT_SIZE. Using ORBIT_SIZE + 100 ensures nodes and labels stay
+  // fully on screen after scaling.
+  const EFFECTIVE_SIZE = ORBIT_SIZE + 100;
   const [scaleFactor, setScaleFactor] = useState(1);
   useEffect(() => {
     const computeScale = () => {
-      const available = Math.min(window.innerWidth * 0.95, window.innerHeight * 0.85);
-      setScaleFactor(Math.min(1, available / ORBIT_SIZE));
+      const availableW = window.innerWidth * 0.95;
+      const availableH = window.innerHeight * 0.85;
+      const available = Math.min(availableW, availableH);
+      setScaleFactor(Math.min(1, available / EFFECTIVE_SIZE));
     };
     computeScale();
     window.addEventListener("resize", computeScale, { passive: true });

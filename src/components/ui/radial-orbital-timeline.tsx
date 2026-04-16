@@ -67,7 +67,7 @@ export default function RadialOrbitalTimeline({
   // sit ~60px below bottom nodes — so the effective content area is larger
   // than ORBIT_SIZE. Using ORBIT_SIZE + 100 ensures nodes and labels stay
   // fully on screen after scaling.
-  const EFFECTIVE_SIZE = ORBIT_SIZE + 100;
+  const EFFECTIVE_SIZE = ORBIT_SIZE + 120; // 48px nodes protrude 24px per side (48px) + labels ~72px
   const [scaleFactor, setScaleFactor] = useState(1);
   useEffect(() => {
     const computeScale = () => {
@@ -108,7 +108,7 @@ export default function RadialOrbitalTimeline({
           timelineData.length,
           rotationAngleRef.current
         );
-        el.style.transform = `translate(${x - 20}px, ${y - 20}px)`;
+        el.style.transform = `translate(${x - 24}px, ${y - 24}px)`;
         el.style.zIndex = String(zIndex);
         el.style.opacity = String(opacity);
       });
@@ -244,7 +244,7 @@ export default function RadialOrbitalTimeline({
               ref={(el) => (nodeRefs.current[item.id] = el)}
               className={`absolute cursor-pointer ${autoRotate ? "" : "transition-all duration-700"}`}
               style={{
-                transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
+                transform: `translate(${position.x - 24}px, ${position.y - 24}px)`,
                 transformOrigin: "center",
                 zIndex: isExpanded ? 200 : position.zIndex,
                 opacity: isExpanded ? 1 : position.opacity,
@@ -271,7 +271,7 @@ export default function RadialOrbitalTimeline({
 
               <div
                 className={`
-                  w-10 h-10 rounded-full flex items-center justify-center
+                  w-12 h-12 rounded-full flex items-center justify-center
                   ${isExpanded ? "bg-white text-black" : isRelated ? "bg-white/50 text-black" : "bg-black text-white"}
                   border-2
                   ${isExpanded ? "border-white shadow-lg shadow-white/30" : isRelated ? "border-white animate-pulse" : "border-white/40"}
@@ -279,7 +279,7 @@ export default function RadialOrbitalTimeline({
                   ${isExpanded ? "scale-150" : ""}
                 `}
               >
-                <Icon size={16} />
+                <Icon size={18} />
               </div>
 
               <div
@@ -294,7 +294,7 @@ export default function RadialOrbitalTimeline({
               </div>
 
               {isExpanded && (
-                <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 bg-black/90 backdrop-blur-lg border-white/30 shadow-xl shadow-white/10 overflow-visible z-50">
+                <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-80 bg-black/90 backdrop-blur-lg border-white/30 shadow-xl shadow-white/10 overflow-visible z-50">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/50" />
                   <CardHeader className="pb-2">
                     <div className="flex justify-between items-center">

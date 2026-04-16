@@ -60,6 +60,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
               src={cover}
               alt={headline}
               className="rounded-2xl object-cover w-full h-full"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </CardHeader>

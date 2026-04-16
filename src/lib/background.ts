@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { Pane } from "tweakpane";
 
 let scene: THREE.Scene | null = null;
 let camera: THREE.OrthographicCamera | null = null;
@@ -171,7 +170,7 @@ function onWindowResize() {
 }
 
 let lastFrameTime = 0;
-const targetFrameInterval = 1000 / (isMobile ? 30 : 60); // 30fps mobile, 60fps desktop
+const targetFrameInterval = 1000 / (isMobile ? 24 : 45); // 24fps mobile, 45fps desktop
 
 function animate(currentTime: number) {
   rafId = requestAnimationFrame(animate);

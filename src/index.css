@@ -113,10 +113,33 @@
 /* Custom animations for the orbital timeline */
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: opacity;
 }
 
 .animate-ping {
   animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+/* Navbar entrance animation */
+@keyframes nav-appear {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-nav-appear {
+  animation: nav-appear 0.5s ease forwards;
+}
+
+/* Logo dot pulse (CSS-based, replaces framer-motion infinite animation) */
+@keyframes logo-dot-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2); }
+}
+
+.animate-logo-dot {
+  animation: logo-dot-pulse 2s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Transitions */
@@ -140,10 +163,12 @@
 /* Backdrop blur */
 .backdrop-blur-lg {
   backdrop-filter: blur(16px);
+  will-change: transform;
 }
 
 .backdrop-blur-md {
   backdrop-filter: blur(12px);
+  will-change: transform;
 }
 
 /* Custom gradients */

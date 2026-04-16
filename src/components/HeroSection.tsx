@@ -1,168 +1,213 @@
-import heroChatImg from "@/assets/hero-chat.jpg";
-import { useState, useEffect } from "react";
-import CTASection from "./CTASection";
-import BlogSection from "./BlogSection";
-import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Database, Workflow, Target } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Workflow, Target, Settings, BookOpen, Cpu, Award } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import PartnersSection from "@/components/PartnersSection";
 
-// list of steps and corresponding radial orbital timelines
 const steps = [
-  { 
-    num: "1", 
-    title: "Diagnóstico", 
-    desc: "Análise aprofundada da sua infraestrutura IT atual",
+  {
+    num: "01",
+    title: "Diagnosticar",
+    desc: "Mapeamos processos e identificamos ineficiências com relatório detalhado",
     timelineData: [
-      { id: 1, title: "Auditoria IT", date: "Fase 1", content: "Análise completa da infraestrutura atual", category: "Auditoria", icon: Search, relatedIds: [2, 3], status: "completed" as const, energy: 100 },
-      { id: 2, title: "Análise de Processos", date: "Fase 2", content: "Mapeamento de workflows e processos", category: "Análise", icon: Workflow, relatedIds: [1, 3], status: "completed" as const, energy: 95 },
-      { id: 3, title: "Identificar Gaps", date: "Fase 3", content: "Encontrar lacunas e oportunidades de IA", category: "Análise", icon: CheckCircle, relatedIds: [1, 2, 4], status: "completed" as const, energy: 90 },
-      { id: 4, title: "Assess Oportunidades", date: "Fase 4", content: "Avaliar potencial de transformação com IA", category: "Estratégia", icon: Zap, relatedIds: [3, 5], status: "completed" as const, energy: 85 },
-      { id: 5, title: "Relatório Final", date: "Fase 5", content: "Documento com recomendações detalhadas", category: "Relatório", icon: Layers, relatedIds: [4], status: "in-progress" as const, energy: 80 },
-    ]
+      { id: 1, title: "Auditoria IT", date: "Fase 1", content: "Análise completa da infraestrutura e ferramentas actuais", category: "Auditoria", icon: Search, relatedIds: [2, 3], status: "completed" as const, energy: 100 },
+      { id: 2, title: "Mapeamento", date: "Fase 2", content: "Documentação de workflows e processos internos", category: "Análise", icon: Workflow, relatedIds: [1, 3], status: "completed" as const, energy: 95 },
+      { id: 3, title: "Identificar Gaps", date: "Fase 3", content: "Lacunas operacionais e oportunidades de melhoria", category: "Análise", icon: Target, relatedIds: [1, 2, 4], status: "completed" as const, energy: 90 },
+      { id: 4, title: "Prioridades", date: "Fase 4", content: "Ranking de iniciativas por impacto e esforço", category: "Estratégia", icon: TrendingUp, relatedIds: [3, 5], status: "completed" as const, energy: 85 },
+      { id: 5, title: "Relatório", date: "Fase 5", content: "Documento com diagnóstico e recomendações detalhadas", category: "Relatório", icon: Layers, relatedIds: [4], status: "in-progress" as const, energy: 80 },
+    ],
   },
-  { 
-    num: "2", 
-    title: "Estratégia", 
-    desc: "Planeamento da solução IA personalizada",
+  {
+    num: "02",
+    title: "Planear",
+    desc: "Desenhamos o plano de acção com tecnologias e timings adequados",
     timelineData: [
-      { id: 1, title: "Roadmap IA", date: "Fase 1", content: "Definir caminho para implementação de IA", category: "Planeamento", icon: Target, relatedIds: [2, 3], status: "completed" as const, energy: 100 },
-      { id: 2, title: "Priorização de Casos", date: "Fase 2", content: "Selecionar casos de uso com maior impacto", category: "Estratégia", icon: TrendingUp, relatedIds: [1, 3], status: "completed" as const, energy: 95 },
-      { id: 3, title: "Seleção Tecnologias", date: "Fase 3", content: "Escolher ferramentas e plataformas IA", category: "Seleção", icon: Code, relatedIds: [2, 4], status: "completed" as const, energy: 90 },
-      { id: 4, title: "Planeamento Recursos", date: "Fase 4", content: "Alocar equipa e infraestrutura necessária", category: "Recursos", icon: Users, relatedIds: [3, 5], status: "in-progress" as const, energy: 85 },
-      { id: 5, title: "Orçamento e ROI", date: "Fase 5", content: "Estimativa de custos e retorno esperado", category: "Financeiro", icon: CheckCircle, relatedIds: [4], status: "in-progress" as const, energy: 80 },
-    ]
+      { id: 1, title: "Roadmap", date: "Fase 1", content: "Plano de implementação faseado e priorizado", category: "Planeamento", icon: Target, relatedIds: [2, 3], status: "completed" as const, energy: 100 },
+      { id: 2, title: "Selecção Tech", date: "Fase 2", content: "Escolha das ferramentas e tecnologias mais adequadas", category: "Tecnologia", icon: Settings, relatedIds: [1, 3], status: "completed" as const, energy: 95 },
+      { id: 3, title: "Timings", date: "Fase 3", content: "Calendário realista com marcos e entregas definidos", category: "Planeamento", icon: CheckCircle, relatedIds: [2, 4], status: "in-progress" as const, energy: 90 },
+      { id: 4, title: "Orçamento", date: "Fase 4", content: "Estimativa de custos e retorno esperado (ROI)", category: "Financeiro", icon: TrendingUp, relatedIds: [3, 5], status: "in-progress" as const, energy: 85 },
+      { id: 5, title: "Aprovação", date: "Fase 5", content: "Validação do plano e kick-off com todos os stakeholders", category: "Gestão", icon: Users, relatedIds: [4], status: "pending" as const, energy: 75 },
+    ],
   },
-  { 
-    num: "3", 
-    title: "Implementação", 
-    desc: "Deployment com suporte contínuo",
+  {
+    num: "03",
+    title: "Implementar",
+    desc: "Executamos as soluções com acompanhamento contínuo",
     timelineData: [
-      { id: 1, title: "Setup Infraestrutura", date: "Fase 1", content: "Preparar ambiente e configurações", category: "Infraestrutura", icon: Layers, relatedIds: [2, 3], status: "pending" as const, energy: 100 },
-      { id: 2, title: "Pipeline de Dados", date: "Fase 2", content: "Configurar fluxo de dados para IA", category: "Dados", icon: Database, relatedIds: [1, 3], status: "pending" as const, energy: 95 },
-      { id: 3, title: "Desenvolvimento", date: "Fase 3", content: "Criar e customizar modelos IA", category: "Dev", icon: Code, relatedIds: [2, 4], status: "pending" as const, energy: 90 },
-      { id: 4, title: "Testes e Validação", date: "Fase 4", content: "QA e testes de performance", category: "Qualidade", icon: CheckCircle, relatedIds: [3, 5], status: "pending" as const, energy: 85 },
-      { id: 5, title: "Deploy em Produção", date: "Fase 5", content: "Lançamento em ambiente produtivo", category: "Deploy", icon: Zap, relatedIds: [4], status: "pending" as const, energy: 75 },
-    ]
+      { id: 1, title: "Configuração", date: "Fase 1", content: "Setup de ferramentas, licenças e acessos", category: "Setup", icon: Settings, relatedIds: [2, 3], status: "pending" as const, energy: 100 },
+      { id: 2, title: "Integrações", date: "Fase 2", content: "Ligação entre sistemas e automação de workflows", category: "Dev", icon: Workflow, relatedIds: [1, 3], status: "pending" as const, energy: 95 },
+      { id: 3, title: "Testes", date: "Fase 3", content: "Validação com utilizadores reais em ambiente controlado", category: "Qualidade", icon: CheckCircle, relatedIds: [2, 4], status: "pending" as const, energy: 90 },
+      { id: 4, title: "Go-live", date: "Fase 4", content: "Lançamento e activação em ambiente de produção", category: "Deploy", icon: Zap, relatedIds: [3, 5], status: "pending" as const, energy: 85 },
+      { id: 5, title: "Relatório Mensal", date: "Fase 5", content: "Acompanhamento e relatório de impacto mensal", category: "Relatório", icon: TrendingUp, relatedIds: [4], status: "pending" as const, energy: 75 },
+    ],
   },
-  { 
-    num: "4", 
-    title: "Formação", 
-    desc: "Capacitação da sua equipa",
+  {
+    num: "04",
+    title: "Formar",
+    desc: "Capacitamos a equipa para tirar o máximo partido",
     timelineData: [
-      { id: 1, title: "Workshops Líderes", date: "Fase 1", content: "Sessões de contexto para stakeholders", category: "Liderança", icon: Users, relatedIds: [2, 3], status: "pending" as const, energy: 100 },
-      { id: 2, title: "Formação Técnica", date: "Fase 2", content: "Treino para equipa técnica", category: "Formação", icon: Code, relatedIds: [1, 3], status: "pending" as const, energy: 95 },
-      { id: 3, title: "Documentação", date: "Fase 3", content: "Guias, manuais e best practices", category: "Documentação", icon: Layers, relatedIds: [2, 4], status: "pending" as const, energy: 90 },
-      { id: 4, title: "Suporte Inicial", date: "Fase 4", content: "Acompanhamento e troubleshooting", category: "Suporte", icon: CheckCircle, relatedIds: [3, 5], status: "pending" as const, energy: 85 },
-      { id: 5, title: "Otimização Contínua", date: "Fase 5", content: "Monitorização e melhorias pós-launch", category: "Otimização", icon: TrendingUp, relatedIds: [4], status: "pending" as const, energy: 80 },
-    ]
+      { id: 1, title: "Levantamento", date: "Fase 1", content: "Identificação das necessidades de formação por perfil", category: "Análise", icon: Search, relatedIds: [2, 3], status: "pending" as const, energy: 100 },
+      { id: 2, title: "Workshops", date: "Fase 2", content: "Sessões práticas presenciais ou remotas (máx. 12 pax)", category: "Formação", icon: Users, relatedIds: [1, 3], status: "pending" as const, energy: 95 },
+      { id: 3, title: "Materiais", date: "Fase 3", content: "Guias, manuais e certificados de participação incluídos", category: "Documentação", icon: BookOpen, relatedIds: [2, 4], status: "pending" as const, energy: 90 },
+      { id: 4, title: "Avaliação", date: "Fase 4", content: "Medição das competências adquiridas pela equipa", category: "Avaliação", icon: Award, relatedIds: [3, 5], status: "pending" as const, energy: 85 },
+      { id: 5, title: "Follow-up", date: "Fase 5", content: "Suporte pós-formação e optimização contínua", category: "Suporte", icon: TrendingUp, relatedIds: [4], status: "pending" as const, energy: 80 },
+    ],
   },
+];
+
+const services = [
+  {
+    icon: Layers,
+    title: "Consultoria de Processos",
+    description: "Avença mensal com acompanhamento contínuo, mapeamento de processos internos e relatório mensal de progresso.",
+    color: "text-blue-400",
+    packs: [
+      { name: "Starter", detail: "8h/mês", price: "600 €/mês" },
+      { name: "Growth", detail: "16h/mês", price: "1.100 €/mês" },
+      { name: "Scale", detail: "32h/mês", price: "2.000 €/mês" },
+    ],
+    note: "Horas adicionais: 80 €/h · Prazo mínimo: 3 meses",
+    includes: [
+      "Mapeamento e redesign de processos",
+      "Arquitectura de sistemas",
+      "Relatório mensal de progresso",
+    ],
+  },
+  {
+    icon: Settings,
+    title: "Tecnologia & Ferramentas",
+    description: "Revenda e implementação de Microsoft 365 e Atlassian, com suporte de 1.º nível e gestão de conta incluídos.",
+    color: "text-cyan-400",
+    packs: [
+      { name: "Microsoft 365", detail: "Business Basic, Standard, Premium", price: "Mensal ou anual" },
+      { name: "Atlassian", detail: "Jira, Confluence, JSM", price: "Mensal ou anual" },
+    ],
+    note: "Desconto de 10% em plano anual",
+    includes: [
+      "Implementação e configuração",
+      "Suporte de 1.º nível incluído",
+      "Automação e integração de sistemas",
+    ],
+  },
+  {
+    icon: Cpu,
+    title: "Consultoria de IA",
+    description: "Selecção da ferramenta de IA certa para cada necessidade, gestão de licenças enterprise e formação específica incluída.",
+    color: "text-teal-400",
+    packs: [
+      { name: "Fee de gestão", detail: "Claude, ChatGPT, Gemini, Copilot, Devin…", price: "150 €/mês" },
+    ],
+    note: "Desconto de 10% em plano anual · Avença + subscrição gerida",
+    includes: [
+      "Selecção da ferramenta adequada ao negócio",
+      "Gestão de contas e licenças enterprise",
+      "Formação específica em cada ferramenta",
+    ],
+  },
+  {
+    icon: BookOpen,
+    title: "Formação",
+    description: "Sessões práticas presenciais ou remotas para equipas de até 12 participantes, com materiais e certificado incluídos.",
+    color: "text-emerald-400",
+    packs: [
+      { name: "Sessão 3h", detail: "Até 12 participantes", price: "450 €" },
+      { name: "Sessão 6h", detail: "Até 12 participantes", price: "800 €" },
+      { name: "Pack 5 Sessões", detail: "Desconto ~12%", price: "3.500 €" },
+    ],
+    note: "Inclui materiais e certificado de participação",
+    includes: [
+      "Microsoft 365, Atlassian, IA, Metodologias ágeis",
+      "Formato presencial ou remoto",
+      "Certificado de participação",
+    ],
+  },
+];
+
+const differentials = [
+  { icon: Code, title: "Visão técnica profunda", desc: "Background em programação e arquitectura de sistemas." },
+  { icon: Users, title: "Gestão ágil", desc: "Experiência em liderança e gestão de equipas ágeis." },
+  { icon: Cpu, title: "IA aplicada", desc: "Conhecimento prático focado em resultados reais, não em buzzwords." },
+  { icon: Settings, title: "Curadoria de IA", desc: "Ajudamos a escolher, gerir e formar nas ferramentas de IA certas." },
+  { icon: Target, title: "Foco em PMEs", desc: "Soluções à medida da realidade e dimensão das empresas portuguesas." },
+  { icon: CheckCircle, title: "Transparência total", desc: "Comunicação clara, sem letras pequenas, sem surpresas no final do mês." },
 ];
 
 const HeroSection = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
-  const [isCarouselHovering, setIsCarouselHovering] = useState(false);
-
-  // Auto-rotation for carousel
-  useEffect(() => {
-    if (isCarouselHovering) return;
-    const interval = setInterval(() => {
-      setActiveCarouselIndex((prev) => (prev + 1) % 3);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [isCarouselHovering]);
-
 
   return (
-    <section id="home" className="relative pt-16 pb-0 overflow-hidden mb-0" style={{ overflow: 'hidden' }}>
+    <section id="home" className="relative pt-16 pb-0 overflow-hidden mb-0">
       {/* Glow background */}
       <div className="absolute inset-0 gradient-glow pointer-events-none" />
       <div
         className="absolute top-0 right-0 w-1/2 h-full opacity-30 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 80% 20%, hsl(186 100% 50% / 0.15) 0%, transparent 60%)",
-        }}
+        style={{ background: "radial-gradient(ellipse at 80% 20%, hsl(186 100% 50% / 0.15) 0%, transparent 60%)" }}
       />
 
-      <div className="container max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-0">
+      {/* ── Hero ── */}
+      <div className="container max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left */}
-        <div className="space-y-8 animate-fade-in-up">
+        <div className="space-y-8">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm">
-            <span className="px-2 py-0.5 rounded-full bg-devin-teal text-background text-xs font-semibold">
-              Nova Era
-            </span>
-            <span className="text-muted-foreground">Transformação Digital com IA</span>
-            <svg
-              className="w-3 h-3 text-muted-foreground"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
+            <span className="px-2 py-0.5 rounded-full bg-devin-teal text-background text-xs font-semibold">PMEs</span>
+            <span className="text-muted-foreground">Consultoria · Inovação · Formação</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-5xl lg:text-5xl font-bold leading-tight tracking-tight">
-            <span className="text-teal">Parceiro de IT</span>
-            <span className="text-foreground"> para a</span>
+            <span className="text-teal">Parceiro estratégico</span>
+            <span className="text-foreground"> para</span>
             <br />
-            <span className="text-foreground">era da IA e muito mais</span>
+            <span className="text-foreground">PMEs portuguesas</span>
           </h1>
 
-          {/* Sub */}
+          {/* Subtitle */}
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Transformamos organizações através de {" "}
-            <span className="text-foreground">tecnologia inteligente</span>
+            Diagnosticamos, planeamos, implementamos e formamos
             <br className="hidden lg:block" />
-            {" "}e inovação.
+            — para que a sua empresa cresça sem fricção.
           </p>
 
           {/* Steps */}
-          {/* reset to first step only when mouse leaves the whole group */}
-          <div
-            className="space-y-1 relative"
-            onMouseLeave={() => setActiveStepIndex(0)}
-          >
-            {/* Dashed line */}
+          <div className="space-y-1 relative" onMouseLeave={() => setActiveStepIndex(0)}>
             <div className="absolute left-4 top-6 bottom-6 w-px border-l border-dashed border-devin-border" />
             {steps.map((step, i) => (
               <div
                 key={step.num}
                 className={`relative flex items-center gap-4 px-4 py-3 rounded-xl transition-all cursor-pointer ${
-                  i === activeStepIndex
-                    ? "bg-devin-surface border border-devin-border"
-                    : "opacity-60 hover:opacity-80"
+                  i === activeStepIndex ? "bg-devin-surface border border-devin-border" : "opacity-60 hover:opacity-80"
                 }`}
                 onMouseEnter={() => setActiveStepIndex(i)}
-                // no per-item mouseleave, container handles reset
               >
                 <div
-                  className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${
-                    i === activeStepIndex
-                      ? "bg-devin-teal text-background"
-                      : "bg-devin-surface border border-devin-border text-muted-foreground"
+                  className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
+                    i === activeStepIndex ? "bg-devin-teal text-background" : "bg-devin-surface border border-devin-border text-muted-foreground"
                   }`}
                 >
                   {step.num}
                 </div>
                 <div>
-                  <div className="font-semibold text-foreground text-sm">
-                    {step.title}
-                  </div>
-                  <div className="text-muted-foreground text-xs">
-                    {step.desc}
-                  </div>
+                  <div className="font-semibold text-foreground text-sm">{step.title}</div>
+                  <div className="text-muted-foreground text-xs">{step.desc}</div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="mailto:geral@transparentreasons.com"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-devin-teal text-background font-semibold text-sm hover:opacity-90 transition-opacity"
+            >
+              Agendar Diagnóstico Gratuito
+            </a>
+            <a
+              href="#servicos"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-devin-border text-foreground font-medium text-sm hover:border-devin-teal/40 transition-colors"
+            >
+              Ver Serviços
+            </a>
           </div>
         </div>
 
@@ -172,245 +217,107 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* UseCases Carousel */}
-      <div className="container max-w-7xl mx-auto px-6 py-12 mb-0">
-        <div className="mb-16 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Soluções que transformam
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            Casos de uso onde a IA gera o maior impacto na sua organização
-          </p>
-        </div>
+      <div className="container max-w-7xl mx-auto px-6 pb-12">
 
-        {/* Carousel Container - 3 cards side by side */}
-        <div className="flex gap-6 h-96 relative">
-          {[
-            {
-              id: 1,
-              title: "Automação Inteligente",
-              items: [
-                "Otimização de processos com IA",
-                "Automatização de workflows",
-                "Integração com ferramentas existentes",
-              ],
-            },
-            {
-              id: 2,
-              title: "Análise de Dados",
-              items: [
-                "Implementação de data lakes",
-                "Business Intelligence avançado",
-                "Insights em tempo real",
-              ],
-            },
-            {
-              id: 3,
-              title: "Segurança & Compliance",
-              items: [
-                "Proteção de dados com IA",
-                "Conformidade RGPD",
-                "Auditoria automatizada",
-              ],
-            },
-          ].map((useCase, index) => {
-            const getGradient = (idx: number) => {
-              const gradients = [
-                "from-blue-500/20 to-cyan-500/10",
-                "from-cyan-500/20 to-teal-500/10",
-                "from-teal-500/20 to-cyan-500/10",
-              ];
-              return gradients[idx];
-            };
+        {/* ── Serviços ── */}
+        <div id="servicos" className="mt-8 pt-16 border-t border-devin-border scroll-mt-24">
+          <div className="mb-16 space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+              Os nossos <span className="text-teal">Serviços</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Quatro pilares complementares para optimizar processos, adoptar tecnologia e capacitar equipas.
+            </p>
+          </div>
 
-            return (
-              <div
-                key={useCase.id}
-                className={`relative rounded-2xl border border-devin-border overflow-hidden cursor-pointer transition-all duration-500 flex flex-col ${
-                  index === activeCarouselIndex
-                    ? "flex-1 bg-devin-card"
-                    : "flex-0 basis-24 bg-devin-surface hover:bg-devin-card/80"
-                }`}
-                onMouseEnter={() => {
-                  setIsCarouselHovering(true);
-                  setActiveCarouselIndex(index);
-                }}
-                onMouseLeave={() => setIsCarouselHovering(false)}
-              >
-                {/* Layer 1: Vertical text (collapsed state) - absolutely positioned */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none will-change-opacity">
-                  <h3
-                    className={`text-xs font-bold text-foreground text-center transition-opacity duration-200 ${
-                      index === activeCarouselIndex ? "opacity-0" : "opacity-100"
-                    }`}
-                    style={{
-                      writingMode: "vertical-rl",
-                      transform: "rotate(180deg)",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {useCase.title}
-                  </h3>
-                </div>
-
-                {/* Layer 2: Expanded content - absolutely positioned */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service, idx) => {
+              const IconComponent = service.icon;
+              return (
                 <div
-                  className={`absolute inset-0 transition-opacity duration-500 will-change-opacity ${
-                    index === activeCarouselIndex ? "opacity-100" : "opacity-0 pointer-events-none"
-                  }`}
-                  style={{
-                    transitionDelay: index === activeCarouselIndex ? "150ms" : "0ms",
-                  }}
+                  key={idx}
+                  className="group bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/40 transition-all hover:bg-devin-card/50"
                 >
-                  <div className="flex h-full">
-                    {/* Left: Text Content */}
-                    <div className="flex-1 p-8 flex flex-col justify-between min-w-0">
-                      <div className="min-w-0">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
-                          {useCase.title}
-                        </h3>
-                        <ul className="space-y-3">
-                          {useCase.items.map((item, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                              <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mt-2 flex-shrink-0" />
-                              <span className="text-sm text-muted-foreground">
-                                {item}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <button className="px-4 py-2 rounded-full bg-devin-teal text-background font-semibold text-sm hover:opacity-90 transition-opacity w-fit flex-shrink-0">
-                        Learn more
-                      </button>
-                    </div>
-
-                    {/* Right: Gradient Background */}
-                    <div
-                      className={`w-48 flex-shrink-0 bg-gradient-to-br ${getGradient(
-                        index
-                      )}`}
-                    />
+                  <div className={`${service.color} mb-4 transition-transform group-hover:scale-110 inline-block`}>
+                    <IconComponent size={32} />
                   </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-devin-teal transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  {/* Pricing */}
+                  <div className="space-y-2 mb-4">
+                    {service.packs.map((pack, pIdx) => (
+                      <div
+                        key={pIdx}
+                        className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-devin-card border border-devin-border"
+                      >
+                        <div className="min-w-0 mr-4">
+                          <span className="text-sm font-semibold text-foreground">{pack.name}</span>
+                          <span className="text-xs text-muted-foreground ml-2 hidden sm:inline">· {pack.detail}</span>
+                        </div>
+                        <span className="text-sm font-bold text-devin-teal whitespace-nowrap">{pack.price}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <p className="text-xs text-muted-foreground mb-5 italic">{service.note}</p>
+
+                  <ul className="space-y-2">
+                    {service.includes.map((item, iIdx) => (
+                      <li key={iIdx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mt-1.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
-        {/* Navigation Dots */}
-        <div className="flex justify-center gap-2 mt-8 mb-12">
-          {[0, 1, 2].map((index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setIsCarouselHovering(true);
-                setActiveCarouselIndex(index);
-                setTimeout(() => setIsCarouselHovering(false), 3000);
-              }}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === activeCarouselIndex
-                  ? "bg-devin-teal w-8"
-                  : "bg-devin-border hover:bg-devin-muted"
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Use Cases Grid Section */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Transformação Digital",
-              icon: "💻",
-              items: [
-                "Migração para cloud",
-                "Modernização de aplicações",
-                "Integração de ferramentas",
-              ],
-            },
-            {
-              title: "IA & Automação",
-              icon: "🤖",
-              items: [
-                "Implementação de agentes IA",
-                "Processos automatizados",
-                "Análise preditiva",
-              ],
-            },
-            {
-              title: "E muitas outras",
-              icon: "⭐",
-              items: [
-                "Otimização de performance",
-                "Gestão de segurança",
-                "Consultoria estratégica",
-                "Suporte ao utilizador",
-                "Documentação assistida",
-              ],
-            },
-          ].map((category, idx) => (
-            <div
-              key={idx}
-              className="bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/30 transition-all"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-3xl">{category.icon}</span>
-                <h3 className="text-xl lg:text-2xl font-bold text-foreground">
-                  {category.title}
-                </h3>
-              </div>
-              <ul className="space-y-3">
-                {category.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mt-2 flex-shrink-0" />
-                    <span className="text-sm text-muted-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Process Section - A nossa Metodologia */}
+        {/* ── Metodologia ── */}
         <div id="metodologia" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               A nossa <span className="text-teal">Metodologia</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Um processo estruturado de 4 fases para transformar a sua organização com IA
+              Um processo estruturado em 4 etapas para transformar a sua organização sem fricção.
             </p>
           </div>
 
-          {/* Timeline / Steps Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                number: 1,
-                title: "Diagnóstico de Eficiência",
-                description: "Auditoria aos processos atuais e infraestrutura (Office 365).",
+                number: "01",
+                title: "Diagnosticar",
+                description: "Mapeamos os processos actuais, identificamos ineficiências e definimos prioridades com um relatório de diagnóstico detalhado.",
                 icon: Search,
                 color: "text-blue-400",
               },
               {
-                number: 2,
-                title: "Arquitetura de Soluções",
-                description: "Desenho do ecossistema de IA (Agentes Gemini/Claude) e Software à Medida.",
-                icon: Layers,
+                number: "02",
+                title: "Planear",
+                description: "Desenhamos o plano de acção com tecnologias, metodologias e timings adequados ao seu negócio e orçamento.",
+                icon: Target,
                 color: "text-cyan-400",
               },
               {
-                number: 3,
-                title: "Implementação & Dev",
-                description: "Desenvolvimento assistido por Devin e configuração de ferramentas de produtividade.",
-                icon: CheckCircle,
+                number: "03",
+                title: "Implementar",
+                description: "Executamos as soluções com acompanhamento contínuo — ferramentas, automações, integrações e relatórios mensais.",
+                icon: Settings,
                 color: "text-teal-400",
               },
               {
-                number: 4,
-                title: "Capacitação & Formação",
-                description: "Workshop para equipas dominarem Copilot e ferramentas customizadas.",
+                number: "04",
+                title: "Formar",
+                description: "Capacitamos a equipa para tirar o máximo partido de tudo o que foi implementado, com materiais e certificado incluídos.",
                 icon: Users,
                 color: "text-emerald-400",
               },
@@ -418,33 +325,19 @@ const HeroSection = () => {
               const IconComponent = step.icon;
               return (
                 <div key={idx} className="relative">
-                  {/* Card */}
                   <div className="group bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/50 transition-all hover:bg-devin-card/50 hover:shadow-lg cursor-pointer h-full flex flex-col">
-                    {/* Step Number Circle */}
-                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-devin-card border-2 border-devin-border rounded-full flex items-center justify-center font-bold text-devin-teal group-hover:border-devin-teal transition-all">
+                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-devin-card border-2 border-devin-border rounded-full flex items-center justify-center font-bold text-devin-teal text-sm group-hover:border-devin-teal transition-all">
                       {step.number}
                     </div>
-
-                    {/* Icon */}
                     <div className={`${step.color} mb-6 mt-6 transition-transform group-hover:scale-110`}>
                       <IconComponent size={32} />
                     </div>
-
-                    {/* Title */}
                     <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-devin-teal transition-colors">
                       {step.title}
                     </h3>
-
-                    {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
-                      {step.description}
-                    </p>
-
-                    {/* Bottom accent line */}
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{step.description}</p>
                     <div className="mt-6 h-1 w-0 group-hover:w-12 bg-gradient-to-r from-devin-teal to-transparent transition-all" />
                   </div>
-
-                  {/* Connector line (hidden on mobile) */}
                   {idx < 3 && (
                     <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-devin-teal/30 to-transparent" />
                   )}
@@ -454,49 +347,91 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Blog Section */}
-        <BlogSection />
+        {/* ── Porquê nós ── */}
+        <div className="mt-20 pt-20 border-t border-devin-border">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              Porquê a <span className="text-teal">Transparent Reasons?</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Uma combinação única de visão técnica, experiência em gestão e conhecimento aplicado de IA.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {differentials.map((diff, idx) => {
+              const IconComponent = diff.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group flex gap-4 p-6 rounded-2xl bg-devin-surface/50 border border-devin-border hover:border-devin-teal/40 transition-all"
+                >
+                  <div className="text-devin-teal flex-shrink-0 mt-0.5">
+                    <IconComponent size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1 group-hover:text-devin-teal transition-colors">
+                      {diff.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{diff.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
-        {/* Partners Section */}
+        {/* ── Parceiros ── */}
         <PartnersSection />
 
-        {/* CTA Section */}
-        <div id="transformacao" className="mt-12 mb-0 pb-0 scroll-mt-24">
-          <div className="relative rounded-3xl border border-devin-border bg-devin-card overflow-hidden p-8 text-center mb-0"
-            style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(186 100% 50% / 0.08) 0%, hsl(222 25% 12%) 60%)" }}>
-            {/* Glow */}
+        {/* ── CTA ── */}
+        <div className="mt-12 mb-0 pb-0">
+          <div
+            className="relative rounded-3xl border border-devin-border bg-devin-card overflow-hidden p-8 text-center"
+            style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(186 100% 50% / 0.08) 0%, hsl(222 25% 12%) 60%)" }}
+          >
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-devin-teal to-transparent" />
 
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Transforme sua
+              Comece pelo
               <br />
-              <span className="text-teal">organização</span>
+              <span className="text-teal">diagnóstico gratuito</span>
             </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto mb-6 text-sm leading-relaxed">
+              Uma conversa sem compromisso para perceber onde a sua empresa pode ganhar eficiência.
+              <br />Sem letras pequenas, sem surpresas.
+            </p>
             <a
-              href="#"
-              className="inline-flex items-center px-8 py-3 mt-4 rounded-full bg-devin-teal text-background font-semibold text-base hover:opacity-90 transition-opacity"
+              href="mailto:geral@transparentreasons.com"
+              className="inline-flex items-center px-8 py-3 rounded-full bg-devin-teal text-background font-semibold text-base hover:opacity-90 transition-opacity"
             >
-              Agendar Consulta
+              Agendar Diagnóstico Gratuito
             </a>
 
-            {/* Enterprise */}
-            <div className="mt-16 pt-12 border-t border-devin-border mb-0">
-              <p className="text-muted-foreground text-sm mb-1">Quer uma solução para toda a empresa?</p>
-              <h3 className="text-2xl font-bold text-foreground mb-3">Solução Enterprise Completa</h3>
+            {/* Contactos */}
+            <div id="contactos" className="mt-16 pt-12 border-t border-devin-border scroll-mt-24">
+              <p className="text-muted-foreground text-sm mb-1">Prefere contactar directamente?</p>
+              <h3 className="text-2xl font-bold text-foreground mb-3">Fale connosco</h3>
               <p className="text-muted-foreground max-w-lg mx-auto text-sm mb-6">
-                Soluções personalizadas com segurançaaaas, compliance RGPD e suporte dedicado para sua organização.
+                Respondemos a todas as mensagens em menos de 24 horas úteis.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors">
-                  Saiba Mais
+                <a
+                  href="mailto:geral@transparentreasons.com"
+                  className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors"
+                >
+                  geral@transparentreasons.com
                 </a>
-                <a id="contactos" href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors scroll-mt-24">
-                  Contacte-nos
+                <a
+                  href="https://www.transparentreasons.com"
+                  className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors"
+                >
+                  www.transparentreasons.com
                 </a>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

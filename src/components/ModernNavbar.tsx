@@ -40,7 +40,6 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
-  // Scroll tracking — getBoundingClientRect is inside the 50ms debounce
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
 
@@ -49,8 +48,8 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
       scrollTimeout = setTimeout(() => {
         const sections = [
           { name: "Home", id: "home" },
+          { name: "Serviços", id: "servicos" },
           { name: "Metodologia", id: "metodologia" },
-          { name: "Transformação", id: "transformacao" },
           { name: "Contactos", id: "contactos" },
         ];
 
@@ -71,7 +70,6 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
     };
   }, []);
 
-  // Shape animation when mobile menu opens/closes
   useEffect(() => {
     if (shapeTimeoutRef.current) clearTimeout(shapeTimeoutRef.current);
 
@@ -88,45 +86,29 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
 
   const navLinksData = [
     { label: "Home", href: "#home" },
+    { label: "Serviços", href: "#servicos" },
     { label: "Metodologia", href: "#metodologia" },
-    { label: "Transformação", href: "#transformacao" },
     { label: "Contactos", href: "#contactos" },
   ];
 
-  // Logo: 4 dots with CSS keyframe animation (replaces framer-motion infinite timers)
   const logoElement = (
     <div className="relative w-5 h-5 flex items-center justify-center">
-      <span
-        className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal top-0 left-1/2 -translate-x-1/2 opacity-80 animate-logo-dot"
-        style={{ animationDelay: "0s" }}
-      />
-      <span
-        className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal left-0 top-1/2 -translate-y-1/2 opacity-80 animate-logo-dot"
-        style={{ animationDelay: "0.2s" }}
-      />
-      <span
-        className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal right-0 top-1/2 -translate-y-1/2 opacity-80 animate-logo-dot"
-        style={{ animationDelay: "0.4s" }}
-      />
-      <span
-        className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal bottom-0 left-1/2 -translate-x-1/2 opacity-80 animate-logo-dot"
-        style={{ animationDelay: "0.6s" }}
-      />
+      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal top-0 left-1/2 -translate-x-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0s" }} />
+      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal left-0 top-1/2 -translate-y-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0.2s" }} />
+      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal right-0 top-1/2 -translate-y-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0.4s" }} />
+      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal bottom-0 left-1/2 -translate-x-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0.6s" }} />
     </div>
   );
 
-  const loginButtonElement = (
-    <button className="px-4 py-2 sm:px-3 text-xs sm:text-sm border border-devin-border bg-devin-surface text-foreground rounded-full hover:border-devin-teal/50 hover:text-devin-teal transition-colors duration-200 hover:scale-105 active:scale-95 transition-transform w-full sm:w-auto">
-      Login
-    </button>
-  );
-
-  const signupButtonElement = (
+  const ctaButton = (
     <div className="relative group w-full sm:w-auto">
       <div className="absolute inset-0 -m-2 rounded-full hidden sm:block bg-devin-teal opacity-30 filter blur-lg pointer-events-none transition-all duration-300 ease-out group-hover:opacity-50 group-hover:blur-xl group-hover:-m-3" />
-      <button className="relative z-10 px-4 py-2 sm:px-3 text-xs sm:text-sm font-semibold text-background bg-devin-teal rounded-full hover:bg-devin-teal/90 transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto">
-        Get Started
-      </button>
+      <a
+        href="mailto:geral@transparentreasons.com"
+        className="relative z-10 block px-4 py-2 sm:px-3 text-xs sm:text-sm font-semibold text-background bg-devin-teal rounded-full hover:bg-devin-teal/90 transition-all duration-200 hover:scale-105 active:scale-95 text-center"
+      >
+        Contacte-nos
+      </a>
     </div>
   );
 
@@ -150,47 +132,32 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
 
         <nav className="hidden sm:flex items-center gap-6 whitespace-nowrap shrink-0">
           {navLinksData.map((link) => (
-            <AnimatedNavLink
-              key={link.href}
-              href={link.href}
-              isActive={activeSection === link.label}
-            >
+            <AnimatedNavLink key={link.href} href={link.href} isActive={activeSection === link.label}>
               {link.label}
             </AnimatedNavLink>
           ))}
         </nav>
 
         <div className="hidden sm:flex items-center gap-3 shrink-0">
-          {loginButtonElement}
-          {signupButtonElement}
+          {ctaButton}
         </div>
 
-        {/* Mobile hamburger — CSS rotation instead of AnimatePresence */}
+        {/* Mobile hamburger */}
         <button
           className="sm:hidden flex items-center justify-center w-8 h-8 text-foreground focus:outline-none hover:scale-110 active:scale-95 transition-transform duration-200"
           onClick={toggleMenu}
-          aria-label={isOpen ? "Close Menu" : "Open Menu"}
+          aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
         >
           <div className="relative w-6 h-6">
-            {/* X icon */}
             <svg
-              className={`w-6 h-6 absolute transition-all duration-300 ${
-                isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90"
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              className={`w-6 h-6 absolute transition-all duration-300 ${isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`}
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
-            {/* Hamburger icon */}
             <svg
-              className={`w-6 h-6 absolute transition-all duration-300 ${
-                isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0"
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              className={`w-6 h-6 absolute transition-all duration-300 ${isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0"}`}
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -198,7 +165,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
         </button>
       </div>
 
-      {/* Mobile menu — CSS max-height transition instead of AnimatePresence */}
+      {/* Mobile menu */}
       <div
         className={cn(
           "sm:hidden flex flex-col items-center w-full overflow-hidden transition-all duration-300 ease-in-out",
@@ -214,9 +181,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
               href={link.href}
               className={cn(
                 "transition-colors text-sm",
-                activeSection === link.label
-                  ? "text-devin-teal font-semibold"
-                  : "text-foreground/70 hover:text-foreground"
+                activeSection === link.label ? "text-devin-teal font-semibold" : "text-foreground/70 hover:text-foreground"
               )}
               onClick={() => setIsOpen(false)}
             >
@@ -224,9 +189,8 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
             </a>
           ))}
         </nav>
-        <div className="flex flex-col items-center gap-2 mt-4 w-full pb-2">
-          {loginButtonElement}
-          {signupButtonElement}
+        <div className="mt-4 w-full pb-2">
+          {ctaButton}
         </div>
       </div>
     </header>

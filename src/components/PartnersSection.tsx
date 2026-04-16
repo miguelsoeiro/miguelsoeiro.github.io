@@ -12,14 +12,14 @@ import stripeLogo from "@/assets/logos/stripe.svg";
 import notionLogo from "@/assets/logos/notion.svg";
 
 const partners = [
-  { id: "microsoft",   src: microsoftLogo,   alt: "Microsoft",    className: "h-7 w-auto" },
-  { id: "googlecloud", src: googleCloudLogo, alt: "Google Cloud", className: "h-7 w-auto" },
-  { id: "aws",         src: awsLogo,         alt: "AWS",          className: "h-7 w-auto" },
-  { id: "hubspot",     src: hubspotLogo,     alt: "HubSpot",      className: "h-7 w-auto" },
-  { id: "cloudflare",  src: cloudflareLogo,  alt: "Cloudflare",   className: "h-7 w-auto" },
-  { id: "zapier",      src: zapierLogo,      alt: "Zapier",       className: "h-7 w-auto" },
-  { id: "stripe",      src: stripeLogo,      alt: "Stripe",       className: "h-7 w-auto" },
-  { id: "notion",      src: notionLogo,      alt: "Notion",       className: "h-7 w-auto" },
+  { id: "microsoft",   src: microsoftLogo,   alt: "Microsoft",    className: "h-11 w-auto" },
+  { id: "googlecloud", src: googleCloudLogo, alt: "Google Cloud", className: "h-11 w-auto" },
+  { id: "aws",         src: awsLogo,         alt: "AWS",          className: "h-11 w-auto" },
+  { id: "hubspot",     src: hubspotLogo,     alt: "HubSpot",      className: "h-11 w-auto" },
+  { id: "cloudflare",  src: cloudflareLogo,  alt: "Cloudflare",   className: "h-11 w-auto" },
+  { id: "zapier",      src: zapierLogo,      alt: "Zapier",       className: "h-11 w-auto" },
+  { id: "stripe",      src: stripeLogo,      alt: "Stripe",       className: "h-11 w-auto" },
+  { id: "notion",      src: notionLogo,      alt: "Notion",       className: "h-11 w-auto" },
 ];
 
 const PartnersSection = () => {
@@ -45,7 +45,7 @@ const PartnersSection = () => {
       </div>
 
       {/* Slider */}
-      <div className="relative h-14 w-full max-w-3xl mx-auto">
+      <div className="relative h-16 w-[100vw] left-1/2 -translate-x-1/2 mt-8 mb-6 overflow-hidden">
         <InfiniteSlider
           className="flex h-full w-full items-center"
           duration={30}
@@ -79,7 +79,7 @@ const PartnersSection = () => {
         <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,hsl(186_100%_50%),transparent_70%)] before:opacity-15" />
         <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-devin-border/30 bg-devin-card/20" />
         <Sparkles
-          density={700}
+          density={80}
           size={0.8}
           speed={0.7}
           opacity={0.6}

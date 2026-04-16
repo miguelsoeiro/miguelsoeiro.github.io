@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 interface ModernNavbarProps {
@@ -13,34 +14,46 @@ const AnimatedNavLink = ({
   href: string;
   children: React.ReactNode;
   isActive?: boolean;
-}) => {
-  return (
-    <a
-      href={href}
-      className={cn(
-        "relative inline-block text-sm transition-colors duration-200 group leading-none",
-        isActive ? "text-devin-teal font-semibold" : "text-foreground/70"
-      )}
-    >
-      <div className="h-5 overflow-hidden">
-        <div className="flex flex-col transition-transform duration-400 ease-out group-hover:-translate-y-5 leading-none">
-          <span className="leading-none whitespace-nowrap h-5">{children}</span>
-          <span className="leading-none text-devin-teal font-semibold whitespace-nowrap h-5">{children}</span>
-        </div>
+}) => (
+  <a
+    href={href}
+    className={cn(
+      "relative inline-block text-sm transition-colors duration-200 group leading-none",
+      isActive ? "text-devin-teal font-semibold" : "text-foreground/70"
+    )}
+  >
+    <div className="h-5 overflow-hidden">
+      <div className="flex flex-col transition-transform duration-400 ease-out group-hover:-translate-y-5 leading-none">
+        <span className="leading-none whitespace-nowrap h-5">{children}</span>
+        <span className="leading-none text-devin-teal font-semibold whitespace-nowrap h-5">{children}</span>
       </div>
-    </a>
-  );
-};
+    </div>
+  </a>
+);
 
 export const ModernNavbar = ({ className }: ModernNavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [headerShapeClass, setHeaderShapeClass] = useState("rounded-full");
   const [activeSection, setActiveSection] = useState("Home");
   const shapeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
+  // Prefix anchor links with "/" when on a sub-page so they navigate home first
+  const link = (anchor: string) => (isHome ? anchor : `/${anchor}`);
+
+  const navLinksData = [
+    { label: "Home", href: isHome ? "#home" : "/" },
+    { label: "Serviços", href: link("#servicos") },
+    { label: "Metodologia", href: link("#metodologia") },
+    { label: "Contactos", href: link("#contactos") },
+  ];
+
+  // Scroll tracking — only active on homepage
   useEffect(() => {
+    if (!isHome) return;
     let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
@@ -52,10 +65,9 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
           { name: "Metodologia", id: "metodologia" },
           { name: "Contactos", id: "contactos" },
         ];
-
         for (let i = sections.length - 1; i >= 0; i--) {
-          const element = document.getElementById(sections[i].id);
-          if (element && element.getBoundingClientRect().top < window.innerHeight / 2) {
+          const el = document.getElementById(sections[i].id);
+          if (el && el.getBoundingClientRect().top < window.innerHeight / 2) {
             setActiveSection(sections[i].name);
             break;
           }
@@ -68,28 +80,17 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
       clearTimeout(scrollTimeout);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     if (shapeTimeoutRef.current) clearTimeout(shapeTimeoutRef.current);
-
     if (isOpen) {
       setHeaderShapeClass("rounded-xl");
     } else {
       shapeTimeoutRef.current = setTimeout(() => setHeaderShapeClass("rounded-full"), 300);
     }
-
-    return () => {
-      if (shapeTimeoutRef.current) clearTimeout(shapeTimeoutRef.current);
-    };
+    return () => { if (shapeTimeoutRef.current) clearTimeout(shapeTimeoutRef.current); };
   }, [isOpen]);
-
-  const navLinksData = [
-    { label: "Home", href: "#home" },
-    { label: "Serviços", href: "#servicos" },
-    { label: "Metodologia", href: "#metodologia" },
-    { label: "Contactos", href: "#contactos" },
-  ];
 
   const logoElement = (
     <div className="relative w-5 h-5 flex items-center justify-center">
@@ -126,14 +127,14 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
       )}
     >
       <div className="flex items-center justify-center gap-8 shrink-0">
-        <div className="flex items-center shrink-0 hover:scale-110 transition-transform duration-200">
+        <a href="/" className="flex items-center shrink-0 hover:scale-110 transition-transform duration-200">
           {logoElement}
-        </div>
+        </a>
 
         <nav className="hidden sm:flex items-center gap-6 whitespace-nowrap shrink-0">
-          {navLinksData.map((link) => (
-            <AnimatedNavLink key={link.href} href={link.href} isActive={activeSection === link.label}>
-              {link.label}
+          {navLinksData.map((l) => (
+            <AnimatedNavLink key={l.href} href={l.href} isActive={isHome && activeSection === l.label}>
+              {l.label}
             </AnimatedNavLink>
           ))}
         </nav>
@@ -149,16 +150,10 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
           aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
         >
           <div className="relative w-6 h-6">
-            <svg
-              className={`w-6 h-6 absolute transition-all duration-300 ${isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`}
-              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            >
+            <svg className={`w-6 h-6 absolute transition-all duration-300 ${isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
-            <svg
-              className={`w-6 h-6 absolute transition-all duration-300 ${isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0"}`}
-              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            >
+            <svg className={`w-6 h-6 absolute transition-all duration-300 ${isOpen ? "opacity-0 -rotate-90" : "opacity-100 rotate-0"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </div>
@@ -169,29 +164,22 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
       <div
         className={cn(
           "sm:hidden flex flex-col items-center w-full overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen
-            ? "max-h-96 opacity-100 mt-4 pt-4 border-t border-devin-border/30"
-            : "max-h-0 opacity-0 pointer-events-none"
+          isOpen ? "max-h-96 opacity-100 mt-4 pt-4 border-t border-devin-border/30" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
         <nav className="flex flex-col items-center gap-3 w-full">
-          {navLinksData.map((link) => (
+          {navLinksData.map((l) => (
             <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "transition-colors text-sm",
-                activeSection === link.label ? "text-devin-teal font-semibold" : "text-foreground/70 hover:text-foreground"
-              )}
+              key={l.href}
+              href={l.href}
+              className={cn("transition-colors text-sm", isHome && activeSection === l.label ? "text-devin-teal font-semibold" : "text-foreground/70 hover:text-foreground")}
               onClick={() => setIsOpen(false)}
             >
-              {link.label}
+              {l.label}
             </a>
           ))}
         </nav>
-        <div className="mt-4 w-full pb-2">
-          {ctaButton}
-        </div>
+        <div className="mt-4 w-full pb-2">{ctaButton}</div>
       </div>
     </header>
   );

@@ -1,4 +1,19 @@
 import { Linkedin, Github, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const serviceLinks = [
+  { label: "Consultoria de Processos", slug: "consultoria-processos" },
+  { label: "Tecnologia & Ferramentas", slug: "tecnologia-ferramentas" },
+  { label: "Consultoria de IA", slug: "consultoria-ia" },
+  { label: "Formação", slug: "formacao" },
+];
+
+const legalLinks = [
+  { label: "Política de Privacidade", slug: "politica-privacidade" },
+  { label: "Termos de Serviço", slug: "termos-servico" },
+  { label: "RGPD Compliance", slug: "rgpd" },
+  { label: "Cookies", slug: "cookies" },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -20,16 +35,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4">Serviços</h3>
             <ul className="space-y-3">
-              {[
-                "Consultoria de Processos",
-                "Tecnologia & Ferramentas",
-                "Consultoria de IA",
-                "Formação",
-              ].map((s) => (
-                <li key={s}>
-                  <a href="#servicos" className="text-slate-400 hover:text-devin-teal transition-colors text-sm">
-                    {s}
-                  </a>
+              {serviceLinks.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    to={`/servicos/${s.slug}`}
+                    className="text-slate-400 hover:text-devin-teal transition-colors text-sm"
+                  >
+                    {s.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -39,16 +52,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4">Legal</h3>
             <ul className="space-y-3">
-              {[
-                "Política de Privacidade",
-                "Termos de Serviço",
-                "RGPD Compliance",
-                "Cookies",
-              ].map((l) => (
-                <li key={l}>
-                  <a href="#" className="text-slate-400 hover:text-devin-teal transition-colors text-sm">
-                    {l}
-                  </a>
+              {legalLinks.map((l) => (
+                <li key={l.slug}>
+                  <Link
+                    to={`/legal/${l.slug}`}
+                    className="text-slate-400 hover:text-devin-teal transition-colors text-sm"
+                  >
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -64,25 +75,13 @@ const Footer = () => {
               geral@transparentreasons.com
             </a>
             <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all"
-                aria-label="LinkedIn"
-              >
+              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
                 <Linkedin size={18} />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all"
-                aria-label="GitHub"
-              >
+              <a href="#" aria-label="GitHub" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
                 <Github size={18} />
               </a>
-              <a
-                href="mailto:geral@transparentreasons.com"
-                className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all"
-                aria-label="Email"
-              >
+              <a href="mailto:geral@transparentreasons.com" aria-label="Email" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
                 <Mail size={18} />
               </a>
             </div>

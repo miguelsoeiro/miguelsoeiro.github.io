@@ -62,6 +62,18 @@ export default function RadialOrbitalTimeline({
     expandedItemsRef.current = expandedItems;
   }, [expandedItems]);
 
+  // Responsive scale: shrink the orbit to fit the viewport on mobile
+  const [scaleFactor, setScaleFactor] = useState(1);
+  useEffect(() => {
+    const computeScale = () => {
+      const available = Math.min(window.innerWidth * 0.95, window.innerHeight * 0.85);
+      setScaleFactor(Math.min(1, available / ORBIT_SIZE));
+    };
+    computeScale();
+    window.addEventListener("resize", computeScale, { passive: true });
+    return () => window.removeEventListener("resize", computeScale);
+  }, []);
+
   // RAF-based rotation: directly updates DOM transforms — zero React re-renders per frame
   useEffect(() => {
     if (!autoRotate) {
@@ -180,10 +192,17 @@ export default function RadialOrbitalTimeline({
       ref={containerRef}
       onClick={handleContainerClick}
     >
+      {/* Outer wrapper occupies the scaled size in layout so flex centering works */}
+      <div style={{ width: ORBIT_SIZE * scaleFactor, height: ORBIT_SIZE * scaleFactor, flexShrink: 0 }}>
       <div
         ref={orbitRef}
         className="relative"
-        style={{ width: `${ORBIT_SIZE}px`, height: `${ORBIT_SIZE}px` }}
+        style={{
+          width: `${ORBIT_SIZE}px`,
+          height: `${ORBIT_SIZE}px`,
+          transform: `scale(${scaleFactor})`,
+          transformOrigin: "top left",
+        }}
       >
         {/* Center hub */}
         <div
@@ -331,6 +350,7 @@ export default function RadialOrbitalTimeline({
             </div>
           );
         })}
+      </div>
       </div>
     </div>
   );

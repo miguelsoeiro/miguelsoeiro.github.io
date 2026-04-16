@@ -201,8 +201,10 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
       {/* Mobile menu — CSS max-height transition instead of AnimatePresence */}
       <div
         className={cn(
-          "sm:hidden flex flex-col items-center w-full mt-4 pt-4 border-t border-devin-border/30 overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+          "sm:hidden flex flex-col items-center w-full overflow-hidden transition-all duration-300 ease-in-out",
+          isOpen
+            ? "max-h-96 opacity-100 mt-4 pt-4 border-t border-devin-border/30"
+            : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
         <nav className="flex flex-col items-center gap-3 w-full">

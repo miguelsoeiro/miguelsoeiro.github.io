@@ -39,7 +39,7 @@ const Footer = () => {
                 <li key={s.slug}>
                   <Link
                     to={`/servicos/${s.slug}`}
-                    className="text-slate-400 hover:text-devin-teal transition-colors text-sm"
+                    className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer"
                   >
                     {s.label}
                   </Link>
@@ -56,7 +56,7 @@ const Footer = () => {
                 <li key={l.slug}>
                   <Link
                     to={`/legal/${l.slug}`}
-                    className="text-slate-400 hover:text-devin-teal transition-colors text-sm"
+                    className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer"
                   >
                     {l.label}
                   </Link>

@@ -167,7 +167,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right — Radial Orbital Timeline */}
-        <div className="relative flex justify-center lg:justify-end items-center h-screen overflow-hidden">
+        <div className="relative flex justify-center lg:justify-end items-center sm:h-screen h-auto overflow-hidden">
           <RadialOrbitalTimeline timelineData={steps[activeStepIndex].timelineData} />
         </div>
       </div>

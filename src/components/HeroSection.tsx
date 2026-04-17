@@ -376,7 +376,7 @@ const HeroSection = () => {
                     <IconComponent size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1 group-hover:text-devin-teal transition-colors">
+                    <h4 className="text-base font-semibold text-foreground mb-1 group-hover:text-devin-teal transition-colors">
                       {diff.title}
                     </h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">{diff.desc}</p>

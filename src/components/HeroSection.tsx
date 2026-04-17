@@ -169,7 +169,7 @@ const HeroSection = () => {
           </p>
 
           {/* Steps */}
-          <div className="space-y-1 relative" onMouseLeave={() => setActiveStepIndex(0)}>
+          <div className="space-y-1 relative">
             <div className="absolute left-4 top-6 bottom-6 w-px border-l border-dashed border-devin-border" />
             {steps.map((step, i) => (
               <div
@@ -177,7 +177,7 @@ const HeroSection = () => {
                 className={`relative flex items-center gap-4 px-4 py-3 rounded-xl transition-all cursor-pointer ${
                   i === activeStepIndex ? "bg-devin-surface border border-devin-border" : "opacity-60 hover:opacity-80"
                 }`}
-                onMouseEnter={() => setActiveStepIndex(i)}
+                onClick={() => setActiveStepIndex(i)}
               >
                 <div
                   className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${

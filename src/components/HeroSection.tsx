@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Workflow, Target, Settings, BookOpen, Cpu, Award } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import PartnersSection from "@/components/PartnersSection";
@@ -56,6 +57,7 @@ const steps = [
 
 const services = [
   {
+    slug: "consultoria-processos",
     icon: Layers,
     title: "Consultoria de Processos",
     description: "Avença mensal com acompanhamento contínuo, mapeamento de processos internos e relatório mensal de progresso.",
@@ -73,6 +75,7 @@ const services = [
     ],
   },
   {
+    slug: "tecnologia-ferramentas",
     icon: Settings,
     title: "Tecnologia & Ferramentas",
     description: "Revenda e implementação de Microsoft 365 e Atlassian, com suporte de 1.º nível e gestão de conta incluídos.",
@@ -89,6 +92,7 @@ const services = [
     ],
   },
   {
+    slug: "consultoria-ia",
     icon: Cpu,
     title: "Consultoria de IA",
     description: "Selecção da ferramenta de IA certa para cada necessidade, gestão de licenças enterprise e formação específica incluída.",
@@ -104,6 +108,7 @@ const services = [
     ],
   },
   {
+    slug: "formacao",
     icon: BookOpen,
     title: "Formação",
     description: "Sessões práticas presenciais ou remotas para equipas de até 12 participantes, com materiais e certificado incluídos.",
@@ -234,9 +239,10 @@ const HeroSection = () => {
             {services.map((service, idx) => {
               const IconComponent = service.icon;
               return (
-                <div
+                <Link
                   key={idx}
-                  className="group bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/40 transition-all hover:bg-devin-card/50"
+                  to={`/servicos/${service.slug}`}
+                  className="group bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/40 transition-all hover:bg-devin-card/50 block cursor-pointer"
                 >
                   <div className={`${service.color} mb-4 transition-transform group-hover:scale-110 inline-block`}>
                     <IconComponent size={32} />
@@ -274,7 +280,7 @@ const HeroSection = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Link>
               );
             })}
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import trLogo from "@/assets/TR_Pure_Transp.svg";
 
 interface ModernNavbarProps {
   className?: string;
@@ -93,12 +94,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
   }, [isOpen]);
 
   const logoElement = (
-    <div className="relative w-5 h-5 flex items-center justify-center">
-      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal top-0 left-1/2 -translate-x-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0s" }} />
-      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal left-0 top-1/2 -translate-y-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0.2s" }} />
-      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal right-0 top-1/2 -translate-y-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0.4s" }} />
-      <span className="absolute w-1.5 h-1.5 rounded-full bg-devin-teal bottom-0 left-1/2 -translate-x-1/2 opacity-80 animate-logo-dot" style={{ animationDelay: "0.6s" }} />
-    </div>
+    <img src={trLogo} alt="Transparent Reasons" className="h-8 w-8" />
   );
 
   const ctaButton = (
@@ -164,7 +160,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
       <div
         className={cn(
           "sm:hidden flex flex-col items-center w-full overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-96 opacity-100 mt-4 pt-4 border-t border-devin-border/30" : "max-h-0 opacity-0 pointer-events-none"
+          isOpen ? "max-h-96 opacity-100 mt-4 pt-4 border-t border-devin-border/30" : "max-h-0 opacity-0 mt-0 pointer-events-none"
         )}
       >
         <nav className="flex flex-col items-center gap-3 w-full">

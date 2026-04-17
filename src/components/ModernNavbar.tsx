@@ -94,7 +94,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
   }, [isOpen]);
 
   const logoElement = (
-    <img src={trLogo} alt="Transparent Reasons" className="h-8 w-8" />
+    <img src={trLogo} alt="Transparent Reasons" className="h-12 w-12" />
   );
 
   const ctaButton = (

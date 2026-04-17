@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <rect width="1000" height="1000" fill="none"/>
+  <polygon points="330.00,205.55 585.00,352.78 415.00,352.78" fill="#81D9F4" stroke="#81D9F4" stroke-width="1"/>
+  <polygon points="670.00,205.55 670.00,500.00 585.00,352.78" fill="#74D4F3" stroke="#74D4F3" stroke-width="1"/>
+  <polygon points="840.00,500.00 585.00,647.22 670.00,500.00" fill="#44BEE5" stroke="#44BEE5" stroke-width="1"/>
+  <polygon points="670.00,794.45 415.00,647.22 585.00,647.22" fill="#2AA3C6" stroke="#2AA3C6" stroke-width="1"/>
+  <polygon points="330.00,794.45 330.00,500.00 415.00,647.22" fill="#33ACD0" stroke="#33ACD0" stroke-width="1"/>
+  <polygon points="160.00,500.00 415.00,352.78 330.00,500.00" fill="#5ACCF1" stroke="#5ACCF1" stroke-width="1"/>
+  <polygon points="330.00,205.55 670.00,205.55 585.00,352.78" fill="#8EDDF5" stroke="#8EDDF5" stroke-width="1"/>
+  <polygon points="670.00,205.55 840.00,500.00 670.00,500.00" fill="#67D0F2" stroke="#67D0F2" stroke-width="1"/>
+  <polygon points="840.00,500.00 670.00,794.45 585.00,647.22" fill="#33ACD0" stroke="#33ACD0" stroke-width="1"/>
+  <polygon points="670.00,794.45 330.00,794.45 415.00,647.22" fill="#2199BC" stroke="#2199BC" stroke-width="1"/>
+  <polygon points="330.00,794.45 160.00,500.00 330.00,500.00" fill="#3BB5DB" stroke="#3BB5DB" stroke-width="1"/>
+  <polygon points="160.00,500.00 330.00,205.55 415.00,352.78" fill="#74D4F3" stroke="#74D4F3" stroke-width="1"/>
+</svg>

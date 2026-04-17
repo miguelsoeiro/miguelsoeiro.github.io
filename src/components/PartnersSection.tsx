@@ -75,7 +75,7 @@ const PartnersSection = () => {
       </div>
 
       {/* Sparkles decorative strip */}
-      <div className="relative mt-10 h-48 w-full overflow-hidden [mask-image:radial-gradient(55%_55%,white,transparent)]">
+      <div className="relative mt-6 h-20 w-full overflow-hidden [mask-image:radial-gradient(55%_55%,white,transparent)]">
         <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,hsl(186_100%_50%),transparent_70%)] before:opacity-15" />
         <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-devin-border/30 bg-devin-card/20" />
         <Sparkles

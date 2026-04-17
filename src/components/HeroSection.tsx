@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Workflow, Target, Settings, BookOpen, Cpu, Award } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import PartnersSection from "@/components/PartnersSection";
+import BlogSection from "@/components/BlogSection";
 
 const steps = [
   {
@@ -354,7 +355,7 @@ const HeroSection = () => {
         </div>
 
         {/* ── Porquê nós ── */}
-        <div className="mt-20 pt-20 border-t border-devin-border">
+        <div id="porque" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Porquê a <span className="text-teal">Transparent Reasons?</span>
@@ -385,6 +386,9 @@ const HeroSection = () => {
             })}
           </div>
         </div>
+
+        {/* ── Blog ── */}
+        <BlogSection />
 
         {/* ── Parceiros ── */}
         <PartnersSection />

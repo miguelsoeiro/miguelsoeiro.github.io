@@ -48,7 +48,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
     { label: "Home", href: isHome ? "#home" : "/" },
     { label: "Serviços", href: link("#servicos") },
     { label: "Metodologia", href: link("#metodologia") },
-    { label: "Contactos", href: link("#contactos") },
+    { label: "Porquê Nós", href: link("#porque") },
   ];
 
   // Scroll tracking — only active on homepage
@@ -63,7 +63,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
           { name: "Home", id: "home" },
           { name: "Serviços", id: "servicos" },
           { name: "Metodologia", id: "metodologia" },
-          { name: "Contactos", id: "contactos" },
+          { name: "Porquê Nós", id: "porque" },
         ];
         for (let i = sections.length - 1; i >= 0; i--) {
           const el = document.getElementById(sections[i].id);
@@ -105,7 +105,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
     <div className="relative group w-full sm:w-auto">
       <div className="absolute inset-0 -m-2 rounded-full hidden sm:block bg-devin-teal opacity-30 filter blur-lg pointer-events-none transition-all duration-300 ease-out group-hover:opacity-50 group-hover:blur-xl group-hover:-m-3" />
       <a
-        href="mailto:geral@transparentreasons.com"
+        href={link("#contactos")}
         className="relative z-10 block px-4 py-2 sm:px-3 text-xs sm:text-sm font-semibold text-background bg-devin-teal rounded-full hover:bg-devin-teal/90 transition-all duration-200 hover:scale-105 active:scale-95 text-center"
       >
         Contacte-nos

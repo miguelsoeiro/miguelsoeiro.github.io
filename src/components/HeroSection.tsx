@@ -4,6 +4,7 @@ import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Workflow, Ta
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import PartnersSection from "@/components/PartnersSection";
 import BlogSection from "@/components/BlogSection";
+import CasesSection from "@/components/CasesSection";
 
 const steps = [
   {
@@ -386,6 +387,9 @@ const HeroSection = () => {
             })}
           </div>
         </div>
+
+        {/* ── Casos de Estudo ── */}
+        <CasesSection />
 
         {/* ── Blog ── */}
         <BlogSection />

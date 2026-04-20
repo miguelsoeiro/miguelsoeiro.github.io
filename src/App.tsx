@@ -9,6 +9,9 @@ import LegalPage from "./pages/LegalPage";
 import PublicacoesPage from "./pages/PublicacoesPage";
 import ArticlePage from "./pages/ArticlePage";
 import ProdutosPage from "./pages/ProdutosPage";
+import ProdutosDetailPage from "./pages/ProdutosDetailPage";
+import ServicosListPage from "./pages/ServicosListPage";
+import ArtigosPage from "./pages/ArtigosPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -25,9 +28,12 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/servicos/:slug" element={<ServicosPage />} />
           <Route path="/legal/:slug" element={<LegalPage />} />
+          <Route path="/servicos" element={<ServicosListPage />} />
           <Route path="/publicacoes" element={<PublicacoesPage />} />
           <Route path="/publicacoes/:slug" element={<ArticlePage />} />
           <Route path="/produtos" element={<ProdutosPage />} />
+          <Route path="/produtos/:slug" element={<ProdutosDetailPage />} />
+          <Route path="/artigos" element={<ArtigosPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

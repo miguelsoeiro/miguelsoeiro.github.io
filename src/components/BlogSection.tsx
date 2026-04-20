@@ -67,10 +67,10 @@ const BlogSection = () => {
 
       <div className="mt-10 flex justify-end">
         <Link
-          to="/publicacoes"
+          to="/artigos"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors"
         >
-          Ver mais publicações
+          Ver mais artigos
           <ArrowRight size={14} />
         </Link>
       </div>

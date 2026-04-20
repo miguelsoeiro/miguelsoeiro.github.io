@@ -1,5 +1,5 @@
-import { useParams, Navigate } from "react-router-dom";
-import { Layers, Settings, Cpu, BookOpen, CheckCircle, ArrowLeft } from "lucide-react";
+import { useParams, Navigate, Link } from "react-router-dom";
+import { Layers, BookOpen, CheckCircle, ArrowLeft, Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 
 const serviceData = {
@@ -40,79 +40,6 @@ const serviceData = {
       },
     ],
     notes: ["Horas adicionais: 80 €/hora", "Prazo mínimo de compromisso: 3 meses"],
-  },
-  "tecnologia-ferramentas": {
-    icon: Settings,
-    color: "text-cyan-400",
-    badge: "Subscrição Mensal ou Anual",
-    title: "Tecnologia & Ferramentas",
-    subtitle: "Revenda e implementação de Microsoft 365 e Atlassian, com suporte de 1.º nível e gestão de conta incluídos.",
-    description:
-      "Adquirir licenças é a parte fácil. O desafio está em implementar bem, integrar com os processos existentes e garantir que a equipa realmente adopta as ferramentas. A Transparent Reasons trata de tudo — da escolha do plano à configuração, passando pelo suporte contínuo.",
-    includes: [
-      "Análise das necessidades antes de qualquer recomendação",
-      "Gestão completa de licenças, acessos e renovações",
-      "Configuração e implementação das ferramentas",
-      "Suporte de 1.º nível para utilizadores finais",
-      "Formação inicial da equipa incluída",
-      "Automação e integração entre ferramentas",
-    ],
-    packs: [
-      {
-        name: "Microsoft 365 Business Basic",
-        hours: "Email, Teams, SharePoint (1 TB), OneDrive",
-        price: "Preço por utilizador",
-        ideal: "Para equipas que precisam de colaboração e email na cloud",
-      },
-      {
-        name: "Microsoft 365 Business Standard",
-        hours: "Inclui apps Office desktop + tudo do Basic",
-        price: "Preço por utilizador",
-        ideal: "Para quem também precisa do Word, Excel e PowerPoint instalados",
-      },
-      {
-        name: "Microsoft 365 Business Premium",
-        hours: "Segurança avançada (Intune, Defender) + tudo do Standard",
-        price: "Preço por utilizador",
-        ideal: "Para empresas com requisitos de segurança mais exigentes",
-      },
-      {
-        name: "Atlassian (Jira / Confluence / JSM)",
-        hours: "Gestão de projectos, documentação interna, service desk",
-        price: "Preço por utilizador",
-        ideal: "Para equipas que gerem projectos e processos de forma estruturada",
-      },
-    ],
-    notes: ["Desconto de 10% em plano anual", "Preços finais dependem do número de utilizadores — contacte-nos para proposta"],
-  },
-  "consultoria-ia": {
-    icon: Cpu,
-    color: "text-teal-400",
-    badge: "Avença + Subscrição Gerida",
-    title: "Consultoria de IA",
-    subtitle: "Selecção da ferramenta de IA certa para cada necessidade, gestão de licenças enterprise e formação específica incluída.",
-    description:
-      "O mercado de ferramentas de IA é enorme e cresce todos os meses. Escolher mal custa dinheiro e tempo. A Transparent Reasons avalia as necessidades reais da sua equipa, recomenda as ferramentas certas, gere as licenças enterprise e garante que a adopção é bem feita — com formação específica incluída.",
-    includes: [
-      "Avaliação das necessidades e recomendação das ferramentas mais adequadas",
-      "Gestão de contas enterprise: licenças, acessos, facturação e custos",
-      "Monitorização do uso e optimização de custos mensais",
-      "Formação prática para a equipa em cada ferramenta adoptada",
-      "Acompanhamento de novas funcionalidades e actualizações relevantes",
-      "Relatório mensal de utilização e retorno gerado",
-    ],
-    packs: [
-      {
-        name: "Fee de gestão",
-        hours: "Claude, ChatGPT, Gemini, GitHub Copilot, Devin, NotebookLM, Grok, Perplexity…",
-        price: "150 €/mês",
-        ideal: "Gestão completa de uma ou mais ferramentas de IA enterprise",
-      },
-    ],
-    notes: [
-      "Desconto de 10% em plano anual",
-      "O custo das licenças das ferramentas é facturado ao custo real — sem markup",
-    ],
   },
   formacao: {
     icon: BookOpen,
@@ -159,11 +86,18 @@ const serviceData = {
 
 type ServiceSlug = keyof typeof serviceData;
 
+const redirectedSlugs: Record<string, string> = {
+  "tecnologia-ferramentas": "/produtos/tecnologia-ferramentas",
+  "consultoria-ia": "/produtos/consultoria-ia",
+};
+
 const ServicosPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const service = serviceData[slug as ServiceSlug];
 
-  if (!service) return <Navigate to="/" replace />;
+  if (slug && redirectedSlugs[slug]) return <Navigate to={redirectedSlugs[slug]} replace />;
+
+  const service = serviceData[slug as ServiceSlug];
+  if (!service) return <Navigate to="/servicos" replace />;
 
   const Icon = service.icon;
 
@@ -173,9 +107,9 @@ const ServicosPage = () => {
 
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
-          <a href="/" className="hover:text-devin-teal transition-colors">Home</a>
+          <Link to="/" className="hover:text-foreground transition-colors flex items-center gap-1"><Home size={14} />Home</Link>
           <span>/</span>
-          <a href="/#servicos" className="hover:text-devin-teal transition-colors">Serviços</a>
+          <Link to="/servicos" className="hover:text-foreground transition-colors">Serviços</Link>
           <span>/</span>
           <span className="text-foreground">{service.title}</span>
         </div>
@@ -269,10 +203,10 @@ const ServicosPage = () => {
 
         {/* Back link */}
         <div className="mt-10">
-          <a href="/#servicos" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors">
+          <Link to="/servicos" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors">
             <ArrowLeft size={14} />
             Ver todos os serviços
-          </a>
+          </Link>
         </div>
 
       </div>

@@ -57,7 +57,7 @@ const steps = [
   },
 ];
 
-const services = [
+const servicoCards = [
   {
     slug: "consultoria-processos",
     icon: Layers,
@@ -76,6 +76,27 @@ const services = [
       "Relatório mensal de progresso",
     ],
   },
+  {
+    slug: "formacao",
+    icon: BookOpen,
+    title: "Formação",
+    description: "Sessões práticas presenciais ou remotas para equipas de até 12 participantes, com materiais e certificado incluídos.",
+    color: "text-emerald-400",
+    packs: [
+      { name: "Sessão 3h", detail: "Até 12 participantes", price: "450 €" },
+      { name: "Sessão 6h", detail: "Até 12 participantes", price: "800 €" },
+      { name: "Pack 5 Sessões", detail: "Desconto ~12%", price: "3.500 €" },
+    ],
+    note: "Inclui materiais e certificado de participação",
+    includes: [
+      "Microsoft 365, Atlassian, IA, Metodologias ágeis",
+      "Formato presencial ou remoto",
+      "Certificado de participação",
+    ],
+  },
+];
+
+const produtoCards = [
   {
     slug: "tecnologia-ferramentas",
     icon: Settings,
@@ -107,24 +128,6 @@ const services = [
       "Selecção da ferramenta adequada ao negócio",
       "Gestão de contas e licenças enterprise",
       "Formação específica em cada ferramenta",
-    ],
-  },
-  {
-    slug: "formacao",
-    icon: BookOpen,
-    title: "Formação",
-    description: "Sessões práticas presenciais ou remotas para equipas de até 12 participantes, com materiais e certificado incluídos.",
-    color: "text-emerald-400",
-    packs: [
-      { name: "Sessão 3h", detail: "Até 12 participantes", price: "450 €" },
-      { name: "Sessão 6h", detail: "Até 12 participantes", price: "800 €" },
-      { name: "Pack 5 Sessões", detail: "Desconto ~12%", price: "3.500 €" },
-    ],
-    note: "Inclui materiais e certificado de participação",
-    includes: [
-      "Microsoft 365, Atlassian, IA, Metodologias ágeis",
-      "Formato presencial ou remoto",
-      "Certificado de participação",
     ],
   },
 ];
@@ -226,70 +229,8 @@ const HeroSection = () => {
 
       <div className="container max-w-7xl mx-auto px-6 pb-12">
 
-        {/* ── Serviços ── */}
-        <div id="servicos" className="mt-8 pt-16 border-t border-devin-border scroll-mt-24">
-          <div className="mb-16 space-y-4">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-              Os nossos <span className="text-teal">Serviços</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              Quatro pilares complementares para optimizar processos, adoptar tecnologia e capacitar equipas.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service, idx) => {
-              const IconComponent = service.icon;
-              return (
-                <Link
-                  key={idx}
-                  to={`/servicos/${service.slug}`}
-                  className="group bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/40 transition-all hover:bg-devin-card/50 block cursor-pointer"
-                >
-                  <div className={`${service.color} mb-4 transition-transform group-hover:scale-110 inline-block`}>
-                    <IconComponent size={32} />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-devin-teal transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Pricing */}
-                  <div className="space-y-2 mb-4">
-                    {service.packs.map((pack, pIdx) => (
-                      <div
-                        key={pIdx}
-                        className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-devin-card border border-devin-border"
-                      >
-                        <div className="min-w-0 mr-4">
-                          <span className="text-sm font-semibold text-foreground">{pack.name}</span>
-                          <span className="text-xs text-muted-foreground ml-2 hidden sm:inline">· {pack.detail}</span>
-                        </div>
-                        <span className="text-sm font-bold text-devin-teal whitespace-nowrap">{pack.price}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <p className="text-xs text-muted-foreground mb-5 italic">{service.note}</p>
-
-                  <ul className="space-y-2">
-                    {service.includes.map((item, iIdx) => (
-                      <li key={iIdx} className="flex items-start gap-2 text-xs text-muted-foreground">
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mt-1.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
         {/* ── Metodologia ── */}
-        <div id="metodologia" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
+        <div id="metodologia" className="mt-8 pt-16 border-t border-devin-border scroll-mt-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               A nossa <span className="text-teal">Metodologia</span>
@@ -383,6 +324,110 @@ const HeroSection = () => {
                     <p className="text-sm text-muted-foreground leading-relaxed">{diff.desc}</p>
                   </div>
                 </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Serviços ── */}
+        <div id="servicos" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
+          <div className="mb-16 space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+              Os nossos <span className="text-teal">Serviços</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Consultoria de processos e formação para equipas e organizações.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {servicoCards.map((service, idx) => {
+              const IconComponent = service.icon;
+              return (
+                <Link
+                  key={idx}
+                  to={`/servicos/${service.slug}`}
+                  className="group bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/40 transition-all hover:bg-devin-card/50 block cursor-pointer"
+                >
+                  <div className={`${service.color} mb-4 transition-transform group-hover:scale-110 inline-block`}>
+                    <IconComponent size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-devin-teal transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
+                  <div className="space-y-2 mb-4">
+                    {service.packs.map((pack, pIdx) => (
+                      <div key={pIdx} className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-devin-card border border-devin-border">
+                        <div className="min-w-0 mr-4">
+                          <span className="text-sm font-semibold text-foreground">{pack.name}</span>
+                          <span className="text-xs text-muted-foreground ml-2 hidden sm:inline">· {pack.detail}</span>
+                        </div>
+                        <span className="text-sm font-bold text-devin-teal whitespace-nowrap">{pack.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-5 italic">{service.note}</p>
+                  <ul className="space-y-2">
+                    {service.includes.map((item, iIdx) => (
+                      <li key={iIdx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mt-1.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Produtos ── */}
+        <div id="produtos-secao" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
+          <div className="mb-16 space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+              Os nossos <span className="text-teal">Produtos</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Tecnologia e inteligência artificial, seleccionada e gerida por nós.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {produtoCards.map((service, idx) => {
+              const IconComponent = service.icon;
+              return (
+                <Link
+                  key={idx}
+                  to={`/produtos/${service.slug}`}
+                  className="group bg-devin-surface/50 border border-devin-border rounded-2xl p-8 hover:border-devin-teal/40 transition-all hover:bg-devin-card/50 block cursor-pointer"
+                >
+                  <div className={`${service.color} mb-4 transition-transform group-hover:scale-110 inline-block`}>
+                    <IconComponent size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-devin-teal transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
+                  <div className="space-y-2 mb-4">
+                    {service.packs.map((pack, pIdx) => (
+                      <div key={pIdx} className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-devin-card border border-devin-border">
+                        <div className="min-w-0 mr-4">
+                          <span className="text-sm font-semibold text-foreground">{pack.name}</span>
+                          <span className="text-xs text-muted-foreground ml-2 hidden sm:inline">· {pack.detail}</span>
+                        </div>
+                        <span className="text-sm font-bold text-devin-teal whitespace-nowrap">{pack.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-5 italic">{service.note}</p>
+                  <ul className="space-y-2">
+                    {service.includes.map((item, iIdx) => (
+                      <li key={iIdx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mt-1.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Link>
               );
             })}
           </div>

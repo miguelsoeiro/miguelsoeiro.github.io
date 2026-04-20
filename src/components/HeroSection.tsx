@@ -231,7 +231,11 @@ const HeroSection = () => {
 
         {/* ── Metodologia ── */}
         <div id="metodologia" className="mt-8 pt-16 border-t border-devin-border scroll-mt-24">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+              <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">Metodologia</span>
+            </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               A nossa <span className="text-teal">Metodologia</span>
             </h2>
@@ -298,7 +302,11 @@ const HeroSection = () => {
 
         {/* ── Porquê nós ── */}
         <div id="porque" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+              <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">Porquê Nós</span>
+            </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Porquê a <span className="text-teal">Transparent Reasons?</span>
             </h2>
@@ -331,11 +339,15 @@ const HeroSection = () => {
 
         {/* ── Serviços ── */}
         <div id="servicos" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
-          <div className="mb-16 space-y-4">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+              <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">Serviços</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Os nossos <span className="text-teal">Serviços</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Consultoria de processos e formação para equipas e organizações.
             </p>
           </div>
@@ -391,11 +403,15 @@ const HeroSection = () => {
 
         {/* ── Produtos ── */}
         <div id="produtos-secao" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
-          <div className="mb-16 space-y-4">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+              <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">Produtos</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Os nossos <span className="text-teal">Produtos</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Tecnologia e inteligência artificial, seleccionada e gerida por nós.
             </p>
           </div>

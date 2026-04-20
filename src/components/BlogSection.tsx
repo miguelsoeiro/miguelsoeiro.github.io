@@ -46,13 +46,16 @@ const BlogSection = () => {
   return (
     <div className="mt-20 pt-20 border-t border-devin-border">
       {/* Section Header */}
-      <div className="mb-16 space-y-4">
-        <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+      <div className="text-center mb-14">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm mb-5">
+          <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+          <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">Insights & Tendências</span>
+        </div>
+        <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
           Insights & <span className="text-teal">Tendências</span>
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl">
-          Acompanhe nossas análises sobre IA, transformação digital e inovação em
-          tecnologia.
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Acompanhe nossas análises sobre IA, transformação digital e inovação em tecnologia.
         </p>
       </div>
 

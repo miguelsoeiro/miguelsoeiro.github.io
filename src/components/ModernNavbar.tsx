@@ -47,10 +47,10 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
 
   const navLinksData = [
     { label: "Home", href: isHome ? "#home" : "/" },
-    { label: "Produtos", href: "/produtos" },
-    { label: "Serviços", href: link("#servicos") },
     { label: "Metodologia", href: link("#metodologia") },
     { label: "Porquê Nós", href: link("#porque") },
+    { label: "Serviços", href: link("#servicos") },
+    { label: "Produtos", href: link("#produtos-secao") },
   ];
 
   // Scroll tracking — only active on homepage
@@ -63,9 +63,10 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
       scrollTimeout = setTimeout(() => {
         const sections = [
           { name: "Home", id: "home" },
-          { name: "Serviços", id: "servicos" },
           { name: "Metodologia", id: "metodologia" },
           { name: "Porquê Nós", id: "porque" },
+          { name: "Serviços", id: "servicos" },
+          { name: "Produtos", id: "produtos-secao" },
         ];
         for (let i = sections.length - 1; i >= 0; i--) {
           const el = document.getElementById(sections[i].id);

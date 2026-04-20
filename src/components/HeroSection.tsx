@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Workflow, Target, Settings, BookOpen, Cpu, Award } from "lucide-react";
+import { CheckCircle, Search, Layers, Users, Zap, TrendingUp, Code, Workflow, Target, Settings, BookOpen, Cpu, Award, ArrowRight } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import PartnersSection from "@/components/PartnersSection";
 import BlogSection from "@/components/BlogSection";
@@ -375,9 +375,17 @@ const HeroSection = () => {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-5 flex items-center gap-1.5 text-xs font-medium text-devin-teal group-hover:text-devin-teal/80 transition-colors">
+                    Ver detalhe <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
                 </Link>
               );
             })}
+          </div>
+          <div className="mt-8 flex justify-end">
+            <Link to="/servicos" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors">
+              Ver todos os serviços <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
 
@@ -427,9 +435,17 @@ const HeroSection = () => {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-5 flex items-center gap-1.5 text-xs font-medium text-devin-teal group-hover:text-devin-teal/80 transition-colors">
+                    Ver detalhe <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
                 </Link>
               );
             })}
+          </div>
+          <div className="mt-8 flex justify-end">
+            <Link to="/produtos" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors">
+              Ver todos os produtos <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
 

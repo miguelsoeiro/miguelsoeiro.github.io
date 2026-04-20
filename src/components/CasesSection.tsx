@@ -13,7 +13,7 @@ const cases = [
   },
   {
     id: "farmacias-mais-saude",
-    company: "Farmácias Mais Saúde",
+    company: "Farmácia Eduardo A. César",
     sector: "Retalho Farmacêutico",
     location: "Funchal, Madeira",
     period: "2022 – 2023",

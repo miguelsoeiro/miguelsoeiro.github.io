@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ServicosPage from "./pages/ServicosPage";
 import LegalPage from "./pages/LegalPage";
+import PublicacoesPage from "./pages/PublicacoesPage";
+import ArticlePage from "./pages/ArticlePage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/servicos/:slug" element={<ServicosPage />} />
           <Route path="/legal/:slug" element={<LegalPage />} />
+          <Route path="/publicacoes" element={<PublicacoesPage />} />
+          <Route path="/publicacoes/:slug" element={<ArticlePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

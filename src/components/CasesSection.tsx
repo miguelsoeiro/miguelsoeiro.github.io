@@ -1,38 +1,44 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+
 const cases = [
   {
     id: "nivelfarma",
+    slug: "nivelfarma",
     company: "Nivelfarma",
     sector: "Distribuição Farmacêutica",
     location: "Sintra, Lisboa",
     period: "2021 – 2023",
     initials: "NF",
     description:
-      "Desenvolvimento de 22 aplicações de raiz — plataformas web, aplicações iOS e Android, e um sistema de controlo de robótica farmacêutica. A Nivelfarma não dispunha de sistemas prévios: construímos toda a infraestrutura digital e operacional a partir do zero.",
-    tags: ["Web", "iOS", "Android", "Robótica", "Backend", "Cloud"],
+      "22 aplicações construídas de raiz — plataformas web, iOS, Android e sistema de controlo de robótica farmacêutica. Sem sistemas prévios: construímos todo o ecossistema digital a partir do zero.",
+    tags: ["Web", "iOS", "Android", "Robótica", "Saúde", "Gestão Clínica"],
     testimonial: "[Testemunho do cliente a adicionar]",
   },
   {
     id: "farmacias-mais-saude",
+    slug: "farmacias-mais-saude",
     company: "Farmácia Eduardo A. César",
     sector: "Retalho Farmacêutico",
     location: "Funchal, Madeira",
     period: "2022 – 2023",
-    initials: "FMS",
+    initials: "FEC",
     description:
-      "Plataforma de gestão de clientes e fidelização construída de raiz: base de dados centralizada com histórico individual por cliente, sistema de pontos e benefícios. A solução substituiu processos manuais e permitiu à rede conhecer e reter melhor os seus clientes.",
-    tags: ["Web", "CRM", "Base de Dados", "Fidelização", "Backend"],
+      "Plataforma de gestão de clientes e fidelização de raiz: base de dados centralizada, histórico individual, sistema de pontos e benefícios. Substituiu processos manuais e dispersos.",
+    tags: ["Web", "CRM", "Fidelização", "Retalho", "Saúde"],
     testimonial: "[Testemunho do cliente a adicionar]",
   },
   {
     id: "immersive-lives",
+    slug: "immersive-lives",
     company: "Immersive Lives",
     sector: "MedTech / Realidade Virtual",
     location: "Óbidos, Portugal",
     period: "2023 – 2024",
     initials: "IL",
     description:
-      "Sistema de realidade virtual para reabilitação de pacientes com perturbações neurocognitivas. Interface dual — uma para o paciente, outra para o terapeuta — com componentes de inteligência artificial integrados para personalização das sessões e análise de progresso.",
-    tags: ["Realidade Virtual", "IA", "MedTech", "Interface Dual", "UX"],
+      "Sistema de realidade virtual para reabilitação de pacientes com perturbações neurocognitivas. Interface dual (paciente + terapeuta) com IA integrada para personalização clínica.",
+    tags: ["Realidade Virtual", "IA", "MedTech", "Saúde", "UX Clínico"],
     testimonial: "[Testemunho do cliente a adicionar]",
   },
 ];
@@ -109,7 +115,7 @@ const CasesSection = () => {
             </div>
 
             {/* Tags */}
-            <div className="px-6 pb-5">
+            <div className="px-6 pb-4">
               <div className="flex flex-wrap gap-2">
                 {c.tags.map((tag) => (
                   <span
@@ -121,6 +127,15 @@ const CasesSection = () => {
                 ))}
               </div>
             </div>
+
+            {/* Link to article */}
+            <Link
+              to={`/publicacoes/${c.slug}`}
+              className="mx-6 mb-4 flex items-center gap-1.5 text-xs font-medium text-devin-teal hover:text-devin-teal/80 transition-colors group/link"
+            >
+              Ver caso completo
+              <ArrowRight size={12} className="group-hover/link:translate-x-0.5 transition-transform" />
+            </Link>
 
             {/* Testimonial placeholder */}
             <div className="mx-6 mb-6 px-4 py-3 rounded-xl bg-devin-surface/60 border border-devin-border/50">

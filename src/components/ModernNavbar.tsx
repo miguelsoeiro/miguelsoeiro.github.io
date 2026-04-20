@@ -47,6 +47,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
 
   const navLinksData = [
     { label: "Home", href: isHome ? "#home" : "/" },
+    { label: "Produtos", href: "/produtos" },
     { label: "Serviços", href: link("#servicos") },
     { label: "Metodologia", href: link("#metodologia") },
     { label: "Porquê Nós", href: link("#porque") },

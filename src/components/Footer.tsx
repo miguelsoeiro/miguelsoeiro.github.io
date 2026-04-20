@@ -35,6 +35,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4">Serviços</h3>
             <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/produtos"
+                  className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer"
+                >
+                  Produtos & Ferramentas
+                </Link>
+              </li>
               {serviceLinks.map((s) => (
                 <li key={s.slug}>
                   <Link

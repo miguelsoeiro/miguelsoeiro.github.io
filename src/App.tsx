@@ -8,6 +8,7 @@ import ServicosPage from "./pages/ServicosPage";
 import LegalPage from "./pages/LegalPage";
 import PublicacoesPage from "./pages/PublicacoesPage";
 import ArticlePage from "./pages/ArticlePage";
+import ProdutosPage from "./pages/ProdutosPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/legal/:slug" element={<LegalPage />} />
           <Route path="/publicacoes" element={<PublicacoesPage />} />
           <Route path="/publicacoes/:slug" element={<ArticlePage />} />
+          <Route path="/produtos" element={<ProdutosPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

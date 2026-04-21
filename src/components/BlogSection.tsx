@@ -23,16 +23,9 @@ const BlogSection = () => {
       {/* Blog Cards Grid - Responsive: 1 col mobile, 2 md, 3 lg */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {articles.map((article) => (
-          <div key={article.slug} className="flex flex-col justify-center gap-3">
+          <div key={article.slug} className="flex justify-center">
             <Link to={`/artigos/${article.slug}`} className="block" aria-label={`Ler artigo: ${article.headline}`}>
               <ArticleCard {...article} />
-            </Link>
-            <Link
-              to={`/artigos/${article.slug}`}
-              className="inline-flex items-center gap-2 text-sm text-devin-teal hover:text-devin-teal/80 transition-colors px-1"
-            >
-              Ler artigo
-              <ArrowRight size={14} />
             </Link>
           </div>
         ))}

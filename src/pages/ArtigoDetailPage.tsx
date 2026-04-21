@@ -74,6 +74,12 @@ const ArtigoDetailPage = () => {
               </section>
             ))}
           </div>
+
+          <div className="rounded-2xl border border-devin-border bg-devin-surface/30 p-5 mb-12">
+            <p className="text-sm text-muted-foreground">
+              Nota: Todos os artigos foram gerados 100% com Inteligência Artificial.
+            </p>
+          </div>
         </article>
 
         <Link

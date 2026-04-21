@@ -16,11 +16,10 @@ export const articles: Article[] = [
     headline: "Transformação Digital com IA: Primeiros Passos",
     excerpt:
       "Como implementar soluções de IA para otimizar processos empresariais e acelerar a transformação digital da sua organização.",
-    cover:
-      "https://images.unsplash.com/photo-1677442d019cecf8f6e1c29b2c225b8d544d15b1?w=800&h=600&fit=crop",
+    cover: "/images/articles/transformacao-digital-com-ia-primeiros-passos.png",
     tag: "IA & Automação",
     readingTime: 420,
-    writer: "Transparent Reasons",
+    writer: "Miguel Pires Soeiro",
     publishedAt: new Date("2026-04-10"),
     clampLines: 3,
     sections: [
@@ -80,11 +79,10 @@ export const articles: Article[] = [
     headline: "Agentes IA: O Futuro da Produtividade Software",
     excerpt:
       "Explore como agentes autónomos estão a redefinir workflows de desenvolvimento, suporte ao cliente e processos empresariais.",
-    cover:
-      "https://images.unsplash.com/photo-1677442d019cecf8f6e1c29b2c225b8d544d15b1?w=800&h=600&fit=crop&q=80",
+    cover: "/images/articles/agentes-ia-o-futuro-da-produtividade-software.png",
     tag: "Tecnologia",
     readingTime: 480,
-    writer: "Transparent Reasons",
+    writer: "Miguel Pires Soeiro",
     publishedAt: new Date("2026-04-08"),
     clampLines: 3,
     sections: [
@@ -147,11 +145,10 @@ export const articles: Article[] = [
     headline: "Segurança em Primeira Linha: Compliance com IA",
     excerpt:
       "Implemente práticas de segurança robustas e conformidade regulatória usando tecnologias emergentes e automação inteligente.",
-    cover:
-      "https://images.unsplash.com/photo-1677442d019cecf8f6e1c29b2c225b8d544d15b1?w=800&h=600&fit=crop&q=60",
+    cover: "/images/articles/seguranca-em-primeira-linha-compliance-com-ia.png",
     tag: "Segurança",
     readingTime: 540,
-    writer: "Transparent Reasons",
+    writer: "Miguel Pires Soeiro",
     publishedAt: new Date("2026-04-05"),
     clampLines: 3,
     sections: [

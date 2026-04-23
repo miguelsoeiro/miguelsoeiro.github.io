@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Sparkles } from "@/components/ui/sparkles";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
@@ -17,21 +18,22 @@ import devinLogo from "@/assets/logos/devin.svg";
 import grokLogo from "@/assets/logos/grok.svg";
 import perplexityLogo from "@/assets/logos/perplexity.svg";
 
+// wordmark: true → wider logo (company logotype), false → square icon (app)
 const partners = [
-  { id: "microsoft", src: microsoftLogo, alt: "Microsoft", className: "h-10 w-auto" },
-  { id: "github", src: githubLogo, alt: "GitHub", className: "h-10 w-auto" },
-  { id: "github-copilot", src: githubCopilotLogo, alt: "GitHub Copilot", className: "h-10 w-auto" },
-  { id: "google", src: googleLogo, alt: "Google", className: "h-10 w-auto" },
-  { id: "gemini", src: geminiLogo, alt: "Gemini", className: "h-10 w-auto" },
-  { id: "notebooklm", src: notebookLmLogo, alt: "NotebookLM", className: "h-10 w-auto" },
-  { id: "atlassian", src: atlassianLogo, alt: "Atlassian", className: "h-10 w-auto" },
-  { id: "jira", src: jiraLogo, alt: "Jira", className: "h-10 w-auto" },
-  { id: "confluence", src: confluenceLogo, alt: "Confluence", className: "h-10 w-auto" },
-  { id: "claude", src: claudeLogo, alt: "Claude", className: "h-10 w-auto" },
-  { id: "chatgpt", src: chatGptLogo, alt: "ChatGPT", className: "h-10 w-auto" },
-  { id: "devin", src: devinLogo, alt: "Devin", className: "h-10 w-auto" },
-  { id: "grok", src: grokLogo, alt: "Grok", className: "h-10 w-auto" },
-  { id: "perplexity", src: perplexityLogo, alt: "Perplexity", className: "h-10 w-auto" },
+  { id: "microsoft",      src: microsoftLogo,    alt: "Microsoft",      wordmark: true  },
+  { id: "github",         src: githubLogo,        alt: "GitHub",         wordmark: false },
+  { id: "github-copilot", src: githubCopilotLogo, alt: "GitHub Copilot", wordmark: false },
+  { id: "google",         src: googleLogo,        alt: "Google",         wordmark: false },
+  { id: "gemini",         src: geminiLogo,        alt: "Gemini",         wordmark: false },
+  { id: "notebooklm",    src: notebookLmLogo,    alt: "NotebookLM",     wordmark: false },
+  { id: "atlassian",      src: atlassianLogo,     alt: "Atlassian",      wordmark: false },
+  { id: "jira",           src: jiraLogo,          alt: "Jira",           wordmark: false },
+  { id: "confluence",     src: confluenceLogo,    alt: "Confluence",     wordmark: false },
+  { id: "claude",         src: claudeLogo,        alt: "Claude",         wordmark: false },
+  { id: "chatgpt",        src: chatGptLogo,       alt: "ChatGPT",        wordmark: false },
+  { id: "devin",          src: devinLogo,         alt: "Devin",          wordmark: false },
+  { id: "grok",           src: grokLogo,          alt: "Grok",           wordmark: false },
+  { id: "perplexity",     src: perplexityLogo,    alt: "Perplexity",     wordmark: false },
 ];
 
 const PartnersSection = () => {
@@ -60,17 +62,25 @@ const PartnersSection = () => {
       <div className="relative h-16 w-[100vw] left-1/2 -translate-x-1/2 mt-8 mb-6 overflow-hidden">
         <InfiniteSlider
           className="flex h-full w-full items-center"
-          duration={30}
-          gap={56}
+          duration={35}
+          gap={64}
         >
-          {partners.map(({ id, src, alt, className }) => (
-            <img
+          {partners.map(({ id, src, alt, wordmark }) => (
+            <Link
               key={id}
-              src={src}
-              alt={alt}
-              className={`${className} opacity-50 hover:opacity-80 transition-opacity duration-300 grayscale brightness-200`}
-              draggable={false}
-            />
+              to="/produtos"
+              title={alt}
+              className="flex items-center justify-center flex-shrink-0 group/logo"
+            >
+              <img
+                src={src}
+                alt={alt}
+                className={`object-contain brightness-0 invert opacity-35 group-hover/logo:opacity-80 transition-opacity duration-300 ${
+                  wordmark ? "h-7 w-auto max-w-[96px]" : "h-9 w-9"
+                }`}
+                draggable={false}
+              />
+            </Link>
           ))}
         </InfiniteSlider>
 

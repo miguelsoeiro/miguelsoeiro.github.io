@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 64" role="img" aria-label="Devin">
-  <rect width="180" height="64" rx="12" fill="none"/>
-  <text x="90" y="41" text-anchor="middle" fill="currentColor" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="0.5">Devin</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" role="img"><title>Devin</title><path d="M6 4h6.5C16.6 4 20 7.4 20 12s-3.4 8-7.5 8H6V4zm3 3v10h3.5c2.5 0 4.5-2.2 4.5-5s-2-5-4.5-5H9z"/></svg>

@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <footer className="bg-slate-950 border-t border-devin-border">
       <div className="container max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
 
           {/* Sobre */}
           <div>
@@ -29,6 +29,28 @@ const Footer = () => {
             <p className="text-slate-400 text-sm leading-relaxed">
               Consultoria, inovação e formação para PMEs portuguesas. Diagnosticamos, planeamos, implementamos e formamos — para que a sua empresa cresça sem fricção.
             </p>
+          </div>
+
+          {/* Empresa */}
+          <div>
+            <h3 className="text-lg font-bold text-foreground mb-4">Empresa</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/sobre" className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer">
+                  Sobre
+                </Link>
+              </li>
+              <li>
+                <Link to="/#porque" className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer">
+                  Porquê Nós
+                </Link>
+              </li>
+              <li>
+                <Link to="/publicacoes" className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer">
+                  Projectos
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Serviços */}

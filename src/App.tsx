@@ -13,6 +13,7 @@ import ProdutosDetailPage from "./pages/ProdutosDetailPage";
 import ServicosListPage from "./pages/ServicosListPage";
 import ArtigosPage from "./pages/ArtigosPage";
 import ArtigoDetailPage from "./pages/ArtigoDetailPage";
+import SobrePage from "./pages/SobrePage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/produtos/:slug" element={<ProdutosDetailPage />} />
           <Route path="/artigos" element={<ArtigosPage />} />
           <Route path="/artigos/:slug" element={<ArtigoDetailPage />} />
+          <Route path="/sobre" element={<SobrePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

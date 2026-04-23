@@ -1,0 +1,191 @@
+import { Link } from "react-router-dom";
+import { Home, GraduationCap, Award, ArrowRight } from "lucide-react";
+import PageLayout from "@/components/PageLayout";
+// TODO: substituir pelo ficheiro de imagem real do fundador
+import miguelPhoto from "@/assets/miguel-soeiro.jpeg";
+
+const formacao = {
+  grau: "MSc em Engenharia Informática e de Computadores",
+  instituicao: "Instituto Superior Técnico",
+  periodo: "2017 – 2020",
+  areas: ["Big Data", "Engenharia de Software", "Sistemas Distribuídos", "Inteligência Artificial"],
+};
+
+const certificacoes = [
+  {
+    titulo: "Agile Project Management",
+    emissor: "Google",
+    ano: "2024",
+    cor: "text-blue-400",
+    bgColor: "bg-blue-400/10",
+    sigla: "G",
+  },
+  {
+    titulo: "SI Architect Certification",
+    emissor: "MongoDB",
+    ano: "2024",
+    cor: "text-green-400",
+    bgColor: "bg-green-400/10",
+    sigla: "M",
+  },
+  {
+    titulo: "Project Management Professional Certificate",
+    emissor: "Google",
+    ano: "2024",
+    cor: "text-blue-400",
+    bgColor: "bg-blue-400/10",
+    sigla: "G",
+  },
+];
+
+const SobrePage = () => {
+  return (
+    <PageLayout>
+      <div className="container max-w-4xl mx-auto px-6 pb-24">
+
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
+          <Link to="/" className="hover:text-foreground transition-colors flex items-center gap-1">
+            <Home size={14} />Home
+          </Link>
+          <span>/</span>
+          <span className="text-foreground">Sobre</span>
+        </div>
+
+        {/* Hero badge */}
+        <div className="mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-xs mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+            <span className="text-muted-foreground font-medium tracking-widest uppercase">Quem Somos</span>
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
+            O fundador da <span className="text-devin-teal">Transparent Reasons</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Mais de 9 anos a construir soluções reais para empresas reais.
+          </p>
+        </div>
+
+        {/* Main — two columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-20 items-start">
+
+          {/* Left — Photo */}
+          <div className="lg:col-span-2 flex justify-center lg:justify-start">
+            {/* TODO: substituir pelo ficheiro de imagem real do fundador */}
+            <div className="relative w-64 lg:w-full max-w-xs">
+              <div className="absolute inset-0 rounded-2xl ring-2 ring-devin-teal/40 pointer-events-none z-10" />
+              <img
+                src={miguelPhoto}
+                alt="Miguel Pires Soeiro — Fundador da Transparent Reasons"
+                className="w-full rounded-2xl object-cover object-center shadow-lg"
+              />
+            </div>
+          </div>
+
+          {/* Right — Bio */}
+          <div className="lg:col-span-3 space-y-5">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-1">Miguel Pires Soeiro</h2>
+              <p className="text-sm font-medium text-devin-teal tracking-wide">
+                Fundador · Consultoria · Dados & IA
+              </p>
+            </div>
+
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Com mais de 9 anos de experiência em tecnologia e gestão, trabalhei em projectos de grande escala nos sectores bancário, segurador, saúde e retalho — sempre na intersecção entre estratégia de negócio e execução técnica.
+            </p>
+
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              O meu percurso começou no desenvolvimento de software, o que me deu uma base técnica sólida em aplicações web, mobile e sistemas distribuídos. Com o tempo, evoluí para gestão de projectos e liderança de equipas multidisciplinares, gerindo iniciativas complexas de ponta a ponta.
+            </p>
+
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A Transparent Reasons nasceu dessa experiência acumulada — para ajudar PMEs portuguesas a trabalhar melhor: com processos mais claros, tecnologia bem adoptada e equipas preparadas para crescer.
+            </p>
+          </div>
+        </div>
+
+        {/* Formação */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-foreground mb-8">Formação</h2>
+          <div className="rounded-2xl border border-devin-border bg-devin-surface/50 p-6">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-devin-card border border-devin-border flex items-center justify-center">
+                <GraduationCap size={20} className="text-devin-teal" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-bold text-foreground text-base mb-0.5">{formacao.grau}</h3>
+                <p className="text-sm text-devin-teal mb-1">{formacao.instituicao}</p>
+                <p className="text-xs text-muted-foreground mb-3">{formacao.periodo}</p>
+                <div className="flex flex-wrap gap-2">
+                  {formacao.areas.map((area) => (
+                    <span
+                      key={area}
+                      className="px-2.5 py-1 rounded-full text-xs font-medium bg-devin-card border border-devin-border text-devin-teal"
+                    >
+                      {area}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Certificações */}
+        <div className="mb-20">
+          <h2 className="text-2xl font-bold text-foreground mb-8">Certificações</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {certificacoes.map((cert, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-devin-border bg-devin-surface/50 p-5 hover:border-devin-teal/40 transition-all"
+              >
+                <div className={`w-10 h-10 rounded-xl ${cert.bgColor} border border-devin-border flex items-center justify-center mb-4`}>
+                  <span className={`text-sm font-bold ${cert.cor}`}>{cert.sigla}</span>
+                </div>
+                <h3 className="font-bold text-foreground text-sm mb-1 leading-snug">{cert.titulo}</h3>
+                <div className="flex items-center justify-between mt-2">
+                  <span className="text-xs text-muted-foreground">{cert.emissor}</span>
+                  <span className="text-xs text-devin-teal font-medium">{cert.ano}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div
+          className="relative rounded-3xl border border-devin-border bg-devin-card overflow-hidden p-8 text-center"
+          style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(186 100% 50% / 0.08) 0%, hsl(222 25% 12%) 60%)" }}
+        >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-devin-teal to-transparent" />
+          <h3 className="text-2xl font-bold text-foreground mb-3">
+            Quer conhecer melhor o trabalho da Transparent Reasons?
+          </h3>
+          <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
+            Veja os projectos que desenvolvemos ou agende um diagnóstico gratuito.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to="/publicacoes"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-devin-border text-foreground font-medium text-sm hover:border-devin-teal/40 transition-colors"
+            >
+              Ver Projectos
+              <ArrowRight size={14} />
+            </Link>
+            <a
+              href="mailto:geral@transparentreasons.com"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-devin-teal text-background font-semibold text-sm hover:opacity-90 transition-opacity"
+            >
+              Agendar Diagnóstico
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </PageLayout>
+  );
+};
+
+export default SobrePage;

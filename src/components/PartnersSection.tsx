@@ -3,23 +3,35 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 import microsoftLogo from "@/assets/logos/microsoft.svg";
-import googleCloudLogo from "@/assets/logos/googlecloud.svg";
-import awsLogo from "@/assets/logos/aws.svg";
-import hubspotLogo from "@/assets/logos/hubspot.svg";
-import cloudflareLogo from "@/assets/logos/cloudflare.svg";
-import zapierLogo from "@/assets/logos/zapier.svg";
-import stripeLogo from "@/assets/logos/stripe.svg";
-import notionLogo from "@/assets/logos/notion.svg";
+import githubLogo from "@/assets/logos/github.svg";
+import githubCopilotLogo from "@/assets/logos/githubcopilot.svg";
+import googleLogo from "@/assets/logos/google.svg";
+import geminiLogo from "@/assets/logos/googlegemini.svg";
+import notebookLmLogo from "@/assets/logos/notebooklm.svg";
+import atlassianLogo from "@/assets/logos/atlassian.svg";
+import jiraLogo from "@/assets/logos/jira.svg";
+import confluenceLogo from "@/assets/logos/confluence.svg";
+import claudeLogo from "@/assets/logos/claude.svg";
+import chatGptLogo from "@/assets/logos/chatgpt.svg";
+import devinLogo from "@/assets/logos/devin.svg";
+import grokLogo from "@/assets/logos/grok.svg";
+import perplexityLogo from "@/assets/logos/perplexity.svg";
 
 const partners = [
-  { id: "microsoft",   src: microsoftLogo,   alt: "Microsoft",    className: "h-11 w-auto" },
-  { id: "googlecloud", src: googleCloudLogo, alt: "Google Cloud", className: "h-11 w-auto" },
-  { id: "aws",         src: awsLogo,         alt: "AWS",          className: "h-11 w-auto" },
-  { id: "hubspot",     src: hubspotLogo,     alt: "HubSpot",      className: "h-11 w-auto" },
-  { id: "cloudflare",  src: cloudflareLogo,  alt: "Cloudflare",   className: "h-11 w-auto" },
-  { id: "zapier",      src: zapierLogo,      alt: "Zapier",       className: "h-11 w-auto" },
-  { id: "stripe",      src: stripeLogo,      alt: "Stripe",       className: "h-11 w-auto" },
-  { id: "notion",      src: notionLogo,      alt: "Notion",       className: "h-11 w-auto" },
+  { id: "microsoft", src: microsoftLogo, alt: "Microsoft", className: "h-10 w-auto" },
+  { id: "github", src: githubLogo, alt: "GitHub", className: "h-10 w-auto" },
+  { id: "github-copilot", src: githubCopilotLogo, alt: "GitHub Copilot", className: "h-10 w-auto" },
+  { id: "google", src: googleLogo, alt: "Google", className: "h-10 w-auto" },
+  { id: "gemini", src: geminiLogo, alt: "Gemini", className: "h-10 w-auto" },
+  { id: "notebooklm", src: notebookLmLogo, alt: "NotebookLM", className: "h-10 w-auto" },
+  { id: "atlassian", src: atlassianLogo, alt: "Atlassian", className: "h-10 w-auto" },
+  { id: "jira", src: jiraLogo, alt: "Jira", className: "h-10 w-auto" },
+  { id: "confluence", src: confluenceLogo, alt: "Confluence", className: "h-10 w-auto" },
+  { id: "claude", src: claudeLogo, alt: "Claude", className: "h-10 w-auto" },
+  { id: "chatgpt", src: chatGptLogo, alt: "ChatGPT", className: "h-10 w-auto" },
+  { id: "devin", src: devinLogo, alt: "Devin", className: "h-10 w-auto" },
+  { id: "grok", src: grokLogo, alt: "Grok", className: "h-10 w-auto" },
+  { id: "perplexity", src: perplexityLogo, alt: "Perplexity", className: "h-10 w-auto" },
 ];
 
 const PartnersSection = () => {

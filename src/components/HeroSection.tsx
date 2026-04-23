@@ -5,6 +5,7 @@ import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import PartnersSection from "@/components/PartnersSection";
 import BlogSection from "@/components/BlogSection";
 import CasesSection from "@/components/CasesSection";
+import miguelPhoto from "@/assets/miguel-soeiro.jpeg";
 
 const steps = [
   {
@@ -334,6 +335,63 @@ const HeroSection = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* ── Sobre ── */}
+        <div id="sobre" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm mb-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+            <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">Quem Somos</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Foto */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative w-64 lg:w-80">
+                <div className="absolute inset-0 rounded-2xl ring-2 ring-devin-teal/40 pointer-events-none z-10" />
+                <img
+                  src={miguelPhoto}
+                  alt="Miguel Pires Soeiro — Fundador da Transparent Reasons"
+                  className="w-full rounded-2xl object-cover object-center shadow-lg"
+                />
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div className="space-y-5">
+              <div>
+                <h3
+                  className="text-3xl font-bold text-foreground mb-1"
+                  style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                >
+                  Miguel Pires Soeiro
+                </h3>
+                <p
+                  className="font-medium tracking-wide"
+                  style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "12px", color: "#4DC8F0" }}
+                >
+                  Fundador · Consultoria · Dados & IA
+                </p>
+              </div>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Com mais de 9 anos de experiência em tecnologia e gestão, trabalhei em projectos de grande escala nos sectores bancário, segurador, saúde e retalho — sempre na intersecção entre estratégia de negócio e execução técnica.
+              </p>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                A Transparent Reasons nasceu dessa experiência acumulada — para ajudar PMEs portuguesas a trabalhar melhor: com processos mais claros, tecnologia bem adoptada e equipas preparadas para crescer.
+              </p>
+
+              <Link
+                to="/sobre"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-colors hover:bg-[#4DC8F0]/10"
+                style={{ border: "1px solid #4DC8F0", color: "#4DC8F0", background: "transparent" }}
+              >
+                Conhecer o percurso completo
+                <ArrowRight size={14} />
+              </Link>
+            </div>
           </div>
         </div>
 

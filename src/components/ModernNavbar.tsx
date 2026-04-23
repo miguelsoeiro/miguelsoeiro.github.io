@@ -49,7 +49,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
     { label: "Home", href: isHome ? "#home" : "/" },
     { label: "Metodologia", href: link("#metodologia") },
     { label: "Porquê Nós", href: link("#porque") },
-    { label: "Sobre", href: "/sobre" },
+    { label: "Sobre", href: link("#sobre") },
     { label: "Serviços", href: link("#servicos") },
     { label: "Produtos", href: link("#produtos-secao") },
   ];
@@ -66,6 +66,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
           { name: "Home", id: "home" },
           { name: "Metodologia", id: "metodologia" },
           { name: "Porquê Nós", id: "porque" },
+          { name: "Sobre", id: "sobre" },
           { name: "Serviços", id: "servicos" },
           { name: "Produtos", id: "produtos-secao" },
         ];

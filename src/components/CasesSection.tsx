@@ -18,11 +18,11 @@ const cases = [
   {
     id: "farmacias-mais-saude",
     slug: "farmacias-mais-saude",
-    company: "Farmácia Eduardo A. César",
+    company: "Farmácia Sália",
     sector: "Retalho Farmacêutico",
-    location: "Funchal, Madeira",
+    location: "Setúbal",
     period: "2022 – 2023",
-    initials: "FEC",
+    initials: "FS",
     description:
       "Plataforma de gestão de clientes e fidelização de raiz: base de dados centralizada, histórico individual, sistema de pontos e benefícios. Substituiu processos manuais e dispersos.",
     tags: ["Web", "CRM", "Fidelização", "Retalho", "Saúde"],

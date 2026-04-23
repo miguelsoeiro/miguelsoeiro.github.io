@@ -33,14 +33,14 @@ const articleData: Record<string, ArticleData> = {
       "22 aplicações em produção a servir farmácias, lares e prestadores de cuidados de saúde em Portugal. Ecossistema digital completo construído de raiz, que passou a suportar toda a operação da empresa e da sua rede de clientes.",
   },
   "farmacias-mais-saude": {
-    company: "Farmácia Eduardo A. César",
+    company: "Farmácia Sália",
     sector: "Retalho Farmacêutico",
-    location: "Funchal, Madeira",
+    location: "Setúbal",
     period: "2022 – 2023",
-    initials: "FEC",
+    initials: "FS",
     tags: ["Web", "CRM", "Fidelização", "Retalho", "Saúde"],
     contexto:
-      "Rede de farmácias no Funchal, Madeira. À data do início da colaboração não existia qualquer sistema para gerir a relação com clientes — a informação estava dispersa ou simplesmente não existia de forma estruturada.",
+      "Farmácia em Setúbal. À data do início da colaboração não existia qualquer sistema para gerir a relação com clientes — a informação estava dispersa ou simplesmente não existia de forma estruturada.",
     desafio:
       "Ausência total de CRM e impossibilidade de identificar e premiar clientes fidelizados. Processos manuais, dependentes de memória humana, sem escalabilidade para o crescimento do grupo.",
     abordagem:

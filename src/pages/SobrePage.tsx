@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Home, GraduationCap, Award, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -72,10 +72,83 @@ const projects = [
   },
 ];
 
+const timelineEntries = [
+  {
+    period: "Ago 2025 — Presente",
+    role: "Data & AI Enterprise Solutions Architect",
+    company: "Sector Financeiro",
+    description: "Concepção de arquitecturas de dados escaláveis e soluções de IA orientadas ao negócio. Ponte entre estratégia e execução técnica em ambiente de grande escala.",
+    badge: null,
+  },
+  {
+    period: "Fev 2023 — Ago 2025",
+    role: "Service Lead — Data Lake",
+    company: "Xpand IT",
+    description: "Liderança de equipa de 15 pessoas em 3 sub-equipas (suporte, desenvolvimento, ingestão de dados) para cliente bancário internacional. Azure Databricks e Cloudera.",
+    badge: null,
+  },
+  {
+    period: "Nov 2021 — Fev 2023",
+    role: "Engagement Manager",
+    company: "Xpand IT",
+    description: "Gestão de conta estratégica, identificação de novas oportunidades de negócio e coordenação de entregas em ambiente multidisciplinar.",
+    badge: null,
+  },
+  {
+    period: "Out 2020 — Nov 2021",
+    role: "Project Manager",
+    company: "Xpand IT",
+    description: "Gestão de projectos nos sectores bancário, segurador e retalho. Scrum, Kanban e Waterfall conforme o contexto de cada cliente.",
+    badge: null,
+  },
+  {
+    period: "Out 2018 — Out 2020",
+    role: "Product Manager",
+    company: "Nivelfarma",
+    description: "Direcção de plataforma health tech com 22 aplicações. Primeira solução robótica multi-blister da Europa, em parceria com Pharmagest e Yuyama.",
+    badge: "Cliente de referência TR",
+  },
+  {
+    period: "Nov 2017 — Out 2018",
+    role: "Full Stack Software Engineer",
+    company: "Nivelfarma",
+    description: "Desenvolvimento de plataforma web farmacêutica e aplicação Android para divisão de cuidados ao domicílio.",
+    badge: null,
+  },
+  {
+    period: "Jan 2017 — Nov 2017",
+    role: "Software Developer — Unity 3D",
+    company: "Immersive Lives",
+    description: "Desenvolvimento de simulações VR imersivas para treino cognitivo e terapia. Backend APIs, lógica de interacção e ambientes 3D.",
+    badge: "Cliente de referência TR",
+  },
+  {
+    period: "Set 2016 — Jul 2017",
+    role: "Team Leader & Assistant Teacher",
+    company: "COPELABS · Universidade Lusófona",
+    description: "Liderança de equipa de investigação em plataformas VR para terapia de exposição. Docência assistida em Realidade Virtual e Ciber-Terapia.",
+    badge: null,
+  },
+];
+
 const SobrePage = () => {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [timelineVisible, setTimelineVisible] = useState(false);
+
   useEffect(() => {
     document.title = "Fundador | Transparent Reasons";
     return () => { document.title = "Transparent Reasons — Consultoria · Inovação · Formação"; };
+  }, []);
+
+  useEffect(() => {
+    const el = timelineRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setTimelineVisible(true); obs.disconnect(); } },
+      { threshold: 0.05 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   return (
@@ -198,6 +271,83 @@ const SobrePage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Percurso */}
+        <div className="mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-xs mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+            <span className="text-muted-foreground font-medium tracking-widest uppercase">Percurso</span>
+          </div>
+          <h2 className="text-2xl font-bold text-foreground mb-10">
+            Uma carreira construída na intersecção entre tecnologia e negócio
+          </h2>
+
+          <div ref={timelineRef} className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-[11px] top-0 bottom-0 w-0.5" style={{ background: "#4DC8F0" }} />
+
+            <div className="space-y-5 pl-8">
+              {timelineEntries.map((entry, i) => (
+                <div
+                  key={i}
+                  style={
+                    timelineVisible
+                      ? { animation: "timeline-slide-in 200ms ease forwards", animationDelay: `${i * 60}ms`, opacity: 0 }
+                      : { opacity: 0 }
+                  }
+                  className="relative"
+                >
+                  {/* Dot */}
+                  <div
+                    className="absolute -left-[21px] top-5 w-3 h-3 rounded-full flex-shrink-0"
+                    style={{ background: "#4DC8F0", boxShadow: "0 0 0 3px rgba(77,200,240,0.15)" }}
+                  />
+
+                  {/* Card */}
+                  <div
+                    className="rounded-xl p-5"
+                    style={{ background: "#1E1E2E", border: "1px solid #2A2A3E" }}
+                  >
+                    <p
+                      className="mb-2 uppercase tracking-wider"
+                      style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "11px", color: "#8A8A9A" }}
+                    >
+                      {entry.period}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-2 mb-0.5">
+                      <h3
+                        className="font-bold text-white leading-snug"
+                        style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "16px" }}
+                      >
+                        {entry.role}
+                      </h3>
+                      {entry.badge && (
+                        <span
+                          className="inline-block px-2 py-0.5 rounded-full text-xs font-semibold"
+                          style={{ background: "#4DC8F0", color: "#0A0A0F", fontSize: "11px" }}
+                        >
+                          {entry.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p
+                      className="mb-2"
+                      style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "14px", color: "#4DC8F0" }}
+                    >
+                      {entry.company}
+                    </p>
+                    <p
+                      className="leading-relaxed"
+                      style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "14px", color: "#8A8A9A" }}
+                    >
+                      {entry.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

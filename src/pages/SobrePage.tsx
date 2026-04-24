@@ -52,8 +52,8 @@ const projects = [
   },
   {
     sector: "Retalho Farmacêutico",
-    name: "Farmácias Mais Saúde",
-    location: "Funchal, Madeira",
+    name: "Farmácia Sália",
+    location: "Setúbal, Portugal",
     description: "Plataforma de gestão de clientes e fidelização (CRM) construída de raiz, sem solução prévia.",
     slug: "farmacias-mais-saude",
     initials: "FM",

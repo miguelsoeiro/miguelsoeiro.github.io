@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Home, GraduationCap, Award, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -38,7 +39,45 @@ const certificacoes = [
   },
 ];
 
+const projects = [
+  {
+    sector: "Distribuição Farmacêutica",
+    name: "Nivelfarma",
+    location: "Sintra, Lisboa",
+    description: "22 aplicações desenvolvidas de raiz — web, iOS, Android e robótica farmacêutica. Construído sem sistemas prévios.",
+    slug: "nivelfarma",
+    initials: "NF",
+    color: "text-blue-400",
+    bgColor: "bg-blue-400/10",
+  },
+  {
+    sector: "Retalho Farmacêutico",
+    name: "Farmácias Mais Saúde",
+    location: "Funchal, Madeira",
+    description: "Plataforma de gestão de clientes e fidelização (CRM) construída de raiz, sem solução prévia.",
+    slug: "farmacias-mais-saude",
+    initials: "FM",
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-400/10",
+  },
+  {
+    sector: "MedTech · Realidade Virtual",
+    name: "Immersive Lives",
+    location: "Óbidos",
+    description: "Sistema VR para reabilitação neurocognitiva com IA integrada. Interface dual para pacientes e terapeutas.",
+    slug: "immersive-lives",
+    initials: "IL",
+    color: "text-cyan-400",
+    bgColor: "bg-cyan-400/10",
+  },
+];
+
 const SobrePage = () => {
+  useEffect(() => {
+    document.title = "Fundador | Transparent Reasons";
+    return () => { document.title = "Transparent Reasons — Consultoria · Inovação · Formação"; };
+  }, []);
+
   return (
     <PageLayout>
       <div className="container max-w-4xl mx-auto px-6 pb-24">
@@ -49,7 +88,7 @@ const SobrePage = () => {
             <Home size={14} />Home
           </Link>
           <span>/</span>
-          <span className="text-foreground">Sobre</span>
+          <span className="text-foreground">Fundador</span>
         </div>
 
         {/* Hero badge */}
@@ -86,9 +125,17 @@ const SobrePage = () => {
           <div className="lg:col-span-3 space-y-5">
             <div>
               <h2 className="text-3xl font-bold text-foreground mb-1">Miguel Pires Soeiro</h2>
-              <p className="text-sm font-medium text-devin-teal tracking-wide">
+              <p className="text-sm font-medium text-devin-teal tracking-wide mb-3">
                 Fundador · Consultoria · Dados & IA
               </p>
+              <a
+                href="/miguel_soeiro.vcf"
+                download="miguel_soeiro.vcf"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs transition-colors hover:text-foreground/60"
+                style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "12px", color: "#8A8A9A", border: "1px solid #2A2A3E", borderRadius: "6px", background: "transparent" }}
+              >
+                ⬇ Guardar contacto
+              </a>
             </div>
 
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -151,6 +198,36 @@ const SobrePage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Projectos de Referência */}
+        <div className="mb-20">
+          <h2 className="text-2xl font-bold text-foreground mb-8">Projectos de Referência</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            {projects.map((p) => (
+              <div
+                key={p.slug}
+                className="rounded-2xl border border-devin-border bg-devin-surface/50 p-5 hover:border-devin-teal/40 transition-all flex flex-col"
+              >
+                <div className={`w-10 h-10 rounded-xl ${p.bgColor} border border-devin-border flex items-center justify-center mb-4 flex-shrink-0`}>
+                  <span className={`text-xs font-bold ${p.color}`}>{p.initials}</span>
+                </div>
+                <p className={`text-xs font-medium ${p.color} mb-1`}>{p.sector}</p>
+                <h3 className="font-bold text-foreground text-sm mb-0.5 leading-snug">{p.name}</h3>
+                <p className="text-xs text-muted-foreground mb-3">{p.location}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed flex-1">{p.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-end">
+            <Link
+              to="/publicacoes"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors"
+            >
+              Ver casos de estudo completos
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
 

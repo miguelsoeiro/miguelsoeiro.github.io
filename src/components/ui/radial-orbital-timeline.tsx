@@ -216,11 +216,7 @@ export default function RadialOrbitalTimeline({
           className="absolute left-1/2 top-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10"
           style={{ transform: "translate(-50%, -50%)", willChange: "opacity" }}
         >
-          <div className="absolute w-20 h-20 rounded-full border border-white/20 animate-ping opacity-70" style={{ willChange: "transform, opacity" }} />
-          <div
-            className="absolute w-24 h-24 rounded-full border border-white/10 animate-ping opacity-50"
-            style={{ animationDelay: "0.5s", willChange: "transform, opacity" }}
-          />
+          <div className="absolute w-20 h-20 rounded-full border border-white/20 animate-ping opacity-60" style={{ willChange: "transform, opacity" }} />
           <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md" />
         </div>
 

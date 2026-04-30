@@ -1,6 +1,7 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { Settings, Cpu, CheckCircle, ArrowLeft, Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import { productivityTools, aiTools } from "@/data/products";
 
 const produtoData = {
   "tecnologia-ferramentas": {
@@ -122,6 +123,81 @@ const ProdutosDetailPage = () => {
             ))}
           </ul>
         </div>
+
+        {/* Produtos do segmento */}
+        {slug === "tecnologia-ferramentas" && (
+          <div className="mb-12">
+            <h2 className="text-xl font-bold text-foreground mb-6">Ferramentas geridas</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {productivityTools.map((tool) => (
+                <div
+                  key={tool.id}
+                  className="group flex flex-col rounded-2xl border border-devin-border bg-devin-card hover:border-devin-teal/40 transition-all duration-300 overflow-hidden"
+                >
+                  <div
+                    className="px-5 pt-5 pb-4"
+                    style={{ background: "radial-gradient(ellipse at 0% 0%, hsl(186 100% 50% / 0.07) 0%, transparent 70%)" }}
+                  >
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-devin-surface border border-devin-border flex items-center justify-center">
+                        <span className="text-xs font-bold text-devin-teal tracking-tight">{tool.initials}</span>
+                      </div>
+                      <div className="min-w-0 pt-0.5">
+                        <h3 className="text-sm font-semibold text-foreground group-hover:text-devin-teal transition-colors leading-tight">{tool.name}</h3>
+                        <p className="text-xs text-muted-foreground mt-0.5">{tool.vendor}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="h-px bg-devin-border mx-5" />
+                  <div className="px-5 py-4">
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">{tool.description}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {tool.tools.map((t) => (
+                        <span key={t} className="px-2 py-0.5 rounded-md text-xs bg-devin-surface/80 border border-devin-border/60 text-muted-foreground">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {slug === "consultoria-ia" && (
+          <div className="mb-12">
+            <h2 className="text-xl font-bold text-foreground mb-6">Ferramentas geridas</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {aiTools.map((tool) => (
+                <div
+                  key={tool.id}
+                  className="group flex flex-col rounded-2xl border border-devin-border bg-devin-card hover:border-devin-teal/40 transition-all duration-300 overflow-hidden"
+                >
+                  <div
+                    className="px-5 pt-5 pb-4"
+                    style={{ background: "radial-gradient(ellipse at 0% 0%, hsl(186 100% 50% / 0.07) 0%, transparent 70%)" }}
+                  >
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-devin-surface border border-devin-border flex items-center justify-center">
+                        <span className="text-xs font-bold text-devin-teal tracking-tight">{tool.initials}</span>
+                      </div>
+                      <div className="min-w-0 pt-0.5">
+                        <h3 className="text-sm font-semibold text-foreground group-hover:text-devin-teal transition-colors leading-tight">{tool.name}</h3>
+                        <p className="text-xs text-muted-foreground mt-0.5">{tool.vendor}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="h-px bg-devin-border mx-5" />
+                  <div className="px-5 py-4 flex-1">
+                    <p className="text-xs text-muted-foreground leading-relaxed">{tool.description}</p>
+                  </div>
+                  <div className="mx-5 mb-5 px-3 py-2.5 rounded-xl bg-devin-surface/60 border-l-2 border-devin-teal/60">
+                    <p className="text-xs text-muted-foreground/80 leading-relaxed italic">{tool.highlight}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA */}
         <div

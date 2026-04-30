@@ -102,13 +102,12 @@ const produtoCards = [
     slug: "tecnologia-ferramentas",
     icon: Settings,
     title: "Tecnologia & Ferramentas",
-    description: "Revenda e implementação de Microsoft 365 e Atlassian, com suporte de 1.º nível e gestão de conta incluídos.",
+    description: "Gestão e suporte de Microsoft 365 e Atlassian — fee fixo mensal, subscrições ao preço real do fabricante.",
     color: "text-cyan-400",
     packs: [
-      { name: "Microsoft 365", detail: "Business Basic, Standard, Premium", price: "Mensal ou anual" },
-      { name: "Atlassian", detail: "Jira, Confluence, JSM", price: "Mensal ou anual" },
+      { name: "Fee de gestão", detail: "Microsoft 365, Atlassian e outras ferramentas", price: "150 €/mês" },
     ],
-    note: "Desconto de 10% em plano anual",
+    note: "Subscrições ao preço do fabricante, sem markup · Fee cobre gestão de contas e suporte",
     includes: [
       "Implementação e configuração",
       "Suporte de 1.º nível incluído",
@@ -122,9 +121,9 @@ const produtoCards = [
     description: "Selecção da ferramenta de IA certa para cada necessidade, gestão de licenças enterprise e formação específica incluída.",
     color: "text-teal-400",
     packs: [
-      { name: "Fee de gestão", detail: "Claude, ChatGPT, Gemini, Copilot, Devin…", price: "150 €/mês" },
+      { name: "Fee de gestão", detail: "Claude, ChatGPT, Gemini, Copilot, Devin…", price: "200 €/mês" },
     ],
-    note: "Desconto de 10% em plano anual · Avença + subscrição gerida",
+    note: "Subscrições ao preço do fabricante, sem markup · Fee cobre gestão de contas e suporte",
     includes: [
       "Selecção da ferramenta adequada ao negócio",
       "Gestão de contas e licenças enterprise",

@@ -6,11 +6,11 @@ const produtoData = {
   "tecnologia-ferramentas": {
     icon: Settings,
     color: "text-cyan-400",
-    badge: "Subscrição Mensal ou Anual",
+    badge: "Avença + Subscrição Gerida",
     title: "Tecnologia & Ferramentas",
-    subtitle: "Revenda e implementação de Microsoft 365 e Atlassian, com suporte de 1.º nível e gestão de conta incluídos.",
+    subtitle: "Gestão de Microsoft 365 e Atlassian com fee fixo mensal — subscrições ao preço do fabricante, sem markup.",
     description:
-      "Adquirir licenças é a parte fácil. O desafio está em implementar bem, integrar com os processos existentes e garantir que a equipa realmente adopta as ferramentas. A Transparent Reasons trata de tudo — da escolha do plano à configuração, passando pelo suporte contínuo.",
+      "Gerir licenças, acessos e renovações é trabalho contínuo. A Transparent Reasons trata de tudo por um fee fixo mensal: implementação, configuração, suporte de 1.º nível e optimização contínua. As subscrições são facturadas ao custo real do fabricante — sem markup.",
     includes: [
       "Análise das necessidades antes de qualquer recomendação",
       "Gestão completa de licenças, acessos e renovações",
@@ -20,12 +20,9 @@ const produtoData = {
       "Automação e integração entre ferramentas",
     ],
     packs: [
-      { name: "Microsoft 365 Business Basic", hours: "Email, Teams, SharePoint (1 TB), OneDrive", price: "Preço por utilizador", ideal: "Para equipas que precisam de colaboração e email na cloud" },
-      { name: "Microsoft 365 Business Standard", hours: "Inclui apps Office desktop + tudo do Basic", price: "Preço por utilizador", ideal: "Para quem também precisa do Word, Excel e PowerPoint instalados" },
-      { name: "Microsoft 365 Business Premium", hours: "Segurança avançada (Intune, Defender) + tudo do Standard", price: "Preço por utilizador", ideal: "Para empresas com requisitos de segurança mais exigentes" },
-      { name: "Atlassian (Jira / Confluence / JSM)", hours: "Gestão de projectos, documentação interna, service desk", price: "Preço por utilizador", ideal: "Para equipas que gerem projectos e processos de forma estruturada" },
+      { name: "Fee de gestão", hours: "Microsoft 365, Atlassian (Jira, Confluence, JSM) e outras ferramentas de produtividade", price: "150 €/mês", ideal: "Gestão completa de licenças, suporte de 1.º nível e configuração contínua" },
     ],
-    notes: ["Desconto de 10% em plano anual", "Preços finais dependem do número de utilizadores — contacte-nos para proposta"],
+    notes: ["Subscrições facturadas ao preço do fabricante, sem markup", "Fee anual com desconto de 10%"],
   },
   "consultoria-ia": {
     icon: Cpu,
@@ -44,9 +41,9 @@ const produtoData = {
       "Relatório mensal de utilização e retorno gerado",
     ],
     packs: [
-      { name: "Fee de gestão", hours: "Claude, ChatGPT, Gemini, GitHub Copilot, Devin, NotebookLM, Grok, Perplexity…", price: "150 €/mês", ideal: "Gestão completa de uma ou mais ferramentas de IA enterprise" },
+      { name: "Fee de gestão", hours: "Claude, ChatGPT, Gemini, GitHub Copilot, Devin, NotebookLM, Grok, Perplexity…", price: "200 €/mês", ideal: "Gestão completa de uma ou mais ferramentas de IA enterprise" },
     ],
-    notes: ["Desconto de 10% em plano anual", "O custo das licenças das ferramentas é facturado ao custo real — sem markup"],
+    notes: ["Subscrições facturadas ao preço do fabricante, sem markup", "Fee anual com desconto de 10%"],
   },
 };
 

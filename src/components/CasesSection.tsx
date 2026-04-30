@@ -13,7 +13,7 @@ const cases = [
     description:
       "22 aplicações construídas de raiz — plataformas web, iOS, Android e sistema de controlo de robótica farmacêutica. Sem sistemas prévios: construímos todo o ecossistema digital a partir do zero.",
     tags: ["Web", "iOS", "Android", "Robótica", "Saúde", "Gestão Clínica"],
-    testimonial: "[Testemunho do cliente a adicionar]",
+    testimonial: "A Transparent Reasons construiu de raiz todo o nosso ecossistema tecnológico — 22 aplicações a cobrir web, mobile e robótica farmacêutica. Não havia nada antes. Hoje temos sistemas que funcionam e equipas que os sabem usar. Foi um trabalho exigente, bem executado e com acompanhamento real em todas as fases.",
   },
   {
     id: "farmacias-mais-saude",
@@ -26,7 +26,7 @@ const cases = [
     description:
       "Plataforma de gestão de clientes e fidelização de raiz: base de dados centralizada, histórico individual, sistema de pontos e benefícios. Substituiu processos manuais e dispersos.",
     tags: ["Web", "CRM", "Fidelização", "Retalho", "Saúde"],
-    testimonial: "[Testemunho do cliente a adicionar]",
+    testimonial: "Não tínhamos qualquer sistema de gestão de clientes. A Transparent Reasons desenvolveu uma plataforma de fidelização adaptada à nossa realidade, de raiz. O resultado foi uma ferramenta que realmente usamos no dia-a-dia e que nos ajuda a conhecer melhor os nossos clientes.",
   },
   {
     id: "immersive-lives",
@@ -39,7 +39,7 @@ const cases = [
     description:
       "Sistema de realidade virtual para reabilitação de pacientes com perturbações neurocognitivas. Interface dual (paciente + terapeuta) com IA integrada para personalização clínica.",
     tags: ["Realidade Virtual", "IA", "MedTech", "Saúde", "UX Clínico"],
-    testimonial: "[Testemunho do cliente a adicionar]",
+    testimonial: "Trabalhar com a Transparent Reasons foi determinante para concretizar uma ideia complexa — um sistema de reabilitação neurocognitiva em realidade virtual com IA integrada. Souberam traduzir requisitos clínicos em tecnologia funcional, com uma interface pensada tanto para terapeutas como para pacientes.",
   },
 ];
 

@@ -92,19 +92,26 @@ const ProdutosDetailPage = () => {
         {/* Packs */}
         <div className="mb-10">
           <h2 className="text-xl font-bold text-foreground mb-5">Planos disponíveis</h2>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {produto.packs.map((pack, idx) => (
-              <div key={idx} className="rounded-2xl border border-devin-border bg-devin-surface/50 p-5">
-                <div className="flex items-start justify-between gap-4 mb-1">
-                  <h3 className="font-semibold text-foreground">{pack.name}</h3>
-                  <span className="text-devin-teal font-bold whitespace-nowrap">{pack.price}</span>
+              <div
+                key={idx}
+                className="rounded-2xl border border-devin-teal/40 bg-devin-surface/50 p-7"
+                style={{ background: "radial-gradient(ellipse at 0% 0%, hsl(186 100% 50% / 0.07) 0%, transparent 70%)" }}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                  <h3 className="text-2xl font-bold text-foreground">{pack.name}</h3>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-4xl font-bold text-devin-teal">{pack.price.replace("/mês", "")}</span>
+                    <span className="text-base text-muted-foreground font-medium">/mês</span>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground">{pack.hours}</p>
-                <p className="text-xs text-muted-foreground/60 mt-1 italic">{pack.ideal}</p>
+                <p className="text-sm text-muted-foreground mb-2">{pack.hours}</p>
+                <p className="text-xs text-muted-foreground/60 italic">{pack.ideal}</p>
               </div>
             ))}
           </div>
-          <div className="mt-3 space-y-1">
+          <div className="mt-4 space-y-1.5">
             {produto.notes.map((note, idx) => (
               <p key={idx} className="text-xs text-muted-foreground/60 italic">· {note}</p>
             ))}

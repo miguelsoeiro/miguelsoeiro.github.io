@@ -9,8 +9,8 @@ const contact = {
   email: "miguel.soeiro@transparentreasons.com",
   website: "https://transparentreasons.com/",
   websiteLabel: "transparentreasons.com",
-  linkedin: "https://www.linkedin.com/company/transparent-reasons/",
-  instagram: "https://www.instagram.com/transparentreasons/",
+  linkedin: "https://www.linkedin.com/in/miguel-soeiro/",
+  instagram: "https://www.instagram.com/soeiromass/",
   facebook: "https://www.facebook.com/transparentreasons",
   vcf: "/miguel_soeiro.vcf",
 };

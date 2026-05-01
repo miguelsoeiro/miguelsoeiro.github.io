@@ -18,6 +18,7 @@ const ServicosListPage  = lazy(() => import("./pages/ServicosListPage"));
 const ArtigosPage       = lazy(() => import("./pages/ArtigosPage"));
 const ArtigoDetailPage  = lazy(() => import("./pages/ArtigoDetailPage"));
 const SobrePage         = lazy(() => import("./pages/SobrePage"));
+const VCardPage         = lazy(() => import("./pages/VCardPage"));
 const NotFound          = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/artigos" element={<ArtigosPage />} />
             <Route path="/artigos/:slug" element={<ArtigoDetailPage />} />
             <Route path="/sobre" element={<SobrePage />} />
+            <Route path="/vcard" element={<VCardPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

@@ -201,14 +201,13 @@ const SobrePage = () => {
               <p className="text-sm font-medium text-devin-teal tracking-wide mb-3">
                 Fundador · Consultoria · Dados & IA
               </p>
-              <a
-                href="/miguel_soeiro.vcf"
-                download="miguel_soeiro.vcf"
+              <Link
+                to="/vcard"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs transition-colors hover:text-foreground/60"
                 style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "12px", color: "#8A8A9A", border: "1px solid #2A2A3E", borderRadius: "6px", background: "transparent" }}
               >
                 ⬇ Guardar contacto
-              </a>
+              </Link>
             </div>
 
             <p className="text-sm text-muted-foreground leading-relaxed">

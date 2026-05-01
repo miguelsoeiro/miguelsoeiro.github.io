@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const contact = {
   name: "Miguel Pires Soeiro",
-  title: "Fundador",
+  title: "Fundador & Consultor",
   company: "Transparent Reasons",
   phone: "+351 916 233 920",
   phoneTel: "+351916233920",

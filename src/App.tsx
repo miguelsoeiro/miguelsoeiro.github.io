@@ -43,7 +43,7 @@ const App = () => (
             <Route path="/artigos" element={<ArtigosPage />} />
             <Route path="/artigos/:slug" element={<ArtigoDetailPage />} />
             <Route path="/sobre" element={<SobrePage />} />
-            <Route path="/vcard" element={<VCardPage />} />
+            <Route path="/vcard-mps" element={<VCardPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

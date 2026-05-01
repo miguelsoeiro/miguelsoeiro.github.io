@@ -1,4 +1,4 @@
-import { Linkedin, Github, Mail, Phone } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const serviceLinks = [
@@ -111,11 +111,14 @@ const Footer = () => {
               +351 930 679 484
             </a>
             <div className="flex gap-3">
-              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
+              <a href="https://www.linkedin.com/company/transparent-reasons/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
                 <Linkedin size={18} />
               </a>
-              <a href="#" aria-label="GitHub" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
-                <Github size={18} />
+              <a href="https://www.instagram.com/transparentreasons/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.facebook.com/transparentreasons" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
+                <Facebook size={18} />
               </a>
               <a href="mailto:geral@transparentreasons.com" aria-label="Email" className="w-10 h-10 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
                 <Mail size={18} />

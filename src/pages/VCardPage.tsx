@@ -1,4 +1,5 @@
-import { Phone, Mail, Building2, Globe, Linkedin, Instagram, Facebook, Download } from "lucide-react";
+import { Phone, Mail, Building2, Globe, Linkedin, Instagram, Facebook, Download, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const contact = {
   name: "Miguel Pires Soeiro",
@@ -45,7 +46,7 @@ const ContactRow = ({
 
 const VCardPage = () => {
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 gap-4">
       <div className="w-full max-w-sm rounded-3xl overflow-hidden border border-devin-border shadow-2xl shadow-black/40">
 
         {/* Header */}
@@ -119,6 +120,14 @@ const VCardPage = () => {
           </a>
         </div>
       </div>
+
+        <Link
+          to="/"
+          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-devin-teal transition-colors"
+        >
+          <ArrowLeft size={12} />
+          transparentreasons.com
+        </Link>
     </div>
   );
 };

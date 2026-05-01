@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="g" x1="0" y1="205.55" x2="0" y2="794.45" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A8E6F8"/>
+      <stop offset="100%" stop-color="#1188A8"/>
+    </linearGradient>
+  </defs>
+  <polygon points="330,205.55 585,352.78 415,352.78" fill="url(#g)"/>
+  <polygon points="670,205.55 670,500 585,352.78" fill="url(#g)"/>
+  <polygon points="840,500 585,647.22 670,500" fill="url(#g)"/>
+  <polygon points="670,794.45 415,647.22 585,647.22" fill="url(#g)"/>
+  <polygon points="330,794.45 330,500 415,647.22" fill="url(#g)"/>
+  <polygon points="160,500 415,352.78 330,500" fill="url(#g)"/>
+  <polygon points="330,205.55 670,205.55 585,352.78" fill="url(#g)"/>
+  <polygon points="670,205.55 840,500 670,500" fill="url(#g)"/>
+  <polygon points="840,500 670,794.45 585,647.22" fill="url(#g)"/>
+  <polygon points="670,794.45 330,794.45 415,647.22" fill="url(#g)"/>
+  <polygon points="330,794.45 160,500 330,500" fill="url(#g)"/>
+  <polygon points="160,500 330,205.55 415,352.78" fill="url(#g)"/>
+</svg>

@@ -31,6 +31,7 @@ const ArtigosPage       = lazyWithReload(() => import("./pages/ArtigosPage"));
 const ArtigoDetailPage  = lazyWithReload(() => import("./pages/ArtigoDetailPage"));
 const SobrePage         = lazyWithReload(() => import("./pages/SobrePage"));
 const VCardPage         = lazyWithReload(() => import("./pages/VCardPage"));
+const VCardTRPage       = lazyWithReload(() => import("./pages/VCardTRPage"));
 const NotFound          = lazyWithReload(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/artigos" element={<ArtigosPage />} />
             <Route path="/artigos/:slug" element={<ArtigoDetailPage />} />
             <Route path="/sobre" element={<SobrePage />} />
+            <Route path="/vcard" element={<VCardTRPage />} />
             <Route path="/vcard-mps" element={<VCardPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

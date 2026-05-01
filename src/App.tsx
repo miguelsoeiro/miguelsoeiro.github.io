@@ -7,19 +7,31 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
 
-// Lazy-loaded pages — only downloaded when the user navigates to that route
-const ServicosPage      = lazy(() => import("./pages/ServicosPage"));
-const LegalPage         = lazy(() => import("./pages/LegalPage"));
-const PublicacoesPage   = lazy(() => import("./pages/PublicacoesPage"));
-const ArticlePage       = lazy(() => import("./pages/ArticlePage"));
-const ProdutosPage      = lazy(() => import("./pages/ProdutosPage"));
-const ProdutosDetailPage = lazy(() => import("./pages/ProdutosDetailPage"));
-const ServicosListPage  = lazy(() => import("./pages/ServicosListPage"));
-const ArtigosPage       = lazy(() => import("./pages/ArtigosPage"));
-const ArtigoDetailPage  = lazy(() => import("./pages/ArtigoDetailPage"));
-const SobrePage         = lazy(() => import("./pages/SobrePage"));
-const VCardPage         = lazy(() => import("./pages/VCardPage"));
-const NotFound          = lazy(() => import("./pages/NotFound"));
+// Wraps lazy() — if a chunk 404s after a new deploy (stale hash in cache),
+// reloads the page so the browser fetches the fresh index.js with correct refs.
+function lazyWithReload<T extends React.ComponentType<any>>(
+  factory: () => Promise<{ default: T }>
+) {
+  return lazy(() =>
+    factory().catch(() => {
+      window.location.reload();
+      return new Promise<{ default: T }>(() => {});
+    })
+  );
+}
+
+const ServicosPage      = lazyWithReload(() => import("./pages/ServicosPage"));
+const LegalPage         = lazyWithReload(() => import("./pages/LegalPage"));
+const PublicacoesPage   = lazyWithReload(() => import("./pages/PublicacoesPage"));
+const ArticlePage       = lazyWithReload(() => import("./pages/ArticlePage"));
+const ProdutosPage      = lazyWithReload(() => import("./pages/ProdutosPage"));
+const ProdutosDetailPage = lazyWithReload(() => import("./pages/ProdutosDetailPage"));
+const ServicosListPage  = lazyWithReload(() => import("./pages/ServicosListPage"));
+const ArtigosPage       = lazyWithReload(() => import("./pages/ArtigosPage"));
+const ArtigoDetailPage  = lazyWithReload(() => import("./pages/ArtigoDetailPage"));
+const SobrePage         = lazyWithReload(() => import("./pages/SobrePage"));
+const VCardPage         = lazyWithReload(() => import("./pages/VCardPage"));
+const NotFound          = lazyWithReload(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 

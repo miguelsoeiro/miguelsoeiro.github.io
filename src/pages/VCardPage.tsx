@@ -1,4 +1,4 @@
-import { Phone, Mail, Building2, Globe, Linkedin, Instagram, Facebook, Download, ArrowLeft } from "lucide-react";
+import { Phone, Mail, Building2, Globe, Linkedin, Instagram, Download, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const contact = {
@@ -12,7 +12,6 @@ const contact = {
   websiteLabel: "transparentreasons.com",
   linkedin: "https://www.linkedin.com/in/miguel-soeiro/",
   instagram: "https://www.instagram.com/soeiromass/",
-  facebook: "https://www.facebook.com/transparentreasons",
   vcf: "/miguel_soeiro.vcf",
 };
 
@@ -101,10 +100,6 @@ const VCardPage = () => {
           <a href={contact.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
             className="w-10 h-10 shrink-0 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-muted-foreground hover:text-devin-teal hover:border-devin-teal transition-all">
             <Instagram size={16} />
-          </a>
-          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-            className="w-10 h-10 shrink-0 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-muted-foreground hover:text-devin-teal hover:border-devin-teal transition-all">
-            <Facebook size={16} />
           </a>
         </div>
 

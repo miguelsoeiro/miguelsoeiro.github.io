@@ -368,7 +368,7 @@ const HeroSection = () => {
                 </h3>
                 <p
                   className="font-medium tracking-wide"
-                  style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "12px", color: "#4DC8F0" }}
+                  style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: "15px", color: "#4DC8F0" }}
                 >
                   Fundador · Consultoria · Dados & IA
                 </p>

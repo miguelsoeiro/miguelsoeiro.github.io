@@ -110,7 +110,7 @@ const Footer = () => {
             >
               +351 930 679 484
             </a>
-            <div className="flex gap-3 items-center">
+            <div className="grid grid-cols-3 gap-3">
               <a href="https://www.linkedin.com/company/transparent-reasons/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 shrink-0 rounded-full bg-devin-surface border border-devin-border flex items-center justify-center text-slate-400 hover:text-devin-teal hover:border-devin-teal transition-all">
                 <Linkedin size={18} />
               </a>

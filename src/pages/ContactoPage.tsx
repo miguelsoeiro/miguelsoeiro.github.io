@@ -38,6 +38,12 @@ const ContactoPage = () => {
         <meta property="og:title" content="Contacto — Diagnóstico Gratuito | Transparent Reasons" />
         <meta property="og:description" content="Fale connosco e peça um diagnóstico gratuito para a sua empresa. Sem compromisso. Respondemos em 24 horas úteis." />
         <meta property="og:url" content="https://www.transparentreasons.com/contacto" />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contacto — Diagnóstico Gratuito | Transparent Reasons" />
+        <meta name="twitter:description" content="Fale connosco e peça um diagnóstico gratuito. Sem compromisso. Respondemos em 24 horas úteis." />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://www.transparentreasons.com/contacto" }] })}</script>
       </Helmet>
       <div className="max-w-4xl mx-auto px-6 py-12">

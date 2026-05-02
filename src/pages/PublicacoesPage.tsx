@@ -49,6 +49,12 @@ const PublicacoesPage = () => {
         <meta property="og:title" content="Casos de Estudo — Transparent Reasons" />
         <meta property="og:description" content="Projectos reais construídos pela Transparent Reasons: Nivelfarma, Farmácia Sália e Immersive Lives." />
         <meta property="og:url" content="https://www.transparentreasons.com/publicacoes" />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Casos de Estudo — Transparent Reasons" />
+        <meta name="twitter:description" content="Projectos reais construídos pela Transparent Reasons: Nivelfarma, Farmácia Sália e Immersive Lives." />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Publicações", "item": "https://www.transparentreasons.com/publicacoes" }] })}</script>
       </Helmet>
       <div className="max-w-4xl mx-auto px-6 py-12">

@@ -117,6 +117,12 @@ const ArticlePage = () => {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDesc} />
         <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
         <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>
       </Helmet>
       <div className="max-w-3xl mx-auto px-6 py-12">

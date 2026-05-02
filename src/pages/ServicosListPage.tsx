@@ -51,6 +51,12 @@ const ServicosListPage = () => {
         <meta property="og:title" content="Serviços de Consultoria — Transparent Reasons" />
         <meta property="og:description" content="Consultoria de processos e formação empresarial para PMEs portuguesas. Avenças mensais com acompanhamento contínuo." />
         <meta property="og:url" content="https://www.transparentreasons.com/servicos" />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Serviços de Consultoria — Transparent Reasons" />
+        <meta name="twitter:description" content="Consultoria de processos e formação empresarial para PMEs portuguesas. Diagnóstico gratuito." />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://www.transparentreasons.com/servicos" }] })}</script>
         <script type="application/ld+json">{JSON.stringify(schemaFAQ)}</script>
       </Helmet>

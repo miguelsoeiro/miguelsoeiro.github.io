@@ -132,6 +132,16 @@ const timelineEntries = [
   },
 ];
 
+const schemaFAQsobre = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Quem fundou a Transparent Reasons?", "acceptedAnswer": { "@type": "Answer", "text": "Miguel Pires Soeiro, com mais de 9 anos de experiência em tecnologia e gestão. MSc em Engenharia Informática pelo Instituto Superior Técnico. Certificações em Agile PM e Project Management Professional (Google) e SI Architect (MongoDB)." } },
+    { "@type": "Question", "name": "Que projectos já desenvolveu o fundador da Transparent Reasons?", "acceptedAnswer": { "@type": "Answer", "text": "Nivelfarma (22 aplicações de raiz — web, iOS, Android e robótica farmacêutica), Farmácia Sália (plataforma CRM e fidelização) e Immersive Lives (sistema VR para reabilitação neurocognitiva com IA)." } },
+    { "@type": "Question", "name": "Qual é a filosofia da Transparent Reasons?", "acceptedAnswer": { "@type": "Answer", "text": "Transparência total: preços claros, recomendações honestas e comunicação directa. Cada decisão tem uma justificação racional comunicada ao cliente. Nunca recomendamos ferramentas que não escolheríamos para nós próprios." } },
+  ],
+};
+
 const schemaPerson = {
   "@context": "https://schema.org",
   "@graph": [
@@ -191,7 +201,14 @@ const SobrePage = () => {
         <meta property="og:title" content="Quem Somos — Miguel Pires Soeiro | Transparent Reasons" />
         <meta property="og:description" content="Conheça Miguel Pires Soeiro, fundador da Transparent Reasons. Mais de 9 anos de experiência em tecnologia e gestão." />
         <meta property="og:url" content="https://www.transparentreasons.com/sobre" />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Quem Somos — Miguel Pires Soeiro | Transparent Reasons" />
+        <meta name="twitter:description" content="Conheça Miguel Pires Soeiro, fundador da Transparent Reasons. Mais de 9 anos de experiência em tecnologia e gestão." />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
         <script type="application/ld+json">{JSON.stringify(schemaPerson)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaFAQsobre)}</script>
       </Helmet>
       <div className="container max-w-4xl mx-auto px-6 pb-24">
 

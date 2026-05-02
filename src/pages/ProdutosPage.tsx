@@ -4,6 +4,17 @@ import { Home, CheckCircle, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { productivityTools, aiTools } from "@/data/products";
 
+const schemaFAQprodutos = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "O que inclui a gestão de Microsoft 365 e Atlassian?", "acceptedAnswer": { "@type": "Answer", "text": "Fee fixo de 150 €/mês inclui implementação, configuração, suporte de 1.º nível e optimização contínua de Microsoft 365 (Teams, SharePoint, OneDrive, Outlook) e Atlassian (Jira, Confluence, JSM). Subscrições ao preço do fabricante, sem markup." } },
+    { "@type": "Question", "name": "A Transparent Reasons revende licenças de Microsoft 365 e Atlassian?", "acceptedAnswer": { "@type": "Answer", "text": "Não revendemos com markup. As subscrições são facturadas ao preço real do fabricante. A Transparent Reasons cobra apenas um fee de gestão fixo mensal (150 €/mês para Microsoft 365 + Atlassian)." } },
+    { "@type": "Question", "name": "Como funciona a gestão de ferramentas de IA?", "acceptedAnswer": { "@type": "Answer", "text": "Por 200 €/mês gerimos ferramentas de IA (Claude, ChatGPT, Gemini, Copilot, Devin): selecção da ferramenta adequada, gestão de licenças enterprise ao preço do fabricante, e formação específica da equipa." } },
+    { "@type": "Question", "name": "Quanto tempo demora a implementar o Microsoft 365?", "acceptedAnswer": { "@type": "Answer", "text": "Tipicamente 2 a 4 semanas para uma implementação completa, dependendo da dimensão da empresa e dos serviços a configurar. A formação da equipa ocorre nas semanas seguintes." } },
+  ],
+};
+
 const SectionBadge = ({ label }: { label: string }) => (
   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border mb-5">
     <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
@@ -23,7 +34,14 @@ const ProdutosPage = () => {
         <meta property="og:title" content="Ferramentas de Produtividade e IA para PMEs — Transparent Reasons" />
         <meta property="og:description" content="Implementação e gestão de Microsoft 365, Atlassian e ferramentas de IA. Fee fixo mensal, subscrições ao preço do fabricante." />
         <meta property="og:url" content="https://www.transparentreasons.com/produtos" />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Ferramentas de Produtividade e IA para PMEs — Transparent Reasons" />
+        <meta name="twitter:description" content="Implementação e gestão de Microsoft 365, Atlassian e ferramentas de IA. Fee fixo mensal, subscrições ao preço do fabricante." />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Produtos", "item": "https://www.transparentreasons.com/produtos" }] })}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaFAQprodutos)}</script>
       </Helmet>
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Breadcrumb */}

@@ -4,8 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Home, Mail, Phone, CheckCircle, AlertCircle } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 
-// Create a free form at formspree.io and replace with your form ID (e.g. "xabc1234")
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzlzapv";
 
 const inputClass =
   "w-full px-4 py-3 rounded-xl bg-devin-surface border border-devin-border text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-devin-teal/60 transition-colors";

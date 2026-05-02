@@ -9,28 +9,30 @@ interface ModernNavbarProps {
 
 const AnimatedNavLink = ({
   href,
+  to,
   children,
   isActive = false,
 }: {
-  href: string;
+  href?: string;
+  to?: string;
   children: React.ReactNode;
   isActive?: boolean;
-}) => (
-  <a
-    href={href}
-    className={cn(
-      "relative inline-block text-sm transition-colors duration-200 group leading-none",
-      isActive ? "text-devin-teal font-semibold" : "text-foreground/70"
-    )}
-  >
+}) => {
+  const className = cn(
+    "relative inline-block text-sm transition-colors duration-200 group leading-none",
+    isActive ? "text-devin-teal font-semibold" : "text-foreground/70"
+  );
+  const inner = (
     <div className="h-5 overflow-hidden">
       <div className="flex flex-col transition-transform duration-400 ease-out group-hover:-translate-y-5 leading-none">
         <span className="leading-none whitespace-nowrap h-5">{children}</span>
         <span className="leading-none text-devin-teal font-semibold whitespace-nowrap h-5">{children}</span>
       </div>
     </div>
-  </a>
-);
+  );
+  if (to) return <Link to={to} className={className}>{inner}</Link>;
+  return <a href={href} className={className}>{inner}</a>;
+};
 
 export const ModernNavbar = ({ className }: ModernNavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,13 +47,14 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
   // Prefix anchor links with "/" when on a sub-page so they navigate home first
   const link = (anchor: string) => (isHome ? anchor : `/${anchor}`);
 
-  const navLinksData = [
+  const navLinksData: { label: string; href?: string; to?: string }[] = [
     { label: "Home", href: isHome ? "#home" : "/" },
     { label: "Metodologia", href: link("#metodologia") },
     { label: "Porquê Nós", href: link("#porque") },
     { label: "Fundador", href: link("#sobre") },
     { label: "Serviços", href: link("#servicos") },
     { label: "Produtos", href: link("#produtos-secao") },
+    { label: "Contacto", to: "/contacto" },
   ];
 
   // Scroll tracking — only active on homepage
@@ -133,7 +136,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
 
         <nav className="hidden sm:flex items-center gap-6 whitespace-nowrap shrink-0">
           {navLinksData.map((l) => (
-            <AnimatedNavLink key={l.href} href={l.href} isActive={isHome && activeSection === l.label}>
+            <AnimatedNavLink key={l.to ?? l.href} href={l.href} to={l.to} isActive={isHome && activeSection === l.label}>
               {l.label}
             </AnimatedNavLink>
           ))}
@@ -168,16 +171,14 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
         )}
       >
         <nav className="flex flex-col items-center gap-3 w-full">
-          {navLinksData.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={cn("transition-colors text-sm", isHome && activeSection === l.label ? "text-devin-teal font-semibold" : "text-foreground/70 hover:text-foreground")}
-              onClick={() => setIsOpen(false)}
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinksData.map((l) => {
+            const cls = cn("transition-colors text-sm", isHome && activeSection === l.label ? "text-devin-teal font-semibold" : "text-foreground/70 hover:text-foreground");
+            return l.to ? (
+              <Link key={l.to} to={l.to} className={cls} onClick={() => setIsOpen(false)}>{l.label}</Link>
+            ) : (
+              <a key={l.href} href={l.href} className={cls} onClick={() => setIsOpen(false)}>{l.label}</a>
+            );
+          })}
         </nav>
         <div className="mt-4 w-full pb-2">{ctaButton}</div>
       </div>

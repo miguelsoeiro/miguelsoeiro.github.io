@@ -1,5 +1,6 @@
 import { Phone, Mail, Building2, Globe, Linkedin, Instagram, Download, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import miguelPhoto from "@/assets/miguel-soeiro.jpeg";
 
 const contact = {
   name: "Miguel Pires Soeiro",
@@ -53,10 +54,9 @@ const VCardPage = () => {
           className="px-6 pt-10 pb-8 text-center"
           style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(186 100% 50% / 0.15) 0%, hsl(222 28% 12%) 70%)" }}
         >
-          {/* Logo */}
           <div className="flex justify-center mb-5">
-            <div className="w-20 h-20 rounded-2xl bg-devin-surface border border-devin-border/60 flex items-center justify-center overflow-hidden shadow-lg">
-              <img src="/favicon.svg" alt="Transparent Reasons" className="w-12 h-12" />
+            <div className="w-20 h-20 rounded-full border-2 border-devin-teal/40 overflow-hidden shadow-lg">
+              <img src={miguelPhoto} alt={contact.name} className="w-full h-full object-cover" />
             </div>
           </div>
 

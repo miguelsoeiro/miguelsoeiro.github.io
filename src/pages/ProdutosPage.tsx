@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Home, CheckCircle, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { productivityTools, aiTools } from "@/data/products";
@@ -15,6 +16,15 @@ const SectionBadge = ({ label }: { label: string }) => (
 const ProdutosPage = () => {
   return (
     <PageLayout>
+      <Helmet>
+        <title>Ferramentas de Produtividade e IA para PMEs — Transparent Reasons</title>
+        <meta name="description" content="Implementação e gestão de Microsoft 365, Atlassian (Jira, Confluence) e ferramentas de IA para empresas portuguesas. Fee fixo mensal, subscrições ao preço do fabricante." />
+        <link rel="canonical" href="https://www.transparentreasons.com/produtos" />
+        <meta property="og:title" content="Ferramentas de Produtividade e IA para PMEs — Transparent Reasons" />
+        <meta property="og:description" content="Implementação e gestão de Microsoft 365, Atlassian e ferramentas de IA. Fee fixo mensal, subscrições ao preço do fabricante." />
+        <meta property="og:url" content="https://www.transparentreasons.com/produtos" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Produtos", "item": "https://www.transparentreasons.com/produtos" }] })}</script>
+      </Helmet>
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
@@ -30,7 +40,7 @@ const ProdutosPage = () => {
         <div className="mb-16">
           <SectionBadge label="Produtos & Ferramentas" />
           <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Produtos
+            Ferramentas de Produtividade e<br className="hidden lg:block" /> <span className="text-teal">Inteligência Artificial</span> para PMEs
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             As melhores ferramentas do mercado, implementadas e geridas por nós.

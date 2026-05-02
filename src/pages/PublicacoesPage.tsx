@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowRight, Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 
@@ -41,6 +42,15 @@ const cases = [
 const PublicacoesPage = () => {
   return (
     <PageLayout>
+      <Helmet>
+        <title>Casos de Estudo — Projectos de Referência | Transparent Reasons</title>
+        <meta name="description" content="Projectos reais construídos pela Transparent Reasons: Nivelfarma, Farmácia Sália e Immersive Lives. Contexto, desafio, abordagem e resultado." />
+        <link rel="canonical" href="https://www.transparentreasons.com/publicacoes" />
+        <meta property="og:title" content="Casos de Estudo — Transparent Reasons" />
+        <meta property="og:description" content="Projectos reais construídos pela Transparent Reasons: Nivelfarma, Farmácia Sália e Immersive Lives." />
+        <meta property="og:url" content="https://www.transparentreasons.com/publicacoes" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Publicações", "item": "https://www.transparentreasons.com/publicacoes" }] })}</script>
+      </Helmet>
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-10">

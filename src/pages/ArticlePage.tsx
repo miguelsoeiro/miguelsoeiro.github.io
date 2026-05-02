@@ -84,6 +84,9 @@ const ArticlePage = () => {
   const pageDesc = `${article.contexto.substring(0, 150)}…`;
   const pageUrl = `https://www.transparentreasons.com/publicacoes/${slug}`;
 
+  const yearMatch = article.period.match(/\d{4}/);
+  const datePublished = yearMatch ? `${yearMatch[0]}-01-01` : undefined;
+
   const schemaArticle = {
     "@context": "https://schema.org",
     "@graph": [
@@ -92,10 +95,13 @@ const ArticlePage = () => {
         "headline": `${article.company} — Caso de Estudo`,
         "description": pageDesc,
         "url": pageUrl,
+        ...(datePublished && { "datePublished": datePublished }),
+        "dateModified": "2025-01-01",
         "author": { "@type": "Person", "@id": "https://www.transparentreasons.com/sobre#miguel", "name": "Miguel Pires Soeiro" },
         "publisher": { "@type": "Organization", "@id": "https://www.transparentreasons.com/#organization", "name": "Transparent Reasons" },
         "about": article.sector,
-        "keywords": article.tags.join(", ")
+        "keywords": article.tags.join(", "),
+        "inLanguage": "pt-PT"
       },
       {
         "@type": "BreadcrumbList",

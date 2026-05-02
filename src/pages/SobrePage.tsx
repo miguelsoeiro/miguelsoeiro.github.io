@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Home, GraduationCap, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
-// TODO: substituir pelo ficheiro de imagem real do fundador
 import miguelPhoto from "@/assets/miguel-soeiro.jpeg";
+import miguelPhotoWebp from "@/assets/miguel-soeiro.webp";
 
 const formacao = {
   grau: "MSc em Engenharia Informática e de Computadores",
@@ -243,11 +243,18 @@ const SobrePage = () => {
             {/* TODO: substituir pelo ficheiro de imagem real do fundador */}
             <div className="relative w-64 lg:w-full max-w-xs">
               <div className="absolute inset-0 rounded-2xl ring-2 ring-devin-teal/40 pointer-events-none z-10" />
-              <img
-                src={miguelPhoto}
-                alt="Miguel Pires Soeiro — Fundador da Transparent Reasons"
-                className="w-full rounded-2xl object-cover object-center shadow-lg"
-              />
+              <picture>
+                <source srcSet={miguelPhotoWebp} type="image/webp" />
+                <img
+                  src={miguelPhoto}
+                  alt="Miguel Pires Soeiro — Fundador da Transparent Reasons"
+                  className="w-full rounded-2xl object-cover object-center shadow-lg"
+                  loading="eager"
+                  decoding="async"
+                  width={800}
+                  height={800}
+                />
+              </picture>
             </div>
           </div>
 

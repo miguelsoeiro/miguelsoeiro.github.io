@@ -45,6 +45,7 @@ const ContactoPage = () => {
         <meta name="twitter:description" content="Fale connosco e peça um diagnóstico gratuito. Sem compromisso. Respondemos em 24 horas úteis." />
         <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://www.transparentreasons.com/contacto" }] })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "ContactPage", "url": "https://www.transparentreasons.com/contacto", "name": "Contacto — Transparent Reasons", "description": "Fale connosco e peça um diagnóstico gratuito para a sua empresa.", "mainEntity": { "@type": "Organization", "@id": "https://www.transparentreasons.com/#organization", "name": "Transparent Reasons", "contactPoint": [{ "@type": "ContactPoint", "telephone": "+351930679484", "email": "geral@transparentreasons.com", "contactType": "customer service", "availableLanguage": ["Portuguese", "English"], "areaServed": "PT" }, { "@type": "ContactPoint", "contactType": "customer service", "url": "https://wa.me/351930679484", "availableLanguage": "Portuguese" }] } })}</script>
       </Helmet>
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Breadcrumb */}

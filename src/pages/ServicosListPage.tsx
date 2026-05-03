@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Home, Layers, BookOpen, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import FAQSection from "@/components/FAQSection";
 
 const servicoCards = [
   {
@@ -29,9 +31,35 @@ const servicoCards = [
   },
 ];
 
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Qual é o custo da consultoria de processos?", "acceptedAnswer": { "@type": "Answer", "text": "A consultoria de processos funciona em regime de avença mensal: Starter (8h/mês a 600 €/mês), Growth (16h/mês a 1.100 €/mês) e Scale (32h/mês a 2.000 €/mês). O compromisso mínimo é de 3 meses. Horas adicionais custam 80 €/h." } },
+    { "@type": "Question", "name": "Que formação empresarial oferece a Transparent Reasons?", "acceptedAnswer": { "@type": "Answer", "text": "Sessões práticas presenciais ou remotas para equipas até 12 participantes. Temas: Microsoft 365, Atlassian, IA, metodologias ágeis. Sessão 3h: 450 €. Sessão 6h: 800 €. Pack 5 sessões: 3.500 €. Inclui materiais e certificado." } },
+    { "@type": "Question", "name": "Quanto tempo dura a consultoria de processos?", "acceptedAnswer": { "@type": "Answer", "text": "O prazo mínimo de compromisso é de 3 meses. A maioria dos clientes opta por avenças de 6 a 12 meses para garantir resultados sustentáveis." } }
+  ]
+};
+
 const ServicosListPage = () => {
   return (
     <PageLayout>
+      <Helmet>
+        <title>Serviços de Consultoria | Processos · IA · Tecnologia · Formação — Transparent Reasons</title>
+        <meta name="description" content="Consultoria de processos e formação empresarial para PMEs portuguesas. Avenças mensais com acompanhamento contínuo. Diagnóstico gratuito." />
+        <link rel="canonical" href="https://www.transparentreasons.com/servicos" />
+        <meta property="og:title" content="Serviços de Consultoria — Transparent Reasons" />
+        <meta property="og:description" content="Consultoria de processos e formação empresarial para PMEs portuguesas. Avenças mensais com acompanhamento contínuo." />
+        <meta property="og:url" content="https://www.transparentreasons.com/servicos" />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Serviços de Consultoria — Transparent Reasons" />
+        <meta name="twitter:description" content="Consultoria de processos e formação empresarial para PMEs portuguesas. Diagnóstico gratuito." />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" }, { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://www.transparentreasons.com/servicos" }] })}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaFAQ)}</script>
+      </Helmet>
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
@@ -52,7 +80,7 @@ const ServicosListPage = () => {
             </span>
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Os nossos <span className="text-teal">Serviços</span>
+            Serviços de Consultoria, Tecnologia<br className="hidden lg:block" /> e <span className="text-teal">Formação para Empresas</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Consultoria de processos e formação para equipas e organizações. Acompanhamento contínuo, resultados mensuráveis.
@@ -101,6 +129,7 @@ const ServicosListPage = () => {
             );
           })}
         </div>
+        <FAQSection />
       </div>
     </PageLayout>
   );

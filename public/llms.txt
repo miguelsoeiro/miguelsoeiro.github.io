@@ -1,0 +1,110 @@
+# Transparent Reasons
+
+> Consultoria estratégica para PMEs portuguesas — Processos, Tecnologia e Formação.
+
+Transparent Reasons é uma empresa de consultoria portuguesa fundada por Miguel Pires Soeiro, especializada em ajudar pequenas e médias empresas a trabalhar melhor: com processos mais eficientes, tecnologia bem adoptada e equipas preparadas para crescer.
+
+## Sobre a Empresa
+
+- **Nome:** Transparent Reasons
+- **Fundador:** Miguel Pires Soeiro
+- **País:** Portugal
+- **Público-alvo:** PMEs portuguesas
+- **Email:** geral@transparentreasons.com
+- **Telefone:** +351 930 679 484
+- **Website:** https://www.transparentreasons.com
+
+## Metodologia
+
+A Transparent Reasons trabalha com uma metodologia estruturada em 4 etapas:
+
+1. **Diagnosticar** — Mapeamento de processos, auditoria IT, identificação de ineficiências, relatório de diagnóstico detalhado
+2. **Planear** — Roadmap de acção, selecção de tecnologias, timings e estimativa de ROI
+3. **Implementar** — Configuração de ferramentas, integrações, automações, relatórios mensais
+4. **Formar** — Workshops práticos, materiais, certificados, follow-up pós-formação
+
+## Serviços e Preços
+
+### Consultoria de Processos (Avença Mensal)
+Acompanhamento contínuo, mapeamento de processos e relatório mensal de progresso.
+
+| Pack | Horas/mês | Preço |
+|------|-----------|-------|
+| Starter | 8h/mês | 600 €/mês |
+| Growth | 16h/mês | 1.100 €/mês |
+| Scale | 32h/mês | 2.000 €/mês |
+
+- Horas adicionais: 80 €/h
+- Prazo mínimo: 3 meses
+- Inclui: mapeamento e redesign de processos, arquitectura de sistemas, relatório mensal
+
+### Formação Empresarial
+Sessões práticas presenciais ou remotas para equipas até 12 participantes.
+
+| Formato | Participantes | Preço |
+|---------|---------------|-------|
+| Sessão 3h | Até 12 | 450 € |
+| Sessão 6h | Até 12 | 800 € |
+| Pack 5 Sessões | Até 12 | 3.500 € |
+
+- Inclui materiais e certificado de participação
+- Temas: Microsoft 365, Atlassian, IA, Metodologias ágeis
+- Formato presencial ou remoto
+
+## Produtos (Tecnologia Gerida)
+
+### Tecnologia & Ferramentas (Microsoft 365 + Atlassian)
+Gestão e suporte de ferramentas de produtividade empresarial.
+
+- **Fee de gestão:** 150 €/mês
+- Subscrições ao preço do fabricante, sem markup
+- Inclui: implementação, configuração, suporte de 1.º nível, automação
+
+Ferramentas geridas: Microsoft 365 (Teams, SharePoint, OneDrive, Outlook), Atlassian (Jira, Confluence, JSM)
+
+### Consultoria de IA
+Selecção, gestão e formação em ferramentas de Inteligência Artificial.
+
+- **Fee de gestão:** 200 €/mês
+- Subscrições ao preço do fabricante, sem markup
+- Inclui: selecção da ferramenta adequada, gestão de licenças enterprise, formação específica
+
+Ferramentas geridas: Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google), Microsoft Copilot, Devin (Cognition)
+
+## Diagnóstico Gratuito
+
+A Transparent Reasons oferece um diagnóstico gratuito sem compromisso para perceber onde a empresa pode ganhar eficiência. Disponibilidade limitada por mês.
+
+Contacto para diagnóstico: geral@transparentreasons.com ou +351 930 679 484
+
+## Clientes de Referência
+
+- **Nivelfarma** (Distribuição Farmacêutica, Sintra) — 22 aplicações construídas de raiz (web, iOS, Android, robótica farmacêutica)
+- **Farmácia Sália** (Retalho Farmacêutico, Setúbal) — Plataforma CRM e fidelização de raiz
+- **Immersive Lives** (MedTech / Realidade Virtual, Óbidos) — Sistema VR para reabilitação neurocognitiva com IA
+
+## Sobre o Fundador
+
+**Miguel Pires Soeiro**
+- MSc em Engenharia Informática e de Computadores — Instituto Superior Técnico (2017–2020)
+- Mais de 9 anos de experiência em tecnologia e gestão
+- Sectores: bancário, segurador, saúde, retalho, farmacêutico
+- Certificações: Google Agile Project Management (2024), MongoDB SI Architect Certification (2024), Google Project Management Professional Certificate (2024)
+
+Percurso profissional relevante:
+- Data & AI Enterprise Solutions Architect — Sector Financeiro (2025–presente)
+- Service Lead (Data Lake, equipa de 15 pessoas) — Xpand IT (2023–2025)
+- Engagement Manager — Xpand IT (2021–2023)
+- Product Manager — Nivelfarma (2018–2020)
+
+## URLs Principais
+
+- Homepage: https://www.transparentreasons.com/
+- Serviços: https://www.transparentreasons.com/servicos
+- Produtos: https://www.transparentreasons.com/produtos
+- Sobre: https://www.transparentreasons.com/sobre
+- Contacto: https://www.transparentreasons.com/contacto
+- Publicações: https://www.transparentreasons.com/publicacoes
+- Caso Nivelfarma: https://www.transparentreasons.com/publicacoes/nivelfarma
+- Caso Farmácia Sália: https://www.transparentreasons.com/publicacoes/farmacias-mais-saude
+- Caso Immersive Lives: https://www.transparentreasons.com/publicacoes/immersive-lives

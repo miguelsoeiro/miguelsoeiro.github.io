@@ -5,6 +5,7 @@ import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import PartnersSection from "@/components/PartnersSection";
 import BlogSection from "@/components/BlogSection";
 import CasesSection from "@/components/CasesSection";
+import FAQSection from "@/components/FAQSection";
 import miguelPhoto from "@/assets/miguel-soeiro.jpeg";
 
 const steps = [
@@ -165,10 +166,10 @@ const HeroSection = () => {
 
           {/* Headline */}
           <h1 className="text-5xl lg:text-5xl font-bold leading-tight tracking-tight">
-            <span className="text-teal">Parceiro estratégico</span>
-            <span className="text-foreground"> para</span>
+            <span className="text-teal">Consultoria</span>
+            <span className="text-foreground"> para PMEs</span>
             <br />
-            <span className="text-foreground">PMEs portuguesas</span>
+            <span className="text-foreground">Portuguesas</span>
           </h1>
 
           {/* Subtitle */}
@@ -206,12 +207,12 @@ const HeroSection = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="mailto:geral@transparentreasons.com"
+            <Link
+              to="/contacto"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-devin-teal text-background font-semibold text-sm hover:opacity-90 transition-opacity"
             >
               Agendar Diagnóstico Gratuito
-            </a>
+            </Link>
             <a
               href="#servicos"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-devin-border text-foreground font-medium text-sm hover:border-devin-teal/40 transition-colors"
@@ -219,6 +220,9 @@ const HeroSection = () => {
               Ver Serviços
             </a>
           </div>
+          <p className="text-xs text-muted-foreground text-center sm:text-left">
+            Diagnóstico gratuito — disponibilidade limitada por mês.
+          </p>
         </div>
 
         {/* Right — Radial Orbital Timeline */}
@@ -521,6 +525,9 @@ const HeroSection = () => {
             </Link>
           </div>
         </div>
+
+        {/* ── FAQ ── */}
+        <FAQSection />
 
         {/* ── Casos de Estudo ── */}
         <CasesSection />

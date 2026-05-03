@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, GraduationCap, Award, ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { Home, GraduationCap, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
-// TODO: substituir pelo ficheiro de imagem real do fundador
 import miguelPhoto from "@/assets/miguel-soeiro.jpeg";
+import miguelPhotoWebp from "@/assets/miguel-soeiro.webp";
 
 const formacao = {
   grau: "MSc em Engenharia Informática e de Computadores",
@@ -131,14 +132,54 @@ const timelineEntries = [
   },
 ];
 
+const schemaFAQsobre = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Quem fundou a Transparent Reasons?", "acceptedAnswer": { "@type": "Answer", "text": "Miguel Pires Soeiro, com mais de 9 anos de experiência em tecnologia e gestão. MSc em Engenharia Informática pelo Instituto Superior Técnico. Certificações em Agile PM e Project Management Professional (Google) e SI Architect (MongoDB)." } },
+    { "@type": "Question", "name": "Que projectos já desenvolveu o fundador da Transparent Reasons?", "acceptedAnswer": { "@type": "Answer", "text": "Nivelfarma (22 aplicações de raiz — web, iOS, Android e robótica farmacêutica), Farmácia Sália (plataforma CRM e fidelização) e Immersive Lives (sistema VR para reabilitação neurocognitiva com IA)." } },
+    { "@type": "Question", "name": "Qual é a filosofia da Transparent Reasons?", "acceptedAnswer": { "@type": "Answer", "text": "Transparência total: preços claros, recomendações honestas e comunicação directa. Cada decisão tem uma justificação racional comunicada ao cliente. Nunca recomendamos ferramentas que não escolheríamos para nós próprios." } },
+  ],
+};
+
+const schemaPerson = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.transparentreasons.com/sobre#miguel",
+      "name": "Miguel Pires Soeiro",
+      "jobTitle": "Fundador, Consultoria, Dados & IA",
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://www.transparentreasons.com/#organization",
+        "name": "Transparent Reasons"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Instituto Superior Técnico",
+        "address": { "@type": "PostalAddress", "addressCountry": "PT", "addressLocality": "Lisboa" }
+      },
+      "knowsAbout": ["Consultoria de Processos", "Gestão de Projectos", "Microsoft 365", "Atlassian", "Inteligência Artificial", "Data Engineering", "PMEs", "Scrum", "Kanban"],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "Agile Project Management", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Google" } },
+        { "@type": "EducationalOccupationalCredential", "name": "SI Architect Certification", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "MongoDB" } },
+        { "@type": "EducationalOccupationalCredential", "name": "Project Management Professional Certificate", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Google" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Sobre", "item": "https://www.transparentreasons.com/sobre" }
+      ]
+    }
+  ]
+};
+
 const SobrePage = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [timelineVisible, setTimelineVisible] = useState(false);
-
-  useEffect(() => {
-    document.title = "Fundador | Transparent Reasons";
-    return () => { document.title = "Transparent Reasons — Consultoria · Inovação · Formação"; };
-  }, []);
 
   useEffect(() => {
     const el = timelineRef.current;
@@ -153,6 +194,22 @@ const SobrePage = () => {
 
   return (
     <PageLayout>
+      <Helmet>
+        <title>Quem Somos — Miguel Pires Soeiro | Transparent Reasons</title>
+        <meta name="description" content="Conheça Miguel Pires Soeiro, fundador da Transparent Reasons. Mais de 9 anos de experiência em tecnologia e gestão. MSc pelo Instituto Superior Técnico." />
+        <link rel="canonical" href="https://www.transparentreasons.com/sobre" />
+        <meta property="og:title" content="Quem Somos — Miguel Pires Soeiro | Transparent Reasons" />
+        <meta property="og:description" content="Conheça Miguel Pires Soeiro, fundador da Transparent Reasons. Mais de 9 anos de experiência em tecnologia e gestão." />
+        <meta property="og:url" content="https://www.transparentreasons.com/sobre" />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Quem Somos — Miguel Pires Soeiro | Transparent Reasons" />
+        <meta name="twitter:description" content="Conheça Miguel Pires Soeiro, fundador da Transparent Reasons. Mais de 9 anos de experiência em tecnologia e gestão." />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <script type="application/ld+json">{JSON.stringify(schemaPerson)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaFAQsobre)}</script>
+      </Helmet>
       <div className="container max-w-4xl mx-auto px-6 pb-24">
 
         {/* Breadcrumb */}
@@ -171,7 +228,7 @@ const SobrePage = () => {
             <span className="text-muted-foreground font-medium tracking-widest uppercase">Quem Somos</span>
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
-            O fundador da <span className="text-devin-teal">Transparent Reasons</span>
+            Quem é a <span className="text-devin-teal">Transparent Reasons</span><br className="hidden lg:block" /> e Como Podemos Ajudar
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Mais de 9 anos a construir soluções reais para empresas reais.
@@ -186,11 +243,18 @@ const SobrePage = () => {
             {/* TODO: substituir pelo ficheiro de imagem real do fundador */}
             <div className="relative w-64 lg:w-full max-w-xs">
               <div className="absolute inset-0 rounded-2xl ring-2 ring-devin-teal/40 pointer-events-none z-10" />
-              <img
-                src={miguelPhoto}
-                alt="Miguel Pires Soeiro — Fundador da Transparent Reasons"
-                className="w-full rounded-2xl object-cover object-center shadow-lg"
-              />
+              <picture>
+                <source srcSet={miguelPhotoWebp} type="image/webp" />
+                <img
+                  src={miguelPhoto}
+                  alt="Miguel Pires Soeiro — Fundador da Transparent Reasons"
+                  className="w-full rounded-2xl object-cover object-center shadow-lg"
+                  loading="eager"
+                  decoding="async"
+                  width={800}
+                  height={800}
+                />
+              </picture>
             </div>
           </div>
 
@@ -270,6 +334,71 @@ const SobrePage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* A Nossa Abordagem */}
+        <div className="mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-xs mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+            <span className="text-muted-foreground font-medium tracking-widest uppercase">A Nossa Abordagem</span>
+          </div>
+          <h2 className="text-2xl font-bold text-foreground mb-8">
+            Como trabalhamos com cada cliente
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {[
+              {
+                num: "01",
+                title: "Diagnóstico sem assumptions",
+                body: "Antes de recomendar qualquer solução, ouvimos. Mapeamos os processos reais, falamos com as pessoas que os executam e identificamos as ineficiências que mais impactam o negócio. Cada empresa é diferente — tratamo-la como tal.",
+              },
+              {
+                num: "02",
+                title: "Planos que cabem no orçamento real",
+                body: "Não vendemos soluções de enterprise a empresas com orçamentos de PME. Desenhamos planos de acção com tecnologias adequadas, timings realistas e estimativas de retorno honestas. Sem over-engineering.",
+              },
+              {
+                num: "03",
+                title: "Execução com acompanhamento contínuo",
+                body: "Não entregamos um relatório e desaparecemos. Implementamos, acompanhamos, ajustamos. Todos os meses enviamos um relatório de progresso com o que foi feito, o que está por fazer e o impacto medido.",
+              },
+              {
+                num: "04",
+                title: "Formação para que o investimento não se perca",
+                body: "A melhor ferramenta não serve de nada se a equipa não souber usá-la. Por isso, a formação faz parte da metodologia — não é um extra. Capacitamos as pessoas para que sejam autónomas após a nossa saída.",
+              },
+            ].map((pillar) => (
+              <div
+                key={pillar.num}
+                className="rounded-xl border border-devin-border bg-devin-surface/50 p-6 hover:border-devin-teal/40 transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-xs font-bold text-devin-teal bg-devin-teal/10 px-2 py-0.5 rounded-full">{pillar.num}</span>
+                  <h3 className="font-bold text-foreground text-sm">{pillar.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{pillar.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Porquê Transparent Reasons */}
+        <div className="mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-xs mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+            <span className="text-muted-foreground font-medium tracking-widest uppercase">O Nome</span>
+          </div>
+          <h2 className="text-2xl font-bold text-foreground mb-5">
+            Porquê "Transparent Reasons"?
+          </h2>
+          <div className="rounded-xl border border-devin-border bg-devin-surface/50 p-6">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              O nome não é acidental. "Transparent" reflecte um compromisso com a clareza total — nos preços, nas recomendações, nos relatórios de progresso e nas conversas difíceis. Nunca vendemos tecnologia que não seria a nossa primeira escolha, e nunca ocultamos quando algo não está a funcionar.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              "Reasons" reflecte a crença de que cada decisão deve ter uma justificação racional e comunicada. Quando recomendamos uma ferramenta, explicamos porquê. Quando aconselhamos contra uma opção, também. O cliente deve sempre perceber o raciocínio por detrás de cada escolha — não apenas seguir recomendações às cegas.
+            </p>
           </div>
         </div>
 

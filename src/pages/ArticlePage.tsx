@@ -1,4 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 
@@ -79,8 +80,57 @@ const ArticlePage = () => {
 
   if (!article) return <Navigate to="/publicacoes" replace />;
 
+  const pageTitle = `${article.company} — Caso de Estudo | ${article.sector} | Transparent Reasons`;
+  const pageDesc = `${article.contexto.substring(0, 150)}…`;
+  const pageUrl = `https://www.transparentreasons.com/publicacoes/${slug}`;
+
+  const yearMatch = article.period.match(/\d{4}/);
+  const datePublished = yearMatch ? `${yearMatch[0]}-01-01` : undefined;
+
+  const schemaArticle = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": `${article.company} — Caso de Estudo`,
+        "description": pageDesc,
+        "url": pageUrl,
+        ...(datePublished && { "datePublished": datePublished }),
+        "dateModified": "2025-01-01",
+        "author": { "@type": "Person", "@id": "https://www.transparentreasons.com/sobre#miguel", "name": "Miguel Pires Soeiro" },
+        "publisher": { "@type": "Organization", "@id": "https://www.transparentreasons.com/#organization", "name": "Transparent Reasons" },
+        "about": article.sector,
+        "keywords": article.tags.join(", "),
+        "inLanguage": "pt-PT"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.transparentreasons.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Publicações", "item": "https://www.transparentreasons.com/publicacoes" },
+          { "@type": "ListItem", "position": 3, "name": article.company, "item": pageUrl }
+        ]
+      }
+    ]
+  };
+
   return (
     <PageLayout>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+        <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>
+      </Helmet>
       <div className="max-w-3xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-10">

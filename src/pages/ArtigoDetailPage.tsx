@@ -1,8 +1,12 @@
 import { Navigate, Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { articlesBySlug } from "@/data/articles";
 import { formatPostDate, formatReadTime } from "@/components/ui/blog-post-card";
+
+const SITE = "https://www.transparentreasons.com";
+const OG_IMG = `${SITE}/apple-touch-icon.png`;
 
 const ArtigoDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -10,8 +14,66 @@ const ArtigoDetailPage = () => {
 
   if (!article) return <Navigate to="/artigos" replace />;
 
+  const pageTitle = `${article.headline} | Transparent Reasons`;
+  const pageDesc = article.excerpt;
+  const pageUrl = `${SITE}/artigos/${slug}`;
+  const datePublished = article.publishedAt instanceof Date
+    ? article.publishedAt.toISOString().split("T")[0]
+    : String(article.publishedAt).split("T")[0];
+
+  const schemaBlogPost = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        headline: article.headline,
+        description: article.excerpt,
+        url: pageUrl,
+        datePublished,
+        dateModified: datePublished,
+        author: {
+          "@type": "Person",
+          "@id": `${SITE}/sobre#miguel`,
+          name: article.writer || "Transparent Reasons",
+        },
+        publisher: {
+          "@type": "Organization",
+          "@id": `${SITE}/#organization`,
+          name: "Transparent Reasons",
+        },
+        image: article.cover ? `${SITE}${article.cover}` : OG_IMG,
+        articleSection: article.tag,
+        inLanguage: "pt-PT",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+          { "@type": "ListItem", position: 2, name: "Artigos", item: `${SITE}/artigos` },
+          { "@type": "ListItem", position: 3, name: article.headline, item: pageUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <PageLayout>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={article.cover ? `${SITE}${article.cover}` : OG_IMG} />
+        <meta property="og:locale" content="pt_PT" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content={article.cover ? `${SITE}${article.cover}` : OG_IMG} />
+        <script type="application/ld+json">{JSON.stringify(schemaBlogPost)}</script>
+      </Helmet>
       <div className="max-w-3xl mx-auto px-6 py-12">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
           <Link to="/" className="hover:text-foreground transition-colors flex items-center gap-1">

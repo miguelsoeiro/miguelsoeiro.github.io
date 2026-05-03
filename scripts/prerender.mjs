@@ -34,7 +34,7 @@ const schemaOrg = {
       telephone: '+351930679484',
       areaServed: 'PT',
       knowsLanguage: ['pt', 'en'],
-      founder: { '@type': 'Person', '@id': `${SITE}/sobre#miguel`, name: 'Miguel Pires Soeiro' },
+      founder: { '@type': 'Person', '@id': `${SITE}/fundacao#miguel`, name: 'Miguel Pires Soeiro' },
     },
     {
       '@type': 'LocalBusiness',
@@ -113,7 +113,7 @@ const schemaFAQsobre = {
 const schemaPerson = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': `${SITE}/sobre#miguel`,
+  '@id': `${SITE}/fundacao#miguel`,
   name: 'Miguel Pires Soeiro',
   jobTitle: 'Fundador, Consultoria, Dados & IA',
   worksFor: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'Transparent Reasons' },
@@ -231,12 +231,55 @@ const routes = [
   {
     file: 'sobre/index.html',
     canonical: SITE + '/sobre',
-    title: 'Quem Somos — Miguel Pires Soeiro | Transparent Reasons',
-    desc: 'Conheça Miguel Pires Soeiro, fundador da Transparent Reasons. Mais de 9 anos de experiência em tecnologia e gestão. MSc pelo Instituto Superior Técnico.',
-    schemas: [crumb([[1, 'Home', SITE + '/'], [2, 'Sobre', SITE + '/sobre']]), schemaPerson, schemaFAQsobre],
-    noscript: `<h1>Quem Somos — Transparent Reasons</h1>
+    title: 'Sobre a Transparent Reasons — Consultoria para PMEs Portuguesas',
+    desc: 'Conheça a Transparent Reasons: missão, diferenciais e como ajudamos PMEs portuguesas a crescer através de consultoria de processos, tecnologia e formação.',
+    schemas: [crumb([[1, 'Home', SITE + '/'], [2, 'Sobre Nós', SITE + '/sobre']]), {
+      '@context': 'https://schema.org',
+      '@graph': [{
+        '@type': ['Organization', 'ProfessionalService', 'LocalBusiness'],
+        '@id': `${SITE}/#organization`,
+        name: 'Transparent Reasons',
+        url: SITE,
+        description: 'Consultoria de processos, tecnologia e formação para PMEs portuguesas.',
+        address: { '@type': 'PostalAddress', addressCountry: 'PT', addressLocality: 'Lisboa' },
+        contactPoint: { '@type': 'ContactPoint', telephone: '+351930679484', contactType: 'customer service', availableLanguage: 'Portuguese' },
+      }],
+    }],
+    noscript: `<h1>Sobre a Transparent Reasons — Consultoria para PMEs Portuguesas</h1>
+<p>A Transparent Reasons é uma consultoria portuguesa especializada em ajudar PMEs a trabalhar melhor — com processos mais claros, tecnologia bem adoptada e equipas preparadas para crescer.</p>
+<h2>Missão</h2>
+<p>Eliminar a fricção entre as PMEs portuguesas e o seu potencial de crescimento. Diagnosticamos, planeamos, implementamos e formamos — sem surpresas, sem letras pequenas.</p>
+<h2>Porquê a Transparent Reasons</h2>
+<ul>
+<li><strong>Visão técnica profunda</strong> — Background real em programação e arquitectura de sistemas.</li>
+<li><strong>Gestão ágil com experiência real</strong> — Liderança de equipas em projectos de grande escala.</li>
+<li><strong>IA aplicada, não especulativa</strong> — Automação e produtividade com impacto prático.</li>
+<li><strong>Curadoria rigorosa de ferramentas</strong> — Só recomendamos o que escolheríamos para nós próprios.</li>
+<li><strong>Foco exclusivo em PMEs</strong> — Orçamentos realistas, sem over-engineering.</li>
+<li><strong>Transparência como princípio</strong> — Preços fixos, relatórios claros, comunicação directa.</li>
+</ul>
+<h2>Números</h2>
+<p>22+ Aplicações desenvolvidas · 3 Empresas transformadas · 9+ Anos de experiência · 15 Pessoas lideradas</p>
+<h2>Serviços</h2>
+<ul>
+<li><a href="/servicos/consultoria-processos">Consultoria de Processos</a></li>
+<li><a href="/servicos/tecnologia-ferramentas">Tecnologia &amp; Ferramentas</a></li>
+<li><a href="/servicos/consultoria-ia">Consultoria de IA</a></li>
+<li><a href="/servicos/formacao">Formação</a></li>
+</ul>
+<p>Diagnóstico gratuito sem compromisso. Contacto: <a href="mailto:geral@transparentreasons.com">geral@transparentreasons.com</a> | +351 930 679 484</p>`,
+  },
+  {
+    file: 'fundacao/index.html',
+    canonical: SITE + '/fundacao',
+    title: 'Fundador & Origens — Miguel Pires Soeiro | Transparent Reasons',
+    desc: 'Conheça Miguel Pires Soeiro, fundador da Transparent Reasons, o seu percurso, certificações e os projectos que moldaram a empresa.',
+    schemas: [crumb([[1, 'Home', SITE + '/'], [2, 'Fundação', SITE + '/fundacao']]), schemaPerson, schemaFAQsobre],
+    noscript: `<h1>Fundador & Origens — Transparent Reasons</h1>
 <h2>Miguel Pires Soeiro — Fundador</h2>
 <p>Mais de 9 anos de experiência em tecnologia e gestão de projectos. MSc em Engenharia Informática e de Computadores pelo Instituto Superior Técnico de Lisboa. Certificações: Agile Project Management (Google), Project Management Professional (Google), SI Architect (MongoDB).</p>
+<h2>Números</h2>
+<p>22+ Aplicações desenvolvidas · 3 Empresas transformadas · 9+ Anos de experiência · 15 Pessoas lideradas</p>
 <h2>Projectos de Referência</h2>
 <ul>
 <li>Nivelfarma — 22 aplicações web, iOS, Android e robótica farmacêutica construídas de raiz (2021–2023)</li>

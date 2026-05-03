@@ -37,6 +37,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link to="/sobre" className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer">
+                  Sobre Nós
+                </Link>
+              </li>
+              <li>
+                <Link to="/fundacao" className="text-slate-400 hover:text-devin-teal hover:underline transition-colors text-sm cursor-pointer">
                   Fundador
                 </Link>
               </li>

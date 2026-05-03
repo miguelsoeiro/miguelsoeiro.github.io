@@ -71,7 +71,7 @@ const ContactoPage = () => {
             "name": "Transparent Reasons",
             "contactPoint": [{
               "@type": "ContactPoint",
-              "telephone": "+351916233920",
+              "telephone": "+351930679484",
               "email": "geral@transparentreasons.com",
               "contactType": "customer service",
               "availableLanguage": ["Portuguese", "English"],
@@ -245,11 +245,11 @@ const ContactoPage = () => {
                   geral@transparentreasons.com
                 </a>
                 <a
-                  href="tel:+351916233920"
+                  href="tel:+351930679484"
                   className="flex items-center gap-3 text-sm text-muted-foreground hover:text-devin-teal transition-colors"
                 >
                   <Phone size={15} className="text-devin-teal flex-shrink-0" />
-                  +351 916 233 920
+                  +351 930 679 484
                 </a>
               </div>
             </div>

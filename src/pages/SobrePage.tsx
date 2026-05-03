@@ -67,6 +67,7 @@ const differentials = [
 const services = [
   {
     slug: "consultoria-processos",
+    basePath: "servicos",
     title: "Consultoria de Processos",
     desc: "Diagnóstico, mapeamento e optimização de processos internos. Avença mensal com relatório de progresso incluído.",
     color: "text-blue-400",
@@ -74,7 +75,20 @@ const services = [
     icon: "CP",
   },
   {
+    slug: "formacao",
+    basePath: "servicos",
+    title: "Formação",
+    desc: "Workshops práticos para equipas de até 12 pessoas. Presencial ou remoto, com materiais e certificado incluídos.",
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-400/10",
+    icon: "FM",
+  },
+];
+
+const produtos = [
+  {
     slug: "tecnologia-ferramentas",
+    basePath: "produtos",
     title: "Tecnologia & Ferramentas",
     desc: "Gestão e suporte de Microsoft 365 e Atlassian. Subscrições ao preço real do fabricante, fee fixo mensal.",
     color: "text-violet-400",
@@ -83,19 +97,12 @@ const services = [
   },
   {
     slug: "consultoria-ia",
+    basePath: "produtos",
     title: "Consultoria de IA",
     desc: "Selecção, implementação e formação em ferramentas de IA. Gestão de licenças enterprise incluída.",
     color: "text-cyan-400",
     bgColor: "bg-cyan-400/10",
     icon: "IA",
-  },
-  {
-    slug: "formacao",
-    title: "Formação",
-    desc: "Workshops práticos para equipas de até 12 pessoas. Presencial ou remoto, com materiais e certificado incluídos.",
-    color: "text-emerald-400",
-    bgColor: "bg-emerald-400/10",
-    icon: "FM",
   },
 ];
 
@@ -211,17 +218,17 @@ const SobrePage = () => (
       </div>
 
       {/* Serviços overview */}
-      <div className="mb-16">
+      <div className="mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-xs mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
           <span className="text-muted-foreground font-medium tracking-widest uppercase">Serviços</span>
         </div>
-        <h2 className="text-3xl font-bold text-foreground mb-10">Como podemos ajudar a sua empresa</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <h2 className="text-3xl font-bold text-foreground mb-8">Como podemos ajudar a sua empresa</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
           {services.map((s) => (
             <Link
               key={s.slug}
-              to={`/servicos/${s.slug}`}
+              to={`/${s.basePath}/${s.slug}`}
               className="group rounded-2xl border border-devin-border bg-devin-surface/50 p-6 hover:border-devin-teal/40 transition-all flex flex-col"
             >
               <div className={`w-10 h-10 rounded-xl ${s.bgColor} border border-devin-border flex items-center justify-center mb-4 flex-shrink-0`}>
@@ -237,12 +244,50 @@ const SobrePage = () => (
             </Link>
           ))}
         </div>
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-start mb-16">
           <Link
             to="/servicos"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-devin-border text-foreground font-medium text-sm hover:border-devin-teal/40 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors"
           >
             Ver todos os serviços
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+      </div>
+
+      {/* Produtos overview */}
+      <div className="mb-16">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-xs mb-6">
+          <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
+          <span className="text-muted-foreground font-medium tracking-widest uppercase">Produtos</span>
+        </div>
+        <h2 className="text-3xl font-bold text-foreground mb-8">Ferramentas que gerimos para si</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+          {produtos.map((p) => (
+            <Link
+              key={p.slug}
+              to={`/${p.basePath}/${p.slug}`}
+              className="group rounded-2xl border border-devin-border bg-devin-surface/50 p-6 hover:border-devin-teal/40 transition-all flex flex-col"
+            >
+              <div className={`w-10 h-10 rounded-xl ${p.bgColor} border border-devin-border flex items-center justify-center mb-4 flex-shrink-0`}>
+                <span className={`text-xs font-bold ${p.color}`}>{p.icon}</span>
+              </div>
+              <h3 className="font-bold text-foreground text-sm mb-2 group-hover:text-devin-teal transition-colors leading-snug">
+                {p.title}
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed flex-1">{p.desc}</p>
+              <div className="flex items-center gap-1 mt-4 text-xs text-muted-foreground group-hover:text-devin-teal transition-colors">
+                Saber mais <ArrowRight size={12} />
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="flex justify-start">
+          <Link
+            to="/produtos"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-devin-teal transition-colors"
+          >
+            Ver todos os produtos
             <ArrowRight size={14} />
           </Link>
         </div>

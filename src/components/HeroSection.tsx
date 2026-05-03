@@ -322,8 +322,9 @@ const HeroSection = () => {
             {differentials.map((diff, idx) => {
               const IconComponent = diff.icon;
               return (
-                <div
+                <Link
                   key={idx}
+                  to="/sobre"
                   className="group flex gap-4 p-6 rounded-2xl bg-devin-surface/50 border border-devin-border hover:border-devin-teal/40 transition-all"
                 >
                   <div className="text-devin-teal flex-shrink-0 mt-0.5">
@@ -335,7 +336,7 @@ const HeroSection = () => {
                     </h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">{diff.desc}</p>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

@@ -54,7 +54,6 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
     { label: "Fundador", href: link("#sobre") },
     { label: "Serviços", href: link("#servicos") },
     { label: "Produtos", href: link("#produtos-secao") },
-    { label: "Contacto", to: "/contacto" },
   ];
 
   // Scroll tracking — only active on homepage

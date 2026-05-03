@@ -339,6 +339,15 @@ const HeroSection = () => {
               );
             })}
           </div>
+          <div className="flex justify-center mt-10">
+            <Link
+              to="/sobre"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border border-devin-border text-muted-foreground hover:border-devin-teal/40 hover:text-devin-teal transition-colors"
+            >
+              Conhecer a Transparent Reasons
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
 
         {/* ── Sobre ── */}
@@ -387,7 +396,7 @@ const HeroSection = () => {
               </p>
 
               <Link
-                to="/sobre"
+                to="/fundacao"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-colors hover:bg-[#4DC8F0]/10"
                 style={{ border: "1px solid #4DC8F0", color: "#4DC8F0", background: "transparent" }}
               >

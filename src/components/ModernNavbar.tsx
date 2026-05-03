@@ -51,7 +51,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
     { label: "Home", href: isHome ? "#home" : "/" },
     { label: "Metodologia", href: link("#metodologia") },
     { label: "Porquê Nós", href: link("#porque") },
-    { label: "Fundador", to: "/fundacao" },
+    { label: "Fundador", href: link("#sobre") },
     { label: "Serviços", href: link("#servicos") },
     { label: "Produtos", href: link("#produtos-secao") },
   ];

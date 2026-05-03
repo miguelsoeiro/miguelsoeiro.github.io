@@ -30,6 +30,7 @@ const ServicosListPage  = lazyWithReload(() => import("./pages/ServicosListPage"
 const ArtigosPage       = lazyWithReload(() => import("./pages/ArtigosPage"));
 const ArtigoDetailPage  = lazyWithReload(() => import("./pages/ArtigoDetailPage"));
 const SobrePage         = lazyWithReload(() => import("./pages/SobrePage"));
+const FundacaoPage      = lazyWithReload(() => import("./pages/FundacaoPage"));
 const VCardPage         = lazyWithReload(() => import("./pages/VCardPage"));
 const ContactoPage      = lazyWithReload(() => import("./pages/ContactoPage"));
 const NotFound          = lazyWithReload(() => import("./pages/NotFound"));
@@ -56,6 +57,7 @@ const App = () => (
             <Route path="/artigos" element={<ArtigosPage />} />
             <Route path="/artigos/:slug" element={<ArtigoDetailPage />} />
             <Route path="/sobre" element={<SobrePage />} />
+            <Route path="/fundacao" element={<FundacaoPage />} />
             <Route path="/contacto" element={<ContactoPage />} />
             <Route path="/vcard-mps" element={<VCardPage />} />
             <Route path="*" element={<NotFound />} />

@@ -426,10 +426,13 @@ const FundacaoPage = () => {
           </h2>
 
           <div ref={timelineRef} className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-[11px] top-0 bottom-0 w-0.5" style={{ background: "#4DC8F0" }} />
+            {/* Vertical line — gradient fade top & bottom */}
+            <div
+              className="absolute left-[10px] top-0 bottom-0 w-px"
+              style={{ background: "linear-gradient(to bottom, transparent 0%, #4DC8F0 8%, #4DC8F0 92%, transparent 100%)" }}
+            />
 
-            <div className="space-y-5 pl-8">
+            <div className="space-y-4 pl-9">
               {timelineEntries.map((entry, i) => (
                 <div
                   key={i}
@@ -440,39 +443,55 @@ const FundacaoPage = () => {
                   }
                   className="relative"
                 >
-                  {/* Dot */}
-                  <div
-                    className="absolute -left-[21px] top-5 w-3 h-3 rounded-full flex-shrink-0"
-                    style={{ background: "#4DC8F0", boxShadow: "0 0 0 3px rgba(77,200,240,0.15)" }}
-                  />
+                  {/* Dot — outer ring + inner fill */}
+                  <div className="absolute -left-[25px] top-[18px]">
+                    <div
+                      className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
+                        i === 0
+                          ? "border-devin-teal bg-devin-teal/10"
+                          : "border-devin-border bg-devin-surface"
+                      }`}
+                    >
+                      <div
+                        className={`w-2 h-2 rounded-full ${
+                          i === 0 ? "bg-devin-teal animate-pulse" : "bg-devin-teal/50"
+                        }`}
+                      />
+                    </div>
+                  </div>
 
                   {/* Card */}
                   <div
-                    className="rounded-xl p-5"
-                    style={{ background: "#1E1E2E", border: "1px solid #2A2A3E" }}
+                    className={`rounded-xl overflow-hidden transition-all hover:border-devin-teal/30 ${
+                      i === 0 ? "border border-devin-teal/40" : "border border-devin-border"
+                    }`}
+                    style={{ background: "#1E1E2E" }}
                   >
-                    <p className="mb-2 text-[11px] font-medium tracking-widest uppercase text-muted-foreground/60">
-                      {entry.period}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-2 mb-0.5">
-                      <h3 className="font-bold text-base text-foreground leading-snug">
+                    {/* Accent strip — current entry only */}
+                    {i === 0 && (
+                      <div className="h-px bg-gradient-to-r from-devin-teal/80 via-devin-teal/30 to-transparent" />
+                    )}
+                    <div className="p-5">
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <p className="text-[10px] font-semibold tracking-widest uppercase text-devin-teal/70">
+                          {entry.period}
+                        </p>
+                        {entry.badge && (
+                          <span className="flex-shrink-0 inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold bg-devin-teal/15 text-devin-teal border border-devin-teal/30">
+                            {entry.badge}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="font-bold text-base text-foreground leading-snug mb-1">
                         {entry.role}
                       </h3>
-                      {entry.badge && (
-                        <span
-                          className="inline-block px-2 py-0.5 rounded-full text-xs font-semibold"
-                          style={{ background: "#4DC8F0", color: "#0A0A0F", fontSize: "11px" }}
-                        >
-                          {entry.badge}
-                        </span>
-                      )}
+                      <p className="mb-2 text-sm text-devin-teal font-medium">
+                        {entry.company}
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {entry.description}
+                      </p>
                     </div>
-                    <p className="mb-2 text-sm text-devin-teal font-medium">
-                      {entry.company}
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {entry.description}
-                    </p>
                   </div>
                 </div>
               ))}

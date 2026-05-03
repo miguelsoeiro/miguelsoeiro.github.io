@@ -444,7 +444,7 @@ const FundacaoPage = () => {
                   className="relative"
                 >
                   {/* Dot — outer ring + inner fill */}
-                  <div className="absolute -left-[25px] top-[18px]">
+                  <div className="absolute -left-[25px] top-1/2 -translate-y-1/2">
                     <div
                       className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                         i === 0

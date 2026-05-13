@@ -239,9 +239,9 @@ const FundacaoPage = () => {
         <div className="mb-16 grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
             { n: "22+", label: "Aplicações desenvolvidas" },
-            { n: "3",   label: "Empresas transformadas" },
+            { n: "15",  label: "Empresas transformadas" },
             { n: "9+",  label: "Anos de experiência" },
-            { n: "15",  label: "Pessoas lideradas" },
+            { n: "4",   label: "Sectores de actuação" },
           ].map(({ n, label }) => (
             <div key={label} className="rounded-2xl border border-devin-border bg-devin-surface/50 p-5 text-center">
               <p className="text-3xl font-bold text-devin-teal mb-1">{n}</p>

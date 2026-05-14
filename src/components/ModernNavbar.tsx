@@ -133,7 +133,7 @@ export const ModernNavbar = ({ className }: ModernNavbarProps) => {
           {logoElement}
         </a>
 
-        <nav className="hidden sm:flex items-center gap-6 whitespace-nowrap shrink-0">
+        <nav className="hidden sm:flex items-center gap-8 whitespace-nowrap shrink-0">
           {navLinksData.map((l) => (
             <AnimatedNavLink key={l.to ?? l.href} href={l.href} to={l.to} isActive={isHome && activeSection === l.label}>
               {l.label}

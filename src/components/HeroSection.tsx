@@ -155,7 +155,7 @@ const HeroSection = () => {
       />
 
       {/* ── Hero ── */}
-      <div className="container max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container max-w-7xl mx-auto px-6 pt-4 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left */}
         <div className="space-y-8">
           {/* Badge */}

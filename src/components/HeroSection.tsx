@@ -220,9 +220,7 @@ const HeroSection = () => {
               Ver Serviços
             </a>
           </div>
-          <p className="text-xs text-muted-foreground text-center sm:text-left">
-            Diagnóstico gratuito — disponibilidade limitada por mês.
-          </p>
+
         </div>
 
         {/* Right — Radial Orbital Timeline */}

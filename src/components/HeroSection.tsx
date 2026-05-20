@@ -165,18 +165,17 @@ const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl lg:text-5xl font-bold leading-tight tracking-tight">
-            <span className="text-teal">Consultoria</span>
-            <span className="text-foreground"> para PMEs</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+            <span className="text-foreground">A sua PME a</span>
             <br />
-            <span className="text-foreground">Portuguesas</span>
+            <span className="text-teal">trabalhar melhor.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Diagnosticamos, planeamos, implementamos e formamos
+            Consultoria, tecnologia e formação para PMEs portuguesas.
             <br className="hidden lg:block" />
-            — para que a sua empresa cresça sem fricção.
+            {" "}Diagnóstico gratuito, preço fixo e sem markup nas licenças.
           </p>
 
           {/* Steps */}
@@ -220,6 +219,21 @@ const HeroSection = () => {
               Ver Serviços
             </a>
           </div>
+
+          {/* Trust bar */}
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-2 text-xs text-muted-foreground">
+            {[
+              "9+ anos de experiência",
+              "22 aplicações em produção",
+              "Resposta < 24h úteis",
+              "Sem markup nas licenças",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-1.5">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
 
         </div>
 

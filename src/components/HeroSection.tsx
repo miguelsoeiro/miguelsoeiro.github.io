@@ -166,17 +166,14 @@ const HeroSection = () => {
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-            <span className="text-teal">Consultoria</span>
-            <span className="text-foreground"> para PMEs</span>
+            <span className="text-foreground">Menos tempo perdido.</span>
             <br />
-            <span className="text-foreground">Portuguesas</span>
+            <span className="text-teal">Mais negócio feito.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Diagnosticamos, planeamos, implementamos e formamos
-            <br className="hidden lg:block" />
-            — para que a sua empresa cresça sem fricção.
+            Processos claros. Tecnologia certa. Equipas preparadas.
           </p>
 
           {/* Steps */}

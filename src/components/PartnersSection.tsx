@@ -44,7 +44,7 @@ const PartnersSection = () => {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-devin-surface border border-devin-border text-sm mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-devin-teal animate-pulse" />
           <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
-            Ecossistema de Parceiros
+            Tecnologia que usamos
           </span>
         </div>
 

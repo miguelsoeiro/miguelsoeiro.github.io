@@ -165,7 +165,7 @@ const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl lg:text-5xl font-bold leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
             <span className="text-teal">Consultoria</span>
             <span className="text-foreground"> para PMEs</span>
             <br />

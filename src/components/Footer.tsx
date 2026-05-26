@@ -147,11 +147,16 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 my-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400 text-sm">
-            © {currentYear} <span className="text-devin-teal font-semibold">Transparent Reasons</span>. Todos os direitos reservados.
-          </p>
-          <p className="text-slate-500 text-xs mt-4 md:mt-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <p className="text-slate-400 text-sm">
+              © {currentYear} <span className="text-devin-teal font-semibold">Transparent Reasons</span>. Todos os direitos reservados.
+            </p>
+            <p className="text-slate-500 text-xs mt-1">
+              NIPC 516407325 · Vila Franca de Xira, Lisboa, Portugal
+            </p>
+          </div>
+          <p className="text-slate-500 text-xs">
             Consultoria · Inovação · Formação
           </p>
         </div>

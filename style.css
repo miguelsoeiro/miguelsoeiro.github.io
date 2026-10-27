@@ -101,6 +101,8 @@ h2 { font-family: "Fraunces", serif; font-size: 28px; margin: 0 0 28px; letter-s
   display: grid; grid-template-columns: 96px 1fr auto; gap: 16px; align-items: baseline;
   padding: 16px 4px; border-bottom: 1px solid var(--line);
 }
+.list li:last-child a { border-bottom: 0; }
+.list li a.sem-data { grid-template-columns: 1fr auto; }
 .list li a:hover .l-titulo { color: var(--accent); }
 .l-data { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
 .l-titulo { font-weight: 500; transition: color .15s; }

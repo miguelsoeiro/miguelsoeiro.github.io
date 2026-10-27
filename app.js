@@ -37,9 +37,10 @@
   timeline("tl-academico", window.ACADEMICO);
   timeline("tl-certificacoes", window.CERTIFICACOES);
 
+  const MESES = ["jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."];
   const fmt = (iso) => {
-    const d = new Date(iso);
-    return isNaN(d) ? "" : d.toLocaleDateString("pt-PT", { year: "numeric", month: "short" });
+    const m = /^(\d{4})-(\d{2})/.exec(iso || "");
+    return m ? `${MESES[+m[2] - 1]} ${m[1]}` : "";
   };
   const byDate = (a, b) => new Date(b.data) - new Date(a.data);
 

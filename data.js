@@ -10,7 +10,7 @@ window.SITE = {
   resumo:
     "Do desenvolvimento de software à arquitetura empresarial, com percurso na banca, seguros, retalho e saúde. Hoje desenho soluções de dados e IA no Santander Portugal e sirvo a comunidade de Vila Franca de Xira na Assembleia Municipal.",
   links: {
-    linkedin: "https://www.linkedin.com/in/miguelsoeiro", // confirma o endereço
+    linkedin: "https://www.linkedin.com/in/miguel-soeiro/",
     email: "mailto:ola@exemplo.pt", // substitui pelo teu e-mail
     empresa: "https://transparentreasons.com",
   },

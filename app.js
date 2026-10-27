@@ -7,6 +7,7 @@
   // Hero
   $("h-titulo").textContent = S.titulo;
   $("h-nome").textContent = S.nome;
+  $("h-area").textContent = S.area || "";
   $("h-resumo").textContent = S.resumo;
   $("h-ordem").textContent = S.ordem || "";
   $("h-links").innerHTML = [

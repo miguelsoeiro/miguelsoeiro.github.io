@@ -5,10 +5,11 @@
 
 window.SITE = {
   nome: "Miguel Pires Soeiro",
-  titulo: "Arquiteto de Soluções Empresariais · Dados & IA",
+  titulo: "Data & AI Strategy",
+  area: "Service Strategy, Santander Portugal",
   ordem: "Engenheiro inscrito na Ordem dos Engenheiros · Cédula n.º 105557",
   resumo:
-    "Do desenvolvimento de software à arquitetura empresarial, com percurso na banca, seguros, retalho e saúde. Hoje desenho soluções de dados e IA no Santander Portugal e sirvo a comunidade de Vila Franca de Xira na Assembleia Municipal.",
+    "Do desenvolvimento de software à estratégia de dados e IA, com percurso na banca, seguros, retalho e saúde. Hoje trabalho em Service Strategy no Santander Portugal e sirvo a comunidade de Vila Franca de Xira na Assembleia Municipal.",
   links: {
     linkedin: "https://www.linkedin.com/in/miguel-soeiro/",
     emailB64: "c29laXJvbWFzc0BnbWFpbC5jb20=", // e-mail codificado para evitar spam de robôs

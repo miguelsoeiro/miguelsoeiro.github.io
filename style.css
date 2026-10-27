@@ -56,6 +56,8 @@ main, footer { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 .hero { padding: 88px 0 56px; }
 .eyebrow { color: var(--accent); font-weight: 500; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; margin: 0 0 12px; }
 h1 { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(40px, 8vw, 68px); line-height: 1.05; margin: 0 0 20px; letter-spacing: -.02em; }
+.area { font-size: 20px; font-weight: 500; margin: -6px 0 18px; }
+.area:empty { display: none; }
 .lead { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
 .badge { display: inline-block; margin: 0 0 24px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 13px; color: var(--muted); }
 .badge:empty { display: none; }

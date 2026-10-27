@@ -22,44 +22,67 @@ window.CARREIRA = [
   {
     periodo: "Atual",
     titulo: "Founder · Transparent Reasons",
-    local: "Consultora B2B, Portugal",
+    local: "Portugal",
     texto: "Fundador. Mais de 9 anos de experiência em tecnologia e gestão de projetos.",
   },
   {
-    periodo: "A preencher",
+    periodo: "ago. 2025 – atualidade",
     titulo: "Data & AI Enterprise Solutions Architect",
-    local: "Santander Portugal · Service Strategy",
-    texto:
-      "Arquitetura de soluções de dados e IA (Azure Databricks, Cloudera, MongoDB, Confluent Kafka), reportando ao CTO.",
+    local: "Santander Portugal · Service Strategy · Lisboa (híbrido)",
+    texto: "No âmbito da área de Service Strategy, dados e IA (Azure Databricks, Cloudera, MongoDB, Confluent Kafka).",
   },
   {
-    periodo: "A preencher",
-    titulo: "Gestão de projetos e serviços · Líder da equipa de Data Lake",
-    local: "Banca e seguros",
-    texto: "Liderança de equipa e entrega de plataformas de dados.",
+    periodo: "out. 2020 – ago. 2025",
+    titulo: "Big Data Project Manager",
+    local: "Xpand IT · Lisboa",
+    texto: "Gestão de projetos de Big Data com metodologias Agile.",
   },
   {
-    periodo: "A preencher",
-    titulo: "Desenvolvimento de software",
-    local: "Banca, seguros, retalho e saúde",
-    texto: "Início de carreira em engenharia de software em vários setores.",
+    periodo: "out. 2018 – out. 2020",
+    titulo: "Project Manager",
+    local: "Nivelfarma · Lisboa",
+    texto: "Desenvolvimento de uma plataforma com 22 aplicações Web, Android e iOS, no setor da saúde.",
+  },
+  {
+    periodo: "nov. 2017 – out. 2018",
+    titulo: "Full Stack Developer",
+    local: "Nivelfarma · Lisboa",
+    texto: "Plataforma web para gestão terapêutica no setor farmacêutico e aplicação Android nativa.",
+  },
+  {
+    periodo: "jan. 2017 – nov. 2017",
+    titulo: "Developer",
+    local: "Immersive Lives · Lisboa",
+    texto: "Unity Developer (C#) e Backend Developer em aplicações de realidade virtual.",
+  },
+  {
+    periodo: "set. 2016 – jul. 2017",
+    titulo: "Team Leader",
+    local: "COPELABS · Lisboa",
+    texto: "Liderança de uma equipa de 8 developers, com foco em realidade virtual em Unity.",
+  },
+  {
+    periodo: "jan. 2016 – set. 2016",
+    titulo: "Unity Developer (estágio)",
+    local: "LabPsiCom · Lisboa",
+    texto: "Primeiro projeto de realidade virtual, em C# com Unity.",
   },
 ];
 
 // Linha temporal académica
 window.ACADEMICO = [
   {
-    periodo: "Em curso",
-    titulo: "Mestrado em Engenharia Informática e de Computadores · Instituto Superior Técnico",
-    local: "Lisboa",
+    periodo: "2017 – 2020 · tese em curso",
+    titulo: "Mestrado em Engenharia Informática e de Computadores",
+    local: "Instituto Superior Técnico · Lisboa",
     texto:
-      "Tese: “Patient-centered Healthcare Monitoring Cyber-Physical System for Risk Assessment”. Orientação: Prof. Miguel Pardal e Prof. Rui Santos Cruz.",
+      "Especialização em Gestão de Projeto e Sistemas Empresariais. Tese: “Patient-centered Healthcare Monitoring Cyber-Physical System for Risk Assessment”, com orientação de Prof. Miguel Pardal e Prof. Rui Santos Cruz.",
   },
   {
-    periodo: "A preencher",
-    titulo: "Licenciatura",
-    local: "A preencher",
-    texto: "Curso e instituição.",
+    periodo: "2014 – 2017",
+    titulo: "Licenciatura em Engenharia Informática",
+    local: "Universidade Lusófona · Centro Universitário de Lisboa",
+    texto: "",
   },
 ];
 
@@ -67,7 +90,7 @@ window.ACADEMICO = [
 window.CERTIFICACOES = [
   { periodo: "A preencher", titulo: "Google Project Management", local: "Google", texto: "" },
   { periodo: "A preencher", titulo: "Google Agile Project Management", local: "Google", texto: "" },
-  { periodo: "A preencher", titulo: "SI Architect", local: "MongoDB", texto: "" },
+  { periodo: "jun. 2024", titulo: "SI Architect", local: "MongoDB", texto: "" },
 ];
 
 // Artigos de opinião

@@ -94,5 +94,17 @@
     localStorage.setItem("tema", root.dataset.theme);
   });
 
+  // Destaca no menu a secção visível
+  const links = [...document.querySelectorAll(".nav nav a")];
+  const secoes = links.map((l) => document.querySelector(l.getAttribute("href"))).filter(Boolean);
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (e.isIntersecting) links.forEach((l) => l.classList.toggle("ativo", l.getAttribute("href") === "#" + e.target.id));
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    secoes.forEach((s) => obs.observe(s));
+  }
+
   $("ano").textContent = "© " + new Date().getFullYear();
 })();

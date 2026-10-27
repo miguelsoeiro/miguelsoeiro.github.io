@@ -12,8 +12,15 @@
   $("h-links").innerHTML = [
     S.links.linkedin && `<a class="btn primary" href="${esc(S.links.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
     S.links.empresa && `<a class="btn" href="${esc(S.links.empresa)}" target="_blank" rel="noopener">Transparent Reasons</a>`,
-    S.links.email && `<a class="btn" href="${esc(S.links.email)}">Contacto</a>`,
+    S.links.emailB64 && `<a class="btn" id="b-contacto" href="#contacto" rel="nofollow">Contacto</a>`,
   ].filter(Boolean).join("");
+
+  // Contacto: o endereço só é montado quando alguém interage com o botão
+  const contacto = $("b-contacto");
+  if (contacto) {
+    const montar = () => { contacto.href = "mailto:" + atob(S.links.emailB64); };
+    ["mouseenter", "focus", "touchstart", "click"].forEach((ev) => contacto.addEventListener(ev, montar, { once: false }));
+  }
 
   // Linhas temporais
   const timeline = (el, items) => {

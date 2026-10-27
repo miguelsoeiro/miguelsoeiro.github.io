@@ -55,7 +55,7 @@
       .map((o) => `
         <li><a href="${esc(o.url)}" target="_blank" rel="noopener"${fmt(o.data) ? "" : ' class="sem-data"'}>
           ${fmt(o.data) ? `<span class="l-data">${fmt(o.data)}</span>` : ""}
-          <span class="l-titulo">${esc(o.titulo)}<span class="l-meta">${esc(o.meio)}</span></span>
+          <span class="l-titulo">${esc(o.titulo)}<span class="l-meta">${esc(o.meio)}</span>${o.resumo ? `<span class="l-resumo">${esc(o.resumo)}</span>` : ""}</span>
           <span class="l-tag">${esc(o.tipo)}</span>
         </a></li>`).join("");
   };

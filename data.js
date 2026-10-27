@@ -112,10 +112,12 @@ window.CERTIFICACOES = [
 // tipo é livre (ex.: "Política local", "Tecnologia") e serve de filtro
 window.OPINIAO = [
   {
-    data: "", // preencher com AAAA-MM-DD
-    titulo: "Artigo de opinião · título a confirmar",
+    data: "2026-09-26",
+    titulo: "Vila Franca de Xira baixa o IRS… 0,25%. Sim, leu bem.",
     meio: "Nova Geração",
     tipo: "Política local",
+    resumo:
+      "O executivo do PS baixou a coleta de IRS em 5% face ao ano anterior. Parece muito? Na prática, significou um aumento do benefício municipal de apenas 0,25% para 2026.",
     url: "https://nova-geracao.com/noticias/0c5b264a-70fa-4298-80ab-feffde5a9664",
   },
 ];

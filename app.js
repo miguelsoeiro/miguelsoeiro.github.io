@@ -8,6 +8,7 @@
   $("h-titulo").textContent = S.titulo;
   $("h-nome").textContent = S.nome;
   $("h-resumo").textContent = S.resumo;
+  $("h-ordem").textContent = S.ordem || "";
   $("h-links").innerHTML = [
     S.links.linkedin && `<a class="btn primary" href="${esc(S.links.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
     S.links.empresa && `<a class="btn" href="${esc(S.links.empresa)}" target="_blank" rel="noopener">Transparent Reasons</a>`,

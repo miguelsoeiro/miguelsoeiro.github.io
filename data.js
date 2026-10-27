@@ -6,6 +6,7 @@
 window.SITE = {
   nome: "Miguel Pires Soeiro",
   titulo: "Arquiteto de Soluções Empresariais · Dados & IA",
+  ordem: "Engenheiro inscrito na Ordem dos Engenheiros · Cédula n.º 105557",
   resumo:
     "Do desenvolvimento de software à arquitetura empresarial, com percurso na banca, seguros, retalho e saúde. Hoje desenho soluções de dados e IA no Santander Portugal e sirvo a comunidade de Vila Franca de Xira na Assembleia Municipal.",
   links: {
@@ -55,20 +56,20 @@ window.ACADEMICO = [
   },
   {
     periodo: "A preencher",
-    titulo: "Agile Project Management",
-    local: "Certificação · Google",
+    titulo: "Google Agile Project Management",
+    local: "Certificação",
     texto: "",
   },
   {
     periodo: "A preencher",
-    titulo: "Project Management Professional",
-    local: "Certificação · Google",
+    titulo: "Google Project Management",
+    local: "Certificação",
     texto: "",
   },
   {
     periodo: "A preencher",
-    titulo: "SI Architect",
-    local: "Certificação · MongoDB",
+    titulo: "SI Architect · MongoDB",
+    local: "Certificação",
     texto: "",
   },
   {

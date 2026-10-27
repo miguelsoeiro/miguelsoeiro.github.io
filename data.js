@@ -112,18 +112,11 @@ window.CERTIFICACOES = [
 // tipo é livre (ex.: "Política local", "Tecnologia") e serve de filtro
 window.OPINIAO = [
   {
-    data: "2026-01-01",
-    titulo: "IRS Municipal: o que está em causa para as famílias",
-    meio: "A preencher (ex.: O Mirante, Valor Local)",
+    data: "", // preencher com AAAA-MM-DD
+    titulo: "Artigo de opinião · título a confirmar",
+    meio: "Nova Geração",
     tipo: "Política local",
-    url: "#",
-  },
-  {
-    data: "2026-01-01",
-    titulo: "Literacia financeira como prioridade municipal",
-    meio: "A preencher",
-    tipo: "Política local",
-    url: "#",
+    url: "https://nova-geracao.com/noticias/0c5b264a-70fa-4298-80ab-feffde5a9664",
   },
 ];
 

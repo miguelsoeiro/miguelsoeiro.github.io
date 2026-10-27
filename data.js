@@ -4,7 +4,7 @@
 // =====================================================================
 
 window.SITE = {
-  nome: "Miguel Soeiro",
+  nome: "Miguel Pires Soeiro",
   titulo: "Arquiteto de Soluções Empresariais · Dados & IA",
   resumo:
     "Do desenvolvimento de software à arquitetura empresarial, com percurso na banca, seguros, retalho e saúde. Hoje desenho soluções de dados e IA no Santander Portugal e sirvo a comunidade de Vila Franca de Xira na Assembleia Municipal.",

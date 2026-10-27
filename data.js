@@ -88,9 +88,24 @@ window.ACADEMICO = [
 
 // Certificações
 window.CERTIFICACOES = [
-  { periodo: "A preencher", titulo: "Google Project Management", local: "Google", texto: "" },
-  { periodo: "A preencher", titulo: "Google Agile Project Management", local: "Google", texto: "" },
-  { periodo: "jun. 2024", titulo: "SI Architect", local: "MongoDB", texto: "" },
+  {
+    periodo: "jun. 2024",
+    titulo: "SI Architect",
+    local: "MongoDB",
+    texto: "Programa de certificação concluído com a avaliação final, depois da certificação SI Associate (mai. 2024). Competências: MongoDB e MongoDB Architect.",
+  },
+  {
+    periodo: "abr. – mai. 2024",
+    titulo: "Google Project Management",
+    local: "Google · Especialização",
+    texto: "Seis cursos, de Foundations of Project Management ao Capstone, passando por iniciação, planeamento e execução de projetos. Competências: gestão de projetos e planeamento.",
+  },
+  {
+    periodo: "abr. 2024",
+    titulo: "Google Agile Project Management",
+    local: "Google",
+    texto: "Gestão ágil de projetos e Scrum Master.",
+  },
 ];
 
 // Artigos de opinião

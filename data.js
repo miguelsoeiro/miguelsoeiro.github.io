@@ -116,6 +116,7 @@ window.OPINIAO = [
     titulo: "Vila Franca de Xira baixa o IRS… 0,25%. Sim, leu bem.",
     meio: "Nova Geração",
     tipo: "Política local",
+    imagem: "img/irs-vfx.jpg",
     resumo:
       "O executivo do PS baixou a coleta de IRS em 5% face ao ano anterior. Parece muito? Na prática, significou um aumento do benefício municipal de apenas 0,25% para 2026.",
     url: "https://nova-geracao.com/noticias/0c5b264a-70fa-4298-80ab-feffde5a9664",

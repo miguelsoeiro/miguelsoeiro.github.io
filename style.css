@@ -116,6 +116,9 @@ h2 { font-family: "Fraunces", serif; font-size: 28px; margin: 0 0 28px; letter-s
 .l-data { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
 .l-titulo { font-weight: 500; transition: color .15s; }
 .l-meta { display: block; color: var(--muted); font-size: 13px; font-weight: 400; margin-top: 2px; }
+.list li a.com-imagem { grid-template-columns: 96px 200px 1fr auto; align-items: start; }
+.list li a.com-imagem.sem-data { grid-template-columns: 200px 1fr auto; }
+.l-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); display: block; }
 .l-resumo { display: block; margin-top: 8px; color: var(--muted); font-size: 14.5px; font-weight: 400; line-height: 1.55; max-width: 62ch; }
 .l-tag { font-size: 12px; color: var(--muted); border: 1px solid var(--line); padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
 
@@ -138,4 +141,6 @@ footer { padding: 36px 20px 60px; color: var(--muted); font-size: 13px; border-t
 @media (max-width: 620px) {
   .list li a { grid-template-columns: 1fr; gap: 4px; }
   .l-tag { justify-self: start; }
+  .list li a.com-imagem, .list li a.com-imagem.sem-data { grid-template-columns: 1fr; }
+  .l-img { max-width: 360px; }
 }

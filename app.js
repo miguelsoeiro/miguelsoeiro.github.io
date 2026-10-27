@@ -53,8 +53,9 @@
     $("l-opiniao").innerHTML = opiniao
       .filter((o) => filtro === "Todos" || o.tipo === filtro)
       .map((o) => `
-        <li><a href="${esc(o.url)}" target="_blank" rel="noopener"${fmt(o.data) ? "" : ' class="sem-data"'}>
+        <li><a href="${esc(o.url)}" target="_blank" rel="noopener" class="${[fmt(o.data) ? "" : "sem-data", o.imagem ? "com-imagem" : ""].join(" ").trim()}">
           ${fmt(o.data) ? `<span class="l-data">${fmt(o.data)}</span>` : ""}
+          ${o.imagem ? `<img class="l-img" loading="lazy" alt="" src="${esc(o.imagem)}">` : ""}
           <span class="l-titulo">${esc(o.titulo)}<span class="l-meta">${esc(o.meio)}</span>${o.resumo ? `<span class="l-resumo">${esc(o.resumo)}</span>` : ""}</span>
           <span class="l-tag">${esc(o.tipo)}</span>
         </a></li>`).join("");

@@ -73,7 +73,7 @@
       <div class="thumb">${v.youtube
         ? `<img loading="lazy" alt="" src="https://i.ytimg.com/vi/${esc(v.youtube)}/hqdefault.jpg">`
         : "▶"}</div>
-      <div class="card-body"><strong>${esc(v.titulo)}</strong><span>${fmt(v.data)} · ${esc(v.contexto)}</span></div>
+      <div class="card-body"><strong>${esc(v.titulo)}</strong><span>${[fmt(v.data), esc(v.contexto)].filter(Boolean).join(" · ")}</span></div>
     </a>`).join("");
 
   // Publicações académicas

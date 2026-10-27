@@ -127,11 +127,18 @@ window.OPINIAO = [
 // youtube: só o ID do vídeo (a parte depois de v=). Deixa "" para não mostrar miniatura.
 window.VIDEOS = [
   {
-    data: "2026-01-01",
-    titulo: "Intervenção na Assembleia Municipal — título a preencher",
-    contexto: "Assembleia Municipal de Vila Franca de Xira",
+    data: "", // preencher com AAAA-MM-DD
+    titulo: "Voto de pesar e homenagem",
+    contexto: "Assembleia Municipal",
     youtube: "",
-    url: "#",
+    url: "https://www.instagram.com/p/De2fXZwIB_M/",
+  },
+  {
+    data: "", // preencher com AAAA-MM-DD
+    titulo: "Intervenção na Assembleia Municipal · título a confirmar",
+    contexto: "Assembleia Municipal",
+    youtube: "",
+    url: "https://www.instagram.com/p/DZSJVZMNKLZ/",
   },
 ];
 

@@ -127,16 +127,20 @@ window.OPINIAO = [
 // youtube: só o ID do vídeo (a parte depois de v=). Deixa "" para não mostrar miniatura.
 window.VIDEOS = [
   {
-    data: "", // preencher com AAAA-MM-DD
-    titulo: "Voto de pesar e homenagem",
-    contexto: "Assembleia Municipal",
+    data: "2026-10", // mês da publicação; ajustar para a data da sessão (AAAA-MM-DD)
+    titulo: "Voto de pesar e homenagem a Ricardo Afeiteira Marques",
+    contexto: "Assembleia Municipal de Vila Franca de Xira",
+    resumo:
+      "O seu contributo foi determinante para o projeto de lei que reconhece os guias de atletas com deficiência como agentes desportivos, aprovado na generalidade a 16 de outubro de 2026.",
     youtube: "",
     url: "https://www.instagram.com/p/De2fXZwIB_M/",
   },
   {
     data: "", // preencher com AAAA-MM-DD
-    titulo: "Intervenção na Assembleia Municipal · título a confirmar",
-    contexto: "Assembleia Municipal",
+    titulo: "IRS Municipal: 6,50 € por ano para quem ganha 1.615 €",
+    contexto: "Assembleia Municipal de Vila Franca de Xira",
+    resumo:
+      "A proposta repete a do ano anterior, com a participação variável no IRS a descer de 4,75% para 4,50%. Para um salário bruto de 1.615 € mensais, são 6,50 € devolvidos por ano; o município fica com 117,81 €.",
     youtube: "",
     url: "https://www.instagram.com/p/DZSJVZMNKLZ/",
   },

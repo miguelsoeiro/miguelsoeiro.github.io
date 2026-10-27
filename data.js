@@ -21,7 +21,7 @@ window.CARREIRA = [
     periodo: "Atual",
     titulo: "Founder · Transparent Reasons",
     local: "Consultora B2B, Portugal",
-    texto: "Consultoria tecnológica e de dados para PME portuguesas.",
+    texto: "Fundador. Mais de 9 anos de experiência em tecnologia e gestão de projetos.",
   },
   {
     periodo: "A preencher",
@@ -48,10 +48,28 @@ window.CARREIRA = [
 window.ACADEMICO = [
   {
     periodo: "Em curso",
-    titulo: "Mestrado · Instituto Superior Técnico",
+    titulo: "Mestrado em Engenharia Informática e de Computadores · Instituto Superior Técnico",
     local: "Lisboa",
     texto:
       "Tese: “Patient-centered Healthcare Monitoring Cyber-Physical System for Risk Assessment”. Orientação: Prof. Miguel Pardal e Prof. Rui Santos Cruz.",
+  },
+  {
+    periodo: "A preencher",
+    titulo: "Agile Project Management",
+    local: "Certificação · Google",
+    texto: "",
+  },
+  {
+    periodo: "A preencher",
+    titulo: "Project Management Professional",
+    local: "Certificação · Google",
+    texto: "",
+  },
+  {
+    periodo: "A preencher",
+    titulo: "SI Architect",
+    local: "Certificação · MongoDB",
+    texto: "",
   },
   {
     periodo: "A preencher",
@@ -97,7 +115,7 @@ window.ACADEMICOS = [
   {
     ano: 2026,
     titulo: "Patient-centered Healthcare Monitoring Cyber-Physical System for Risk Assessment",
-    autores: "Miguel Soeiro",
+    autores: "Miguel Pires Soeiro",
     local: "Tese de Mestrado, Instituto Superior Técnico (em curso)",
     url: "#",
   },

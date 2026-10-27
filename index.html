@@ -1,42 +1,71 @@
 <!doctype html>
 <html lang="pt-PT">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <title>Transparent Reasons — Consultoria para PMEs Portuguesas</title>
-    <meta name="description" content="Consultoria estratégica para PMEs portuguesas: optimização de processos, implementação de Microsoft 365, Atlassian e IA, e formação de equipas. Diagnóstico gratuito." />
-    <meta name="author" content="Transparent Reasons" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miguel Soeiro · Dados, IA e Arquitetura Empresarial</title>
+  <meta name="description" content="Miguel Soeiro — Arquiteto de Soluções Empresariais (Dados & IA). Percurso profissional e académico, artigos de opinião, intervenções políticas e publicações." />
+  <meta property="og:title" content="Miguel Soeiro" />
+  <meta property="og:description" content="Dados, IA e arquitetura empresarial. Intervenção cívica em Vila Franca de Xira." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#topo">MS</a>
+    <nav>
+      <a href="#carreira">Carreira</a>
+      <a href="#academico">Académico</a>
+      <a href="#opiniao">Opinião</a>
+      <a href="#videos">Vídeos</a>
+      <a href="#publicacoes">Publicações</a>
+    </nav>
+    <button id="tema" aria-label="Alternar tema claro/escuro">◐</button>
+  </header>
 
-    <meta property="og:title" content="Transparent Reasons — Consultoria para PMEs Portuguesas" />
-    <meta property="og:description" content="Consultoria estratégica para PMEs portuguesas: optimização de processos, implementação de Microsoft 365, Atlassian e IA, e formação de equipas. Diagnóstico gratuito." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.transparentreasons.com" />
-    <meta property="og:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
-    <meta property="og:locale" content="pt_PT" />
+  <main id="topo">
+    <section class="hero">
+      <p class="eyebrow" id="h-titulo"></p>
+      <h1 id="h-nome"></h1>
+      <p class="lead" id="h-resumo"></p>
+      <div class="cta" id="h-links"></div>
+    </section>
 
-    <link rel="canonical" href="https://www.transparentreasons.com" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Transparent Reasons — Consultoria para PMEs Portuguesas" />
-    <meta name="twitter:description" content="Consultoria estratégica para PMEs portuguesas: processos, tecnologia e formação. Diagnóstico gratuito." />
-    <meta name="twitter:image" content="https://www.transparentreasons.com/apple-touch-icon.png" />
+    <section id="carreira">
+      <h2>Percurso profissional</h2>
+      <ol class="timeline" id="tl-carreira"></ol>
+    </section>
 
-    <!-- GitHub Pages SPA redirect -->
-    <script>
-      (function(){
-        var r = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (r && r !== location.href) history.replaceState(null, null, r);
-      })();
-    </script>
-    <script type="module" src="/src/main.tsx"></script>
-  </head>
+    <section id="academico">
+      <h2>Percurso académico</h2>
+      <ol class="timeline" id="tl-academico"></ol>
+    </section>
 
-  <body>
-    <div id="root"></div>
-  </body>
+    <section id="opiniao">
+      <h2>Artigos de opinião</h2>
+      <div class="filters" id="f-opiniao"></div>
+      <ul class="list" id="l-opiniao"></ul>
+    </section>
+
+    <section id="videos">
+      <h2>Intervenções políticas</h2>
+      <div class="cards" id="l-videos"></div>
+    </section>
+
+    <section id="publicacoes">
+      <h2>Artigos académicos</h2>
+      <ul class="list" id="l-academicos"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <span id="ano"></span> Miguel Soeiro
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>

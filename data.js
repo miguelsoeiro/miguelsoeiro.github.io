@@ -56,28 +56,17 @@ window.ACADEMICO = [
   },
   {
     periodo: "A preencher",
-    titulo: "Google Agile Project Management",
-    local: "Certificação",
-    texto: "",
-  },
-  {
-    periodo: "A preencher",
-    titulo: "Google Project Management",
-    local: "Certificação",
-    texto: "",
-  },
-  {
-    periodo: "A preencher",
-    titulo: "SI Architect · MongoDB",
-    local: "Certificação",
-    texto: "",
-  },
-  {
-    periodo: "A preencher",
     titulo: "Licenciatura",
     local: "A preencher",
     texto: "Curso e instituição.",
   },
+];
+
+// Certificações
+window.CERTIFICACOES = [
+  { periodo: "A preencher", titulo: "Google Project Management", local: "Google", texto: "" },
+  { periodo: "A preencher", titulo: "Google Agile Project Management", local: "Google", texto: "" },
+  { periodo: "A preencher", titulo: "SI Architect", local: "MongoDB", texto: "" },
 ];
 
 // Artigos de opinião

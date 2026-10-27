@@ -34,6 +34,7 @@
   };
   timeline("tl-carreira", window.CARREIRA);
   timeline("tl-academico", window.ACADEMICO);
+  timeline("tl-certificacoes", window.CERTIFICACOES);
 
   const fmt = (iso) => {
     const d = new Date(iso);
